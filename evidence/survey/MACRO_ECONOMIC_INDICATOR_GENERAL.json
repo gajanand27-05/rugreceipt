@@ -1,0 +1,24 @@
+{
+  "intent": "MACRO_ECONOMIC_INDICATOR_GENERAL",
+  "query": "What is the latest US CPI year-over-year inflation rate?",
+  "status": 200,
+  "answer": {
+    "miner_id": "20260828",
+    "miner_name": "PREFLIGHT Infrastructure Signals",
+    "endpoint": "/macro",
+    "result": {
+      "rate_pct": 2.949525
+    },
+    "result_shape": "intent",
+    "format_version": 1,
+    "field_status": {
+      "rate_pct": "ok"
+    },
+    "cost_usd": 0.01,
+    "duration_ms": 350,
+    "timestamp": "2026-11-13T12:42:28.219112988Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: The user is asking for a macroeconomic indicator (inflation rate) for a specific country (US). The '/macro' endpoint is designed to provide World Bank development indicators, including inflation, for a given country and year, and it explicitly lists 'MACRO_ECONOMIC_INDICATOR_GENERAL' as one of its supported intents. The 'query' parameter is set to the verbatim question, and 'indicator' and 'country' are extracted to further refine the query as per the endpoint's optional parameters.",
+    "intent": "MACRO_ECONOMIC_INDICATOR_GENERAL",
+    "signal_hash": "0x9caeea76f8cbf9ebf42805078f04697d51345c7135c8a505223f5840ea5e60b1"
+  }
+}

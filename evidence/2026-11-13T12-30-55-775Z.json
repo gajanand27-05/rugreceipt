@@ -1,0 +1,47 @@
+{
+  "request": {
+    "intent": "TRAVEL_DISRUPTION_GENERAL",
+    "query": "Is there any flight disruption at JFK airport right now?"
+  },
+  "status": 200,
+  "answer": {
+    "miner_id": "710639",
+    "miner_name": "FAA Travel Status with Typed Mapping",
+    "endpoint": "/travel-disruption",
+    "result": {
+      "route_or_flight": "JFK",
+      "disrupted": false,
+      "status": "No FAA disruption reported",
+      "delay_minutes": null,
+      "reason": "No active FAA ground stop, ground delay program, arrival/departure delay or applicable closure listed for the checked airports."
+    },
+    "result_shape": "intent",
+    "format_version": 1,
+    "field_status": {
+      "route_or_flight": "ok",
+      "disrupted": "ok",
+      "status": "ok",
+      "delay_minutes": "missing",
+      "reason": "ok"
+    },
+    "cost_usd": 0.01,
+    "duration_ms": 337,
+    "timestamp": "2026-11-13T12:30:52.978139925Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: request built from the miner's intent_mapping",
+    "intent": "TRAVEL_DISRUPTION_GENERAL",
+    "signal_hash": "0xfbb3db51867e7baaf002af4fd72a9b738e862da76de118930da375ec7ca3e4db"
+  },
+  "receipt": {
+    "receipt_hash": "0x5aac4b1998c545c41493995b068f44b8535796624c5e21234034984755b4fe7a",
+    "rail": "x402",
+    "payer": "0x7D4388962ED6bb057DCB975d8aAf1e3746a2Afe7",
+    "miner": "5044",
+    "intent": "TRAVEL_DISRUPTION_GENERAL",
+    "amount_uusdc": "10000",
+    "epoch_id": 2081,
+    "settlement": "onchain",
+    "chain": "eip155:11155111",
+    "tx_hash": "0x64d114b8798d154be5d190492974430c29138567726e6c6a0054e381b42ba471",
+    "timestamp": 1794573055
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "request": {
+    "intent": "CRYPTO_PRICE_USD",
+    "params": {
+      "symbol": "BTC"
+    }
+  },
+  "status": 200,
+  "answer": {
+    "miner_id": "190069",
+    "miner_name": "Cp Coinbase",
+    "endpoint": "/query",
+    "result": {
+      "price_usd": 69394.645
+    },
+    "result_shape": "intent",
+    "format_version": 1,
+    "field_status": {
+      "price_usd": "ok"
+    },
+    "input": {
+      "symbol": "BTC"
+    },
+    "input_schema_version": 3,
+    "cost_usd": 0.01,
+    "duration_ms": 1698,
+    "timestamp": "2026-11-13T12:09:18.615032329Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: The user is asking for a cryptocurrency price, and the intent has been classified as CRYPTO_PRICE_USD. The Cp Coinbase miner has an endpoint '/query' that serves the CRYPTO_PRICE intent. The question is directly asking to construct a request with specific parameters, which can be passed as the 'query' parameter to this endpoint.",
+    "intent": "CRYPTO_PRICE_USD",
+    "signal_hash": "0x7b13ccd36651753c1e6e0a9e8ddbbcfac68c81f7d7bca0a1748811b08f3f4c8d"
+  },
+  "receipt": {
+    "receipt_hash": "0xd9f53c95ee0779da8c46f05ad1cdaacd0e719f2fc31916a15889b6180f6111b8",
+    "rail": "x402",
+    "payer": "0x7D4388962ED6bb057DCB975d8aAf1e3746a2Afe7",
+    "miner": "4664",
+    "intent": "CRYPTO_PRICE_USD",
+    "amount_uusdc": "10000",
+    "epoch_id": 2081,
+    "settlement": "onchain",
+    "chain": "eip155:11155111",
+    "tx_hash": "0x671d811524aff5093a6ba279bc2e51b30257940c2cae805bf42ffcf23023b4f7",
+    "timestamp": 1794571759
+  }
+}

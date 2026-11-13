@@ -1,0 +1,36 @@
+{
+  "intent": "REGULATORY_FILING_MONITOR_GENERAL",
+  "query": "What are the latest SEC filings by Tesla Inc (CIK 0001318605)?",
+  "status": 200,
+  "answer": {
+    "miner_id": "20260828",
+    "miner_name": "PREFLIGHT Infrastructure Signals",
+    "endpoint": "/filings",
+    "result": {
+      "entity": "Tesla, Inc. (CIK 1318605)",
+      "filing_count": 56,
+      "filings": [
+        "Tesla, Inc. DEFA14A",
+        "Tesla, Inc. DEFA14A",
+        "Tesla, Inc. DEFA14A",
+        "Tesla, Inc. DEFA14A",
+        "Tesla, Inc. SCHEDULE 13G/A"
+      ],
+      "urls": null
+    },
+    "result_shape": "intent",
+    "format_version": 1,
+    "field_status": {
+      "entity": "ok",
+      "filing_count": "ok",
+      "filings": "ok",
+      "urls": "unavailable"
+    },
+    "cost_usd": 0.01,
+    "duration_ms": 325,
+    "timestamp": "2026-11-13T12:43:39.489851766Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: The user is asking about SEC filings for a specific entity. The PREFLIGHT Infrastructure Signals miner has an endpoint '/filings' that is designed for the REGULATORY_FILING_MONITOR_GENERAL intent and accepts an 'entity' and 'query' parameter, which directly map to the user's request.",
+    "intent": "REGULATORY_FILING_MONITOR_GENERAL",
+    "signal_hash": "0xfe5b33dc52ce1bbe9e81c18db7bccb960ab21398f25cfa763298bbda4318dd18"
+  }
+}

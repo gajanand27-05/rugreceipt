@@ -1,0 +1,92 @@
+{
+  "intent": "WEB_SEARCH_GENERAL",
+  "query": "Telegraph Protocol hackathon season 2",
+  "status": 200,
+  "answer": {
+    "miner_id": "501",
+    "miner_name": "Telegraph Sentinel Risk Intelligence",
+    "endpoint": "/api/v1/miner/web-search",
+    "result": {
+      "answer": "Hey Everyone! Avi and I (in the current YC S25 Batch) noticed how fragmented crypto compliance is with rules changing constantly, vary by region, and force developers and legal teams into a scramble.<p>So we hacked together a prototype framework that generates a “guardrail” smart contract which:<p>- Hooks into your KYC provider\n- Enforces rules defined a simple compliance.yaml file\n- Automatically blocks users you can&#x27;t legally serve<p>When regulations shift (new blocked country, updated KYC threshold, etc.), just update your YAML and redeploy with no smart contract rewrites. Audit prep also becomes a breeze. Our goal is to make staying compliant as easy as possible<p>How it works:<p>1. Declare once in compliance.yaml\nmodules: token_sale:<p>start_date: &quot;2025-02-01&quot;\nend_date:",
+      "as_of": "2026-11-13T12:45:58.295Z",
+      "brief": "Hey Everyone!",
+      "confidence": 0.98,
+      "confidence_score": 0.98,
+      "hits": [
+        {
+          "content": "Hey Everyone! Avi and I (in the current YC S25 Batch) noticed how fragmented crypto compliance is with rules changing constantly, vary by region, and force developers and legal teams into a scramble.<p>So we hacked together a prototype framework that generates a “guardrail” smart contract which:<p>- Hooks into your KYC provider\n- Enforces rules defined a simple compliance.yaml file\n- Automatically blocks users you can&#x27;t legally serve<p>When regulations shift (new blocked country, updated KYC threshold, etc.), just update your YAML and redeploy with no smart contract rewrites. Audit prep also becomes a breeze. Our goal is to make staying compliant as easy as possible<p>How it works:<p>1. Declare once in compliance.yaml\nmodules: token_sale:<p>start_date: &quot;2025-02-01&quot;\nend_date:",
+          "score": 0.92,
+          "title": "Show HN: Open-source compliance-as-code for crypto projects",
+          "url": "https://github.com/ShorPay/shor-compliance"
+        },
+        {
+          "content": "Hello from Ukraine,<p>This is Animation CPU development team and we have been building smartest the world&#x27;s smartest live coding programming platform for mobile since 2012<p>Animation CPU made from the scratch.<p>Here is demo of IDE and HN API demo https:&#x2F;&#x2F;vimeo.com&#x2F;manage&#x2F;videos&#x2F;732098541 and here is creative work https:&#x2F;&#x2F;vimeo.com&#x2F;manage&#x2F;videos&#x2F;732128866<p>Screenshot: https:&#x2F;&#x2F;twitter.com&#x2F;AcpuStudio&#x2F;status&#x2F;1550132877752279043&#x2F;photo&#x2F;1 and video https:&#x2F;&#x2F;twitter.com&#x2F;ClubAvatarapp1&#x2F;status&#x2F;1550150060863901698<p>Build<p>- Metaverses<p>- Games<p>- Creative works &amp; Clips<p>- Apps<p>- Presentations<p>- Sites<p>Language &amp; environment features:<p>- realtime profiling<p>- realtim",
+          "score": 0.92,
+          "title": "Show HN: Animation CPU programming platform for Apple",
+          "url": "https://news.ycombinator.com/item?id=32181251"
+        },
+        {
+          "content": "The Cardano community has approved a $71 million (96 million ADA) treasury proposal from Input Output Global (IOG) to support a year-long development initiative. This plan focuses on enhancing scalability, interoperability, and the overall developer experience. Despite raising concerns about transparency, cost, and accountability, the proposal received 74% approval. Funding will be milestone-based, with oversight from Intersect, smart contracts, and a dedicated committee. Major upgrades include Hydra for faster transactions, Project Acropolis for flexible node architecture, and system optimizations to lower RAM usage and reduce costs. IOG must also provide monthly progress updates and financial reports. A competing bid from Cardano’s Technical Steering Committee was not selected. This deci",
+          "score": 0.92,
+          "title": "Cardano Community Approves $71M Treasury Plan to Boost Network Upgrades",
+          "url": "https://news.ycombinator.com/item?id=44783894"
+        },
+        {
+          "content": "GetBlock.io is a service that provides a fast and easy connection to a continuously growing list of over 30 cryptocurrencies’ nodes, including Bitcoin (BTC), Ethereum (ETH), Litecoin (LTC), among others.<p>Today, on October 5, 2020, the updated version of the website of GetBlock has been launched. The service’s webpage has a new simple interface and intuitive design, which guarantees optimal performance and reduction of searching time for each user. There have been added some new sections such as “Trusted by our Partners”, which represents their partnership relations with some of the industry-leading blockchain companies including Dash, Ethereum Classic, Dune Network and etc.<p>The GetBlock team has decided to upgrade the site so that it would be accessible and user friendly as possible fo",
+          "score": 0.92,
+          "title": "GetBlock Nodes Provider Launches the Updated Version of the Website",
+          "url": "https://news.ycombinator.com/item?id=24695521"
+        }
+      ],
+      "intent": "WEB_SEARCH_GENERAL",
+      "miner_id": 501,
+      "query": "Ethereum blockchain updates",
+      "results": [
+        {
+          "content": "Hey Everyone! Avi and I (in the current YC S25 Batch) noticed how fragmented crypto compliance is with rules changing constantly, vary by region, and force developers and legal teams into a scramble.<p>So we hacked together a prototype framework that generates a “guardrail” smart contract which:<p>- Hooks into your KYC provider\n- Enforces rules defined a simple compliance.yaml file\n- Automatically blocks users you can&#x27;t legally serve<p>When regulations shift (new blocked country, updated KYC threshold, etc.), just update your YAML and redeploy with no smart contract rewrites. Audit prep also becomes a breeze. Our goal is to make staying compliant as easy as possible<p>How it works:<p>1. Declare once in compliance.yaml\nmodules: token_sale:<p>start_date: &quot;2025-02-01&quot;\nend_date:",
+          "score": 0.92,
+          "title": "Show HN: Open-source compliance-as-code for crypto projects",
+          "url": "https://github.com/ShorPay/shor-compliance"
+        },
+        {
+          "content": "Hello from Ukraine,<p>This is Animation CPU development team and we have been building smartest the world&#x27;s smartest live coding programming platform for mobile since 2012<p>Animation CPU made from the scratch.<p>Here is demo of IDE and HN API demo https:&#x2F;&#x2F;vimeo.com&#x2F;manage&#x2F;videos&#x2F;732098541 and here is creative work https:&#x2F;&#x2F;vimeo.com&#x2F;manage&#x2F;videos&#x2F;732128866<p>Screenshot: https:&#x2F;&#x2F;twitter.com&#x2F;AcpuStudio&#x2F;status&#x2F;1550132877752279043&#x2F;photo&#x2F;1 and video https:&#x2F;&#x2F;twitter.com&#x2F;ClubAvatarapp1&#x2F;status&#x2F;1550150060863901698<p>Build<p>- Metaverses<p>- Games<p>- Creative works &amp; Clips<p>- Apps<p>- Presentations<p>- Sites<p>Language &amp; environment features:<p>- realtime profiling<p>- realtim",
+          "score": 0.92,
+          "title": "Show HN: Animation CPU programming platform for Apple",
+          "url": "https://news.ycombinator.com/item?id=32181251"
+        },
+        {
+          "content": "The Cardano community has approved a $71 million (96 million ADA) treasury proposal from Input Output Global (IOG) to support a year-long development initiative. This plan focuses on enhancing scalability, interoperability, and the overall developer experience. Despite raising concerns about transparency, cost, and accountability, the proposal received 74% approval. Funding will be milestone-based, with oversight from Intersect, smart contracts, and a dedicated committee. Major upgrades include Hydra for faster transactions, Project Acropolis for flexible node architecture, and system optimizations to lower RAM usage and reduce costs. IOG must also provide monthly progress updates and financial reports. A competing bid from Cardano’s Technical Steering Committee was not selected. This deci",
+          "score": 0.92,
+          "title": "Cardano Community Approves $71M Treasury Plan to Boost Network Upgrades",
+          "url": "https://news.ycombinator.com/item?id=44783894"
+        },
+        {
+          "content": "GetBlock.io is a service that provides a fast and easy connection to a continuously growing list of over 30 cryptocurrencies’ nodes, including Bitcoin (BTC), Ethereum (ETH), Litecoin (LTC), among others.<p>Today, on October 5, 2020, the updated version of the website of GetBlock has been launched. The service’s webpage has a new simple interface and intuitive design, which guarantees optimal performance and reduction of searching time for each user. There have been added some new sections such as “Trusted by our Partners”, which represents their partnership relations with some of the industry-leading blockchain companies including Dash, Ethereum Classic, Dune Network and etc.<p>The GetBlock team has decided to upgrade the site so that it would be accessible and user friendly as possible fo",
+          "score": 0.92,
+          "title": "GetBlock Nodes Provider Launches the Updated Version of the Website",
+          "url": "https://news.ycombinator.com/item?id=24695521"
+        }
+      ],
+      "risk_signal": 60,
+      "source": "gemini",
+      "sources": [
+        "https://github.com/ShorPay/shor-compliance",
+        "https://news.ycombinator.com/item?id=32181251",
+        "https://news.ycombinator.com/item?id=44783894",
+        "https://news.ycombinator.com/item?id=24695521"
+      ],
+      "status": "success",
+      "summary": "Hey Everyone! Avi and I (in the current YC S25 Batch) noticed how fragmented crypto compliance is with rules changing constantly, vary by region, and force developers and legal teams into a scramble.<p>So we hacked together a prototype framework that generates a “guardrail” smart contract which:<p>- Hooks into your KYC provider\n- Enforces rules defined a simple compliance.yaml file\n- Automatically blocks users you can&#x27;t legally serve<p>When regulations shift (new blocked country, updated KYC threshold, etc.), just update your YAML and redeploy with no smart contract rewrites. Audit prep also becomes a breeze. Our goal is to make staying compliant as easy as possible<p>How it works:<p>1. Declare once in compliance.yaml\nmodules: token_sale:<p>start_date: &quot;2025-02-01&quot;\nend_date:",
+      "timestamp": "2026-11-13T12:45:58.295Z"
+    },
+    "result_shape": "raw",
+    "shape_error": "no_fields_found",
+    "format_version": 3,
+    "cost_usd": 0.01,
+    "duration_ms": 1395,
+    "timestamp": "2026-11-13T12:45:58.373180104Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: request built from the miner's intent_mapping",
+    "intent": "WEB_SEARCH_GENERAL",
+    "signal_hash": "0xe0de2a4ebef4464ed99b54724b9ecb65f4378f6b153d8c71737682fa8c16ea31"
+  }
+}

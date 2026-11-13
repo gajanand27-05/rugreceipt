@@ -1,0 +1,30 @@
+{
+  "intent": "MINING_HASHPRICE_VERIFY_GENERAL",
+  "query": "What is the current Bitcoin hashprice in USD per PH/s per day?",
+  "status": 200,
+  "answer": {
+    "miner_id": "67010",
+    "miner_name": "Mempool Pools 1m",
+    "endpoint": "/query",
+    "result": {
+      "hashprice_sats_per_ph_day": null,
+      "block_height": 975672,
+      "hashrate_eh_s": null,
+      "hashprice_usd_per_ph_day": null
+    },
+    "result_shape": "intent",
+    "format_version": 1,
+    "field_status": {
+      "hashprice_sats_per_ph_day": "missing",
+      "block_height": "ok",
+      "hashrate_eh_s": "missing",
+      "hashprice_usd_per_ph_day": "missing"
+    },
+    "cost_usd": 0.01,
+    "duration_ms": 1748,
+    "timestamp": "2026-11-13T12:42:56.82014394Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: The user is asking for the current Bitcoin hashprice, which falls under the MINING_HASHPRICE_VERIFY intent. The Mempool Pools 1m miner has an endpoint specifically for this intent. The question asks for the price per day, so '1d' is used for the timePeriod parameter.",
+    "intent": "MINING_HASHPRICE_VERIFY_GENERAL",
+    "signal_hash": "0x79a23e7b18604c4dd54aeb01e27ee90c8cb4d0bbbbcb2471213c1546023986fc"
+  }
+}

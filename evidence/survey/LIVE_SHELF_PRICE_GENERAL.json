@@ -1,0 +1,37 @@
+{
+  "intent": "LIVE_SHELF_PRICE_GENERAL",
+  "query": "Current price of Apple AirPods Pro 2 on Amazon US",
+  "status": 200,
+  "answer": {
+    "miner_id": "1900999010",
+    "miner_name": "MetricWire Live Shelf Price",
+    "endpoint": "/shelf",
+    "result": {
+      "price": null,
+      "currency": null,
+      "product": "Current price of Apple AirPods Pro 2 on Amazon US",
+      "store": null,
+      "date": null
+    },
+    "result_shape": "intent",
+    "format_version": 1,
+    "field_status": {
+      "price": "missing",
+      "currency": "missing",
+      "product": "ok",
+      "store": "missing",
+      "date": "missing"
+    },
+    "input": {
+      "product": "Apple AirPods Pro 2",
+      "store": "Amazon US"
+    },
+    "input_schema_version": 1,
+    "cost_usd": 0.01,
+    "duration_ms": 6438,
+    "timestamp": "2026-11-13T12:43:56.333713036Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: The user is asking for the current price of a product, which falls under the LIVE_SHELF_PRICE_GENERAL intent. The /shelf endpoint is described as providing the most recent shelf price for a product by name, making it the appropriate choice. The question is directly passed as the 'question' parameter.",
+    "intent": "LIVE_SHELF_PRICE_GENERAL",
+    "signal_hash": "0xcba1cd43595fe5ba915808b2cacdb9dd764ccc97cd971c38e4c02fb44e15136b"
+  }
+}

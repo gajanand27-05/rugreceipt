@@ -1,0 +1,35 @@
+{
+  "intent": "TOKEN_HOLDER_COUNT_GENERAL",
+  "query": "How many holders does the PEPE token 0x6982508145454Ce325dDbE47a25d4ec3d2311933 on Ethereum have?",
+  "status": 200,
+  "answer": {
+    "miner_id": "73606",
+    "miner_name": "ChainWire Dated Holder Observations",
+    "endpoint": "/holders",
+    "result": {
+      "token": "0x6982508145454ce325ddbe47a25d4ec3d2311933",
+      "chain": "ethereum",
+      "holders_count": 601904,
+      "token_symbol": "PEPE"
+    },
+    "result_shape": "intent",
+    "format_version": 1,
+    "field_status": {
+      "token": "ok",
+      "chain": "ok",
+      "holders_count": "ok",
+      "token_symbol": "ok"
+    },
+    "input": {
+      "token": "0x6982508145454Ce325dDbE47a25d4ec3d2311933",
+      "chain": "Ethereum"
+    },
+    "input_schema_version": 1,
+    "cost_usd": 0.01,
+    "duration_ms": 396,
+    "timestamp": "2026-11-13T12:45:27.521095306Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: request built from the miner's intent_mapping",
+    "intent": "TOKEN_HOLDER_COUNT_GENERAL",
+    "signal_hash": "0x33af8c86397a16cfbb9e699f063a07830f33262332d5069205ca27e09e913c68"
+  }
+}

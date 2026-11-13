@@ -1,0 +1,38 @@
+{
+  "intent": "LLM_OUTPUT_EVALUATION_GENERAL",
+  "query": "Evaluate this answer. Question: What is 17*23? Answer: 391.",
+  "status": 200,
+  "answer": {
+    "miner_id": "20260828",
+    "miner_name": "PREFLIGHT Infrastructure Signals",
+    "endpoint": "/llm-evaluation",
+    "result": {
+      "rating": "Excellent",
+      "score": 10,
+      "strengths": [
+        "Accurately computes the multiplication of 17 and 23 as 391.",
+        "Follows the instruction to generate a valid, parseable JSON."
+      ],
+      "errors": null
+    },
+    "result_shape": "intent",
+    "format_version": 3,
+    "field_status": {
+      "rating": "ok",
+      "score": "ok",
+      "strengths": "ok",
+      "errors": "missing"
+    },
+    "input": {
+      "task": "What is 17*23?",
+      "output": "391"
+    },
+    "input_schema_version": 3,
+    "cost_usd": 0.01,
+    "duration_ms": 8827,
+    "timestamp": "2026-11-13T12:44:32.698076661Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: The intent is LLM_OUTPUT_EVALUATION_GENERAL, and the miner's /llm-evaluation endpoint serves this intent. The query parameter is required and should contain the full request verbatim, including the task and the output to be evaluated. The optional task and output parameters are also populated for clarity and to potentially aid the model in its evaluation.",
+    "intent": "LLM_OUTPUT_EVALUATION_GENERAL",
+    "signal_hash": "0x985b979626372416dbc44c141310a79b54cefe9ff27bb5c461cf9c07ed31840d"
+  }
+}

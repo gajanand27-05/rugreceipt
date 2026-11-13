@@ -1,0 +1,30 @@
+{
+  "intent": "ASSET_RESERVE_ATTESTATION_GENERAL",
+  "query": "What are the latest reserves backing USDT (Tether)?",
+  "status": 200,
+  "answer": {
+    "miner_id": "302",
+    "miner_name": "ChainSight — Universal Intelligence & Data Oracle",
+    "endpoint": "/assetreserve",
+    "result": {
+      "attested_reserve": 175308860109195330,
+      "asset": "USDT",
+      "block": "175308860109195328",
+      "source": "defillama-stablecoins"
+    },
+    "result_shape": "intent",
+    "format_version": 1,
+    "field_status": {
+      "attested_reserve": "ok",
+      "asset": "ok",
+      "block": "ok",
+      "source": "ok"
+    },
+    "cost_usd": 0.01,
+    "duration_ms": 2253,
+    "timestamp": "2026-11-13T12:44:10.438767304Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: The user is asking about the reserves backing a specific asset (USDT). The ChainSight miner's '/assetreserve' endpoint is described as serving the 'ASSET_RESERVE_ATTESTATION_GENERAL' intent and is suitable for queries about reserves attestation and collateralization. The 'query' parameter is used to pass the user's question directly to the miner.",
+    "intent": "ASSET_RESERVE_ATTESTATION_GENERAL",
+    "signal_hash": "0xf7d1f5e7589f7784025aa192162627483a9e5aeddc6c037c2c0b3f332085280f"
+  }
+}

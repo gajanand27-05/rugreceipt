@@ -1,0 +1,35 @@
+{
+  "intent": "TOKEN_HOLDER_COUNT_GENERAL",
+  "query": "How many holders does token 0x0A675e411F95db85Fa23e2bCfAb65ecA91a6aD9a on Ethereum have?",
+  "status": 200,
+  "answer": {
+    "miner_id": "73102",
+    "miner_name": "ChainWire Sourced Token Holders",
+    "endpoint": "/holders",
+    "result": {
+      "token": "0x0a675e411f95db85fa23e2bcfab65eca91a6ad9a",
+      "chain": "ethereum",
+      "holders_count": 101,
+      "token_symbol": "Macca"
+    },
+    "result_shape": "intent",
+    "format_version": 1,
+    "field_status": {
+      "token": "ok",
+      "chain": "ok",
+      "holders_count": "ok",
+      "token_symbol": "ok"
+    },
+    "input": {
+      "token": "0x0A675e411F95db85Fa23e2bCfAb65ecA91a6aD9a",
+      "chain": "Ethereum"
+    },
+    "input_schema_version": 1,
+    "cost_usd": 0.01,
+    "duration_ms": 390,
+    "timestamp": "2026-11-13T17:35:15.102626144Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: request built from the miner's intent_mapping",
+    "intent": "TOKEN_HOLDER_COUNT_GENERAL",
+    "signal_hash": "0x5947e660ad5fb3a0c167b3b860e7b8e956600a0ae25ab44e6c47c2e7bb87117a"
+  }
+}

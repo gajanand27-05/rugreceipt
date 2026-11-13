@@ -1,0 +1,35 @@
+{
+  "intent": "FLIGHT_AVAILABILITY_GENERAL",
+  "query": "Flights from Mumbai BOM to Dubai DXB on 2026-12-05",
+  "status": 200,
+  "answer": {
+    "miner_id": "7614",
+    "miner_name": "FlightWire Flight Availability",
+    "endpoint": "/flight-availability",
+    "result": {
+      "flight": null,
+      "date": "2026-12-05",
+      "available": null,
+      "price": null,
+      "currency": null
+    },
+    "result_shape": "intent",
+    "format_version": 4,
+    "field_status": {
+      "flight": "missing",
+      "date": "ok",
+      "available": "missing",
+      "price": "missing",
+      "currency": "missing"
+    },
+    "cost_usd": 0.01,
+    "duration_ms": 1404,
+    "timestamp": "2026-11-13T12:44:29.00440067Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: The user is asking for flight availability information. The FlightWire Flight Availability miner has an endpoint at /flight-availability that accepts a 'question' parameter, which is suitable for this intent. The question is directly passed as the value for the 'question' parameter.",
+    "intent": "FLIGHT_AVAILABILITY_GENERAL",
+    "signal_hash": "0xecd8d341bebfa0907a8de36f904fd28024650665c7989ba957ab201d56761a54",
+    "warnings": [
+      "parameter \"question\" length 0 violates the miner's declared limit (lte 300): name a flight number such as UAL1, a registration or an airport such as JFK. A whole question is accepted too."
+    ]
+  }
+}

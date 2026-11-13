@@ -1,0 +1,29 @@
+{
+  "intent": "LIQUIDITY_DEPTH_VERIFY_GENERAL",
+  "query": "Liquidity depth of the USDC/WETH Uniswap v3 0.05% pool on Ethereum",
+  "status": 200,
+  "answer": {
+    "miner_id": "20260828",
+    "miner_name": "PREFLIGHT Infrastructure Signals",
+    "endpoint": "/liquidity",
+    "result": {
+      "liquidity_usd": 79245095.49
+    },
+    "result_shape": "intent",
+    "format_version": 1,
+    "field_status": {
+      "liquidity_usd": "ok"
+    },
+    "input": {
+      "pool": "USDC/WETH Uniswap v3 0.05% pool",
+      "chain": "Ethereum"
+    },
+    "input_schema_version": 1,
+    "cost_usd": 0.01,
+    "duration_ms": 4876,
+    "timestamp": "2026-11-13T12:44:10.605101181Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: The intent LIQUIDITY_DEPTH_VERIFY_GENERAL is served by the /liquidity endpoint. The question asks for liquidity depth, which this endpoint provides. The 'query' parameter is set to the verbatim question. The 'pool' and 'chain' parameters are extracted from the question to specify the liquidity pool.",
+    "intent": "LIQUIDITY_DEPTH_VERIFY_GENERAL",
+    "signal_hash": "0x4722cd53c73a485db3ee2a1a502f2aad2d5b94802c0fbceac22319354f122df1"
+  }
+}

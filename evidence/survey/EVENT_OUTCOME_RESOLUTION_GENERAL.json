@@ -1,0 +1,40 @@
+{
+  "intent": "EVENT_OUTCOME_RESOLUTION_GENERAL",
+  "query": "Who won the 2024 US presidential election?",
+  "status": 200,
+  "answer": {
+    "miner_id": "302",
+    "miner_name": "ChainSight — Universal Intelligence & Data Oracle",
+    "endpoint": "/event",
+    "result": {
+      "event": "Which “swing states” will be won by a Democratic candidate in 2024 US presidential election?",
+      "outcome": "unresolved",
+      "resolved_yes": null,
+      "winner": null,
+      "resolved_at": null,
+      "sources": [
+        "manifold"
+      ]
+    },
+    "result_shape": "intent",
+    "format_version": 4,
+    "field_status": {
+      "event": "ok",
+      "outcome": "ok",
+      "resolved_yes": "missing",
+      "winner": "missing",
+      "resolved_at": "missing",
+      "sources": "ok"
+    },
+    "input": {
+      "event": "Who won the 2024 US presidential election?"
+    },
+    "input_schema_version": 4,
+    "cost_usd": 0.01,
+    "duration_ms": 726,
+    "timestamp": "2026-11-13T12:43:26.213054753Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: The user is asking about the outcome of a specific event (the 2024 US presidential election). The '/event' endpoint is designed to resolve the outcome of yes/no event or prediction questions using prediction-market data, which aligns with the intent EVENT_OUTCOME_RESOLUTION_GENERAL and the nature of the question.",
+    "intent": "EVENT_OUTCOME_RESOLUTION_GENERAL",
+    "signal_hash": "0xc3f56c1b090412f9479a10fecec6eb334f661f232c2280bf3774d05615588e54"
+  }
+}

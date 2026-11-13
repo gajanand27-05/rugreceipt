@@ -1,0 +1,36 @@
+{
+  "intent": "FINANCIAL_DATA_GENERAL",
+  "query": "What are Apple Inc's latest quarterly revenue and net income?",
+  "status": 200,
+  "answer": {
+    "miner_id": "501",
+    "miner_name": "Telegraph Sentinel Risk Intelligence",
+    "endpoint": "/api/v1/miner/financial-data",
+    "result": {
+      "asset": null,
+      "market_cap_usd": 15000000000,
+      "volume_24h_usd": 850000000,
+      "metrics": null,
+      "as_of": null
+    },
+    "result_shape": "intent",
+    "format_version": 1,
+    "field_status": {
+      "asset": "missing",
+      "market_cap_usd": "ok",
+      "volume_24h_usd": "ok",
+      "metrics": "missing",
+      "as_of": "missing"
+    },
+    "input": {
+      "asset": "Apple Inc"
+    },
+    "input_schema_version": 1,
+    "cost_usd": 0.01,
+    "duration_ms": 1475,
+    "timestamp": "2026-11-13T12:42:41.663473564Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: request built from the miner's intent_mapping",
+    "intent": "FINANCIAL_DATA_GENERAL",
+    "signal_hash": "0xd291909db9b32bb4b80afa69dc82c56915fa62a525e63797e6e1ac86aecc3ae5"
+  }
+}

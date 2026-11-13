@@ -1,0 +1,54 @@
+{
+  "request": {
+    "intent": "CORPORATE_REGISTRY_LOOKUP_GENERAL",
+    "query": "Look up the UK Companies House registry record for company number 00445790 (Tesco PLC)."
+  },
+  "status": 200,
+  "answer": {
+    "miner_id": "20260828",
+    "miner_name": "PREFLIGHT Infrastructure Signals",
+    "endpoint": "/company",
+    "result": {
+      "legal_name": "TESCO PLC",
+      "registration_id": "2138002P5RNKC5W2JZ46",
+      "active": true,
+      "jurisdiction": "GB",
+      "registered_address": "TESCO HOUSE, SHIRE PARK, KESTREL WAY, WELWYN GARDEN CITY, GB-HRT, AL7 1GA, GB",
+      "incorporated": "1947-11-27"
+    },
+    "result_shape": "intent",
+    "format_version": 1,
+    "field_status": {
+      "legal_name": "ok",
+      "registration_id": "ok",
+      "active": "ok",
+      "jurisdiction": "ok",
+      "registered_address": "ok",
+      "incorporated": "ok"
+    },
+    "input": {
+      "company": "Tesco PLC",
+      "jurisdiction": "UK"
+    },
+    "input_schema_version": 1,
+    "cost_usd": 0.01,
+    "duration_ms": 809,
+    "timestamp": "2026-11-13T12:31:54.833573742Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: The user is asking to look up a company's registry record, which directly matches the CORPORATE_REGISTRY_LOOKUP_GENERAL intent. The PREFLIGHT Infrastructure Signals miner has an endpoint '/company' that explicitly states it is for 'Legal-entity registration from GLEIF's global LEI index' and serves the CORPORATE_REGISTRY_LOOKUP_GENERAL intent. The 'query' parameter is required and should contain the verbatim question. The 'company' parameter is optional but relevant here as the company number is provided in the question.",
+    "intent": "CORPORATE_REGISTRY_LOOKUP_GENERAL",
+    "signal_hash": "0x18fc89d5704420d14af58f913c2ca00f3375b1a14e1f3fec1d820012095d5c22"
+  },
+  "receipt": {
+    "receipt_hash": "0xa9df43cc3ffae94b506e0af96a5c1ef6f3052d15b77651f5f627c42a3abcec23",
+    "rail": "x402",
+    "payer": "0x7D4388962ED6bb057DCB975d8aAf1e3746a2Afe7",
+    "miner": "5218",
+    "intent": "CORPORATE_REGISTRY_LOOKUP_GENERAL",
+    "amount_uusdc": "10000",
+    "epoch_id": 2081,
+    "settlement": "onchain",
+    "chain": "eip155:11155111",
+    "tx_hash": "0xea2578bc248c555bfdbd568dc1caa76d5044d654dcff0c38fef3fc32f5f0d2f8",
+    "timestamp": 1794573117
+  }
+}

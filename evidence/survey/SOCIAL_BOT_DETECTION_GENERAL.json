@@ -1,0 +1,34 @@
+{
+  "intent": "SOCIAL_BOT_DETECTION_GENERAL",
+  "query": "Is the X/Twitter account @elonmusk a bot?",
+  "status": 200,
+  "answer": {
+    "miner_id": "20260828",
+    "miner_name": "PREFLIGHT Infrastructure Signals",
+    "endpoint": "/social-bot",
+    "result": {
+      "account": "@elonmusk",
+      "verdict": "inconclusive",
+      "bot_score": null,
+      "signals": null
+    },
+    "result_shape": "intent",
+    "format_version": 3,
+    "field_status": {
+      "account": "ok",
+      "verdict": "ok",
+      "bot_score": "missing",
+      "signals": "missing"
+    },
+    "input": {
+      "account": "@elonmusk"
+    },
+    "input_schema_version": 3,
+    "cost_usd": 0.01,
+    "duration_ms": 238,
+    "timestamp": "2026-11-13T12:44:17.964072492Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: The user is asking to determine if a social media account is a bot, which directly matches the SOCIAL_BOT_DETECTION_GENERAL intent. The PREFLIGHT Infrastructure Signals miner has an endpoint `/social-bot` that explicitly serves this intent and accepts the account handle and the query as parameters.",
+    "intent": "SOCIAL_BOT_DETECTION_GENERAL",
+    "signal_hash": "0x55b1f59a20bab11b204ec880b725f055978260d8832a65d17334c90745d60155"
+  }
+}

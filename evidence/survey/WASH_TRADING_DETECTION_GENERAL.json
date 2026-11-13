@@ -1,0 +1,39 @@
+{
+  "intent": "WASH_TRADING_DETECTION_GENERAL",
+  "query": "Is there wash trading on the PEPE/WETH Uniswap v2 pool 0xA43fe16908251ee70EF74718545e4FE6C5cCEc9f?",
+  "status": 200,
+  "answer": {
+    "miner_id": "20260828",
+    "miner_name": "PREFLIGHT Infrastructure Signals",
+    "endpoint": "/wash-trading",
+    "result": {
+      "subject": "0xA43fe16908251ee70EF74718545e4FE6C5cCEc9f",
+      "verdict": "organic",
+      "wash_volume_pct": 0,
+      "signals": [
+        "24h volume $3.66M is 0.1x the pool's $28.30M liquidity",
+        "596 buys and 857 sells in 24h"
+      ],
+      "summary": "The PEPE/WETH on uniswap (ethereum) pool looks organic."
+    },
+    "result_shape": "intent",
+    "format_version": 3,
+    "field_status": {
+      "subject": "ok",
+      "verdict": "ok",
+      "wash_volume_pct": "ok",
+      "signals": "ok",
+      "summary": "ok"
+    },
+    "input": {
+      "subject": "PEPE/WETH Uniswap v2 pool 0xA43fe16908251ee70EF74718545e4FE6C5cCEc9f"
+    },
+    "input_schema_version": 3,
+    "cost_usd": 0.01,
+    "duration_ms": 312,
+    "timestamp": "2026-11-13T12:43:25.789138553Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: The user is asking about wash trading on a specific Uniswap v2 pool. The PREFLIGHT Infrastructure Signals miner has an endpoint at /wash-trading that is described as a 'wash-trading screen for a token or pair from DEX Screener live data on its busiest pool'. This endpoint explicitly lists WASH_TRADING_DETECTION_GENERAL as one of its intents. The 'query' parameter is used to pass the verbatim question, and the 'subject' parameter is used to specify the token symbol, pair, or pool address, which in this case is the provided pool address.",
+    "intent": "WASH_TRADING_DETECTION_GENERAL",
+    "signal_hash": "0x893189fa3ee3862dc09eb5ab8da8234bd86c1edaf4f037c6fd18fb8b92be6f08"
+  }
+}

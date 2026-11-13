@@ -1,0 +1,36 @@
+{
+  "intent": "LIVE_PORT_CONGESTION_GENERAL",
+  "query": "Current vessel queue and waiting time at the Port of Los Angeles",
+  "status": 200,
+  "answer": {
+    "miner_id": "9002",
+    "miner_name": "TxLens",
+    "endpoint": "/port-congestion",
+    "result": {
+      "port": "Los Angeles",
+      "vessels_waiting": null,
+      "wait_hours": null,
+      "congestion_level": null,
+      "as_of": "2026-11-13T12:43:15.262Z"
+    },
+    "result_shape": "intent",
+    "format_version": 3,
+    "field_status": {
+      "port": "ok",
+      "vessels_waiting": "missing",
+      "wait_hours": "missing",
+      "congestion_level": "missing",
+      "as_of": "ok"
+    },
+    "input": {
+      "port": "Port of Los Angeles"
+    },
+    "input_schema_version": 3,
+    "cost_usd": 0.01,
+    "duration_ms": 167,
+    "timestamp": "2026-11-13T12:43:15.341247781Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: The user is asking about the current vessel queue and waiting time at a specific port, which falls under the LIVE_PORT_CONGESTION_GENERAL intent. The TxLens miner's /port-congestion endpoint is designed to answer such queries, accepting the full question as the 'query' parameter.",
+    "intent": "LIVE_PORT_CONGESTION_GENERAL",
+    "signal_hash": "0x0e133bcb2c3b85bb769e29d304fb0df2ae6acf797691e0b5922866340e6149b9"
+  }
+}

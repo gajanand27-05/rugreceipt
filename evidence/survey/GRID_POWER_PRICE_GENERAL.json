@@ -1,0 +1,32 @@
+{
+  "intent": "GRID_POWER_PRICE_GENERAL",
+  "query": "What is the current real-time electricity price in ERCOT Houston hub?",
+  "status": 200,
+  "answer": {
+    "miner_id": "302",
+    "miner_name": "ChainSight — Universal Intelligence & Data Oracle",
+    "endpoint": "/gridprice",
+    "result": {
+      "lmp_usd_per_mwh": 42.7,
+      "node_or_zone": "ERCOT Houston hub",
+      "market": null,
+      "interval_start": null,
+      "currency": null
+    },
+    "result_shape": "intent",
+    "format_version": 1,
+    "field_status": {
+      "lmp_usd_per_mwh": "ok",
+      "node_or_zone": "ok",
+      "market": "rejected",
+      "interval_start": "missing",
+      "currency": "missing"
+    },
+    "cost_usd": 0.01,
+    "duration_ms": 1189,
+    "timestamp": "2026-11-13T12:43:04.881860556Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: The user is asking for the current electricity price, which directly maps to the GRID_POWER_PRICE_GENERAL intent. The /gridprice endpoint is described as serving this intent and is suitable for retrieving wholesale ISO/RTO electricity prices. The 'query' parameter is used to pass the user's specific question to the miner.",
+    "intent": "GRID_POWER_PRICE_GENERAL",
+    "signal_hash": "0x1234ae2fb4a45b3265ee5228b938e38c0c762a9da4a4f1ba2ff53bd48234b68a"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "intent": "CORPORATE_REGISTRY_LOOKUP_GENERAL",
+  "query": "Infosys Limited, India",
+  "status": 200,
+  "answer": {
+    "miner_id": "20260828",
+    "miner_name": "PREFLIGHT Infrastructure Signals",
+    "endpoint": "/company",
+    "result": {
+      "legal_name": "INFOSYS LIMITED",
+      "registration_id": "335800TYLGG93MM7PR89",
+      "active": true,
+      "jurisdiction": "IN",
+      "registered_address": "ELECTRONICS CITY, HOSUR ROAD,, BANGALORE, IN-KA, 560100, IN",
+      "incorporated": "1981-07-01"
+    },
+    "result_shape": "intent",
+    "format_version": 1,
+    "field_status": {
+      "legal_name": "ok",
+      "registration_id": "ok",
+      "active": "ok",
+      "jurisdiction": "ok",
+      "registered_address": "ok",
+      "incorporated": "ok"
+    },
+    "input": {
+      "company": "Infosys Limited",
+      "jurisdiction": "India"
+    },
+    "input_schema_version": 1,
+    "cost_usd": 0.01,
+    "duration_ms": 952,
+    "timestamp": "2026-11-13T12:46:17.202095311Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: The user is asking for information about a company's registration, which falls under the CORPORATE_REGISTRY_LOOKUP_GENERAL intent. The '/company' endpoint in the PREFLIGHT Infrastructure Signals miner is explicitly designed for this intent and can accept a company name and jurisdiction as parameters. The 'query' parameter is set to the verbatim question, and 'company' and 'jurisdiction' are extracted from the question to refine the search.",
+    "intent": "CORPORATE_REGISTRY_LOOKUP_GENERAL",
+    "signal_hash": "0xbeff180526010d0d66943bf85a3edd65ca6ec5ca99cfc71bc5a761c4f5891b31"
+  }
+}

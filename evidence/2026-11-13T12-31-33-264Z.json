@@ -1,0 +1,53 @@
+{
+  "request": {
+    "intent": "SANCTIONS_SCREENING_MATCH_GENERAL",
+    "query": "Screen the entity 'Rosneft' against OFAC, EU and UN sanctions lists."
+  },
+  "status": 200,
+  "answer": {
+    "miner_id": "302",
+    "miner_name": "ChainSight — Universal Intelligence & Data Oracle",
+    "endpoint": "/sanctions",
+    "result": {
+      "name": "Screen",
+      "matched": true,
+      "matches": null,
+      "lists": [
+        "ofac-sdn"
+      ],
+      "match_score": null
+    },
+    "result_shape": "intent",
+    "format_version": 3,
+    "field_status": {
+      "name": "ok",
+      "matched": "ok",
+      "matches": "missing",
+      "lists": "ok",
+      "match_score": "missing"
+    },
+    "input": {
+      "name": "Rosneft"
+    },
+    "input_schema_version": 3,
+    "cost_usd": 0.01,
+    "duration_ms": 2691,
+    "timestamp": "2026-11-13T12:31:31.731880974Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: The user is asking to screen an entity against sanctions lists, which directly matches the description of the /sanctions endpoint. The intent SANCTIONS_SCREENING_MATCH_GENERAL is also explicitly listed for this endpoint. The 'query' parameter is used to pass the user's screening request.",
+    "intent": "SANCTIONS_SCREENING_MATCH_GENERAL",
+    "signal_hash": "0x172a830639bd3753e7c9a01f9535f4f8c4a36a93234cea585e1fb2efb2741071"
+  },
+  "receipt": {
+    "receipt_hash": "0x097f52d438c2eec8ebb9545bfdb6dc4c64b50be71ee9659cbfd730f8cf599c77",
+    "rail": "x402",
+    "payer": "0x7D4388962ED6bb057DCB975d8aAf1e3746a2Afe7",
+    "miner": "4893",
+    "intent": "SANCTIONS_SCREENING_MATCH_GENERAL",
+    "amount_uusdc": "10000",
+    "epoch_id": 2081,
+    "settlement": "onchain",
+    "chain": "eip155:11155111",
+    "tx_hash": "0xee2e868ab1fa32b425cc0b8c0869ef261acafa9153fe80735fa8b026e385ba3b",
+    "timestamp": 1794573093
+  }
+}

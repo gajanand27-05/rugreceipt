@@ -1,0 +1,40 @@
+{
+  "intent": "FACT_CHECK_GENERAL",
+  "query": "The Eiffel Tower is in Paris.",
+  "status": 200,
+  "answer": {
+    "miner_id": "7420",
+    "miner_name": "FactWire Fact Check",
+    "endpoint": "/fact-check",
+    "result": {
+      "claim": "The Eiffel Tower is in Paris.",
+      "verdict": "Unverified",
+      "reasoning": "The cited sources provide context, but this source reader did not settle the entire claim. Similar wording is not verification.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Eiffel_Tower",
+        "https://en.wikipedia.org/wiki/Eiffel_Tower_replicas_and_derivatives"
+      ]
+    },
+    "result_shape": "intent",
+    "format_version": 3,
+    "field_status": {
+      "claim": "ok",
+      "verdict": "ok",
+      "reasoning": "ok",
+      "sources": "ok"
+    },
+    "input": {
+      "claim": "The Eiffel Tower is in Paris."
+    },
+    "input_schema_version": 3,
+    "cost_usd": 0.01,
+    "duration_ms": 1502,
+    "timestamp": "2026-11-13T12:46:18.057298608Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: The user is asking to fact-check a statement. The FactWire Fact Check miner has a /fact-check endpoint that accepts a 'claim' parameter for fact-checking, which aligns with the FACT_CHECK_GENERAL intent.",
+    "intent": "FACT_CHECK_GENERAL",
+    "signal_hash": "0x8e430637ae9480ded561ca92a28c3cc1bf140980db05f4de5808752949ceabe9",
+    "warnings": [
+      "parameter \"claim\" length 0 violates the miner's declared limit (lte 8000): claim is the statement to check or the whole question. A single claim, not a batch."
+    ]
+  }
+}

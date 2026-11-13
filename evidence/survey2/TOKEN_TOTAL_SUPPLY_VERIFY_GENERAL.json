@@ -1,0 +1,28 @@
+{
+  "intent": "TOKEN_TOTAL_SUPPLY_VERIFY_GENERAL",
+  "query": "Total supply of token 0x6982508145454Ce325dDbE47a25d4ec3d2311933 on Ethereum",
+  "status": 200,
+  "answer": {
+    "miner_id": "20260828",
+    "miner_name": "PREFLIGHT Infrastructure Signals",
+    "endpoint": "/token-supply",
+    "result": {
+      "total_supply": 420689899644011.4
+    },
+    "result_shape": "intent",
+    "format_version": 1,
+    "field_status": {
+      "total_supply": "ok"
+    },
+    "input": {
+      "token": "0x6982508145454Ce325dDbE47a25d4ec3d2311933"
+    },
+    "input_schema_version": 1,
+    "cost_usd": 0.01,
+    "duration_ms": 339,
+    "timestamp": "2026-11-13T12:45:14.074101325Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: The user is asking for the total supply of a specific token on the Ethereum chain. The `/token-supply` endpoint is designed to provide ERC-20 total supply information and explicitly lists `TOKEN_TOTAL_SUPPLY_VERIFY_GENERAL` as one of its supported intents. The `query` parameter is set to the verbatim question, and the `token` and `chain` parameters are extracted from the question to specify the token address and network.",
+    "intent": "TOKEN_TOTAL_SUPPLY_VERIFY_GENERAL",
+    "signal_hash": "0x0497770171ba01c8e6fd25fe642088dd5a4348d1d4e548a44105b532014df59c"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "intent": "ONCHAIN_TX_LOOKUP_GENERAL",
+  "query": "Look up Sepolia transaction 0x671d811524aff5093a6ba279bc2e51b30257940c2cae805bf42ffcf23023b4f7",
+  "status": 200,
+  "answer": {
+    "miner_id": "501",
+    "miner_name": "Telegraph Sentinel Risk Intelligence",
+    "endpoint": "/api/v1/miner/tx-lookup",
+    "result": {
+      "tx_hash": null,
+      "status": null,
+      "from": null,
+      "to": null,
+      "block_number": 15537394,
+      "value_eth": null
+    },
+    "result_shape": "intent",
+    "format_version": 1,
+    "field_status": {
+      "tx_hash": "missing",
+      "status": "unavailable",
+      "from": "missing",
+      "to": "missing",
+      "block_number": "ok",
+      "value_eth": "missing"
+    },
+    "input": {
+      "tx_hash": "0x671d811524aff5093a6ba279bc2e51b30257940c2cae805bf42ffcf23023b4f7",
+      "chain": "Sepolia"
+    },
+    "input_schema_version": 1,
+    "cost_usd": 0.01,
+    "duration_ms": 272,
+    "timestamp": "2026-11-13T12:45:39.682754557Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: request built from the miner's intent_mapping",
+    "intent": "ONCHAIN_TX_LOOKUP_GENERAL",
+    "signal_hash": "0x2bbe9e9e26f322c385d7b63f611356c834cd4763fe073b1509a2783a1b2134cd"
+  }
+}

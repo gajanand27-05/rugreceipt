@@ -1,0 +1,28 @@
+{
+  "intent": "QUESTION_ANSWERING_GENERAL",
+  "query": "What is the capital of Australia and when did it become the capital?",
+  "status": 200,
+  "answer": {
+    "miner_id": "9002",
+    "miner_name": "TxLens",
+    "endpoint": "/chat-complete",
+    "result": {
+      "reply": null,
+      "verdict": null,
+      "brief": "Canberra"
+    },
+    "result_shape": "intent",
+    "format_version": 3,
+    "field_status": {
+      "reply": "rejected",
+      "verdict": "missing",
+      "brief": "ok"
+    },
+    "cost_usd": 0.01,
+    "duration_ms": 775,
+    "timestamp": "2026-11-13T12:42:28.610826617Z",
+    "reasoning": "Intent: The query asks for factual information (capital of Australia and the date it became the capital) that can be answered directly from general knowledge or a quick web search. It does not require specialized tooling or live data beyond general knowledge retrieval.\nMiner: The intent CHAT_COMPLETION_GENERAL is served by the /chat-complete endpoint. The question is a general knowledge question that can be answered conversationally, fitting the description of the CHAT_COMPLETION_GENERAL intent. The 'query' parameter is used to pass the user's question verbatim to the miner.",
+    "intent": "CHAT_COMPLETION_GENERAL",
+    "signal_hash": "0x631a802b7fe19a4e4a31907b179e5e4ad317c21ac81c7529568f389100a11753"
+  }
+}

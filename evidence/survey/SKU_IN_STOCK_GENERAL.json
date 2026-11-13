@@ -1,0 +1,28 @@
+{
+  "intent": "SKU_IN_STOCK_GENERAL",
+  "query": "Is the NVIDIA GeForce RTX 5090 Founders Edition in stock at Best Buy?",
+  "status": 200,
+  "answer": {
+    "miner_id": "9002",
+    "miner_name": "TxLens",
+    "endpoint": "/sku-in-stock",
+    "result": {
+      "answer": "Cannot confirm. No live stock data, SKU, or retailer page text was supplied in the prompt to verify the current availability of the NVIDIA GeForce RTX 5090 Founders Edition at Best Buy. You should check the specific product page on the Best Buy website or contact their customer support for real-time inventory status.",
+      "canonical": "sku-in-stock:query: Is the NVIDIA GeForce RTX 5090 Founders Edition in stock at Best Buy?",
+      "checked_at": "2026-11-13T12:43:39.960Z",
+      "confidence": 0.8,
+      "cost_usd": 0,
+      "status": "ok",
+      "summary": "Cannot confirm. No live stock data, SKU, or retailer page text was supplied in the prompt to verify the current availability of the NVIDIA GeForce RTX 5090 Founders Edition at Best Buy. You should check the specific product page on the Best Buy website or contact their customer support for real-time inventory status.",
+      "verdict": "Cannot confirm"
+    },
+    "result_shape": "raw",
+    "shape_error": "no_format",
+    "cost_usd": 0.01,
+    "duration_ms": 374,
+    "timestamp": "2026-11-13T12:43:40.038721767Z",
+    "reasoning": "Intent: The user is asking about the availability of a specific product (NVIDIA GeForce RTX 5090 Founders Edition) at a specific retailer (Best Buy). This directly maps to the SKU_IN_STOCK_GENERAL intent. As a secondary, if stock information is unavailable, the price of the item at that retailer would be the next most relevant piece of information, mapping to LIVE_SHELF_PRICE_GENERAL.\nMiner: The intent SKU_IN_STOCK_GENERAL is served by the /sku-in-stock endpoint. The endpoint requires a 'query' parameter, which should contain the verbatim question. The question asks about stock availability, matching the purpose of this endpoint.",
+    "intent": "SKU_IN_STOCK_GENERAL",
+    "signal_hash": "0xfbb336857082479425f60610c7d2f4b9adcfd092a1d98338586a9071b705d06d"
+  }
+}

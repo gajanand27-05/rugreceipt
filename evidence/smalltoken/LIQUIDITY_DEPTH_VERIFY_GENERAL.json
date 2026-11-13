@@ -1,0 +1,29 @@
+{
+  "intent": "LIQUIDITY_DEPTH_VERIFY_GENERAL",
+  "query": "Liquidity depth of the Uniswap v4 MACCA pool 0xd4d2c55a839bdb8d5a9703cc58ffdea6062131306a410ea72d55345a73102633 (token 0x0A675e411F95db85Fa23e2bCfAb65ecA91a6aD9a) on Ethereum",
+  "status": 200,
+  "answer": {
+    "miner_id": "77081",
+    "miner_name": "VerifyWire Exact Pool Liquidity",
+    "endpoint": "/depth",
+    "result": {
+      "liquidity_usd": 9544.88
+    },
+    "result_shape": "intent",
+    "format_version": 1,
+    "field_status": {
+      "liquidity_usd": "ok"
+    },
+    "input": {
+      "pool": "0xd4d2c55a839bdb8d5a9703cc58ffdea6062131306a410ea72d55345a73102633",
+      "chain": "Ethereum"
+    },
+    "input_schema_version": 1,
+    "cost_usd": 0.01,
+    "duration_ms": 1094,
+    "timestamp": "2026-11-13T17:35:15.793999246Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: request built from the miner's intent_mapping",
+    "intent": "LIQUIDITY_DEPTH_VERIFY_GENERAL",
+    "signal_hash": "0x0fab36f3199c1950d6961f8d6bccad8e6cbb84d0674d028755fd774f5d3702fc"
+  }
+}
