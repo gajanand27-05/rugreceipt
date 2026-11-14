@@ -1,0 +1,53 @@
+{
+  "request": {
+    "intent": "SANCTIONS_SCREENING_MATCH_GENERAL",
+    "query": "Is wallet 0x098B716B8Aaf21512996dC57EB0615e2383E2f96 on a sanctions list?"
+  },
+  "status": 200,
+  "answer": {
+    "miner_id": "731002",
+    "miner_name": "Counterproof Sanctions Screener",
+    "endpoint": "/screen",
+    "result": {
+      "name": "0x098b716b8aaf21512996dc57eb0615e2383e2f96",
+      "matched": true,
+      "matches": [
+        "LAZARUS GROUP"
+      ],
+      "lists": null,
+      "match_score": 1
+    },
+    "result_shape": "intent",
+    "format_version": 3,
+    "field_status": {
+      "name": "ok",
+      "matched": "ok",
+      "matches": "ok",
+      "lists": "missing",
+      "match_score": "ok"
+    },
+    "input": {
+      "name": "0x098B716B8Aaf21512996dC57EB0615e2383E2f96"
+    },
+    "input_schema_version": 3,
+    "cost_usd": 0.01,
+    "duration_ms": 496,
+    "timestamp": "2026-11-14T11:02:53.669676981Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: request built from the miner's intent_mapping",
+    "intent": "SANCTIONS_SCREENING_MATCH_GENERAL",
+    "signal_hash": "0x079b09881d54229ac555bbef29502d1ff2955248d3c618752e71ecfe6a29dafd"
+  },
+  "receipt": {
+    "receipt_hash": "0x096c855061a8500cfbf5aadc6c9d1e594e2b67a245d5af597100e7cd06a0c47b",
+    "rail": "x402",
+    "payer": "0x7D4388962ED6bb057DCB975d8aAf1e3746a2Afe7",
+    "miner": "5223",
+    "intent": "SANCTIONS_SCREENING_MATCH_GENERAL",
+    "amount_uusdc": "10000",
+    "epoch_id": 2089,
+    "settlement": "onchain",
+    "chain": "eip155:11155111",
+    "tx_hash": "0xee281273748a74c8097c5dca9d3c748580d17a7b7bd144401ef56d746deddb1d",
+    "timestamp": 1794654176
+  }
+}

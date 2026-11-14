@@ -1,0 +1,45 @@
+{
+  "request": {
+    "intent": "CRYPTO_PRICE_USD",
+    "params": {
+      "symbol": "MACCA"
+    }
+  },
+  "status": 200,
+  "answer": {
+    "miner_id": "302",
+    "miner_name": "ChainSight — Universal Intelligence & Data Oracle",
+    "endpoint": "/price",
+    "result": {
+      "price_usd": 0.0018391016321744158
+    },
+    "result_shape": "intent",
+    "format_version": 1,
+    "field_status": {
+      "price_usd": "ok"
+    },
+    "input": {
+      "symbol": "MACCA"
+    },
+    "input_schema_version": 3,
+    "cost_usd": 0.01,
+    "duration_ms": 8123,
+    "timestamp": "2026-11-13T17:55:11.793211612Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: The user is asking for the USD price of a cryptocurrency, which directly matches the intent CRYPTO_PRICE_USD. The ChainSight miner's /price endpoint is described as serving this intent and requires a 'symbol' parameter, which is provided in the user's request.",
+    "intent": "CRYPTO_PRICE_USD",
+    "signal_hash": "0x3796d52dbdc4eaf37b8644a2cea1f5c38517a7471b2933edf3f7891962f49bda"
+  },
+  "receipt": {
+    "receipt_hash": "0x223e370d04db27e8ceaf9f05342b234e29478e2347566477629c08d900b6b2bb",
+    "rail": "x402",
+    "payer": "0x7D4388962ED6bb057DCB975d8aAf1e3746a2Afe7",
+    "miner": "4893",
+    "intent": "CRYPTO_PRICE_USD",
+    "amount_uusdc": "10000",
+    "epoch_id": 2083,
+    "settlement": "onchain",
+    "chain": "eip155:11155111",
+    "tx_hash": "0xf0e05515af0986852b97a48ed1d7b83b548d2d8863f59428f563badad14b853f",
+    "timestamp": 1794592513
+  }
+}

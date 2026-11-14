@@ -18,3 +18,23 @@ Each request is capped at $0.10 (`maxAmountPerPayment` in `ask.mjs`). Requests a
 Discover intents and miners (free):
 - `https://devnode.telegraphprotocol.com/api/miners?intent=FX_NOW_EUR`
 - `https://devnode.telegraphprotocol.com/engine/v1/intents/FX_NOW_EUR/miners`
+
+## RugReceipt check (engine)
+
+Works the same in Git Bash, Windows PowerShell 5.1 and PowerShell 7 (one command per line, no `&&`). Run inside `code/`.
+
+```bash
+npm test                                                          # offline tests, no payments
+npm run check -- <token address>                                  # about $0.04 test USDC
+npm run check -- <token address> --name "Team or company name"    # adds the sanctions check, about $0.05
+```
+
+Before paying anything it checks the token address, `EVM_PRIVATE_KEY` and the test-USDC balance (a bad address exits with the usage line and spends nothing). Each run then:
+
+- buys 4 checks through Telegraph in parallel (5 with `--name`), always letting Telegraph pick the miner;
+- cross-checks liquidity and price against DexScreener, holders against honeypot.is, and sanctions against the US Treasury OFAC SDN list (an OFAC match always means REJECT);
+- shows free rows with their source: on-chain total supply (info only) and the honeypot.is sell simulation;
+- prints LIST / CAUTION / REJECT with reasons, the total from receipts only ("cost unknown" when a paid request failed without a receipt), and the wallet balance before and after;
+- saves the full report to `evidence/reports/<time>-<SYMBOL>.json`.
+
+Testnet only (Ethereum Sepolia, test USDC). Only the paid rows are Telegraph intelligence; the free sources are there to catch wrong answers. If a request fails after payment, Telegraph credits the amount to the wallet's escrow balance (shown at the end of each run).

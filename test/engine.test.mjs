@@ -21,7 +21,7 @@ const deps = {
   payFetch: fakePay, findPool: async () => pool, readSupply: async () => 1_000_000_000,
   loadSanctions: async () => ["OPEN JOINT STOCK COMPANY ROSNEFT OIL COMPANY", "DIANA"],
   checkHoneypot: async () => ({ status: "ok", reason: null, buyTax: 0, sellTax: 0, holders: 395 }),
-  now: () => new Date("2026-11-14T15:40:00Z"), freeTimeoutMs: 50,
+  now: () => new Date("2026-11-14T15:40:00Z"), freeTimeoutMs: 50, ofacTimeoutMs: 80,
 };
 const byId = (r) => Object.fromEntries(r.rows.map((x) => [x.id, x]));
 
@@ -89,6 +89,18 @@ test("a name on the OFAC list forces REJECT even if the provider says clean", as
   assert.equal(s.state, "looks_wrong");
   assert.equal(s.providerValue, false);
   assert.deepEqual(s.sanctionsHit, { level: "definite", name: "OPEN JOINT STOCK COMPANY ROSNEFT OIL COMPANY" });
+  assert.equal(r.verdict, "REJECT");
+});
+test("a slow OFAC download (11 s on 14 Nov) still counts: it runs alongside the paid checks", async () => {
+  const slowList = () => new Promise((r) => setTimeout(() => r(deps.loadSanctions()), 60)); // > freeTimeoutMs, < ofacTimeoutMs
+  const r = await runTokenCheck({ token: "0xT", name: "Rosneft Oil Company" }, { ...deps, loadSanctions: slowList });
+  assert.equal(byId(r).sanctions.sanctionsHit?.level, "definite");
+  assert.equal(r.verdict, "REJECT");
+});
+test("an OFAC match always wins, even when the paid sanctions check times out", async () => {
+  const noSanctionsAnswer = async (u, init) => (intentOf(init) === "SANCTIONS_SCREENING_MATCH_GENERAL" ? Promise.reject(new Error("fetch failed")) : fakePay(u, init));
+  const r = await runTokenCheck({ token: "0xT", name: "Rosneft Oil Company" }, { ...deps, payFetch: noSanctionsAnswer });
+  assert.equal(byId(r).sanctions.state, "no_answer");
   assert.equal(r.verdict, "REJECT");
 });
 test("whole path: a one-word possible OFAC hit ends as CAUTION naming the listed entry", async () => {

@@ -1,0 +1,58 @@
+{
+  "request": {
+    "intent": "SANCTIONS_SCREENING_MATCH_GENERAL",
+    "miner": "731002",
+    "params": {
+      "name": "Rosneft Oil Company"
+    }
+  },
+  "status": 200,
+  "answer": {
+    "miner_id": "731002",
+    "miner_name": "Counterproof Sanctions Screener",
+    "endpoint": "/screen",
+    "result": {
+      "name": "Rosneft Oil Company",
+      "matched": true,
+      "matches": [
+        "PJSC Rosneft Oil Company",
+        "OJSC ROSNEFT OIL COMPANY",
+        "OJSC ROSNEFT OIL COMPANY"
+      ],
+      "lists": null,
+      "match_score": 1
+    },
+    "result_shape": "intent",
+    "format_version": 3,
+    "field_status": {
+      "name": "ok",
+      "matched": "ok",
+      "matches": "ok",
+      "lists": "missing",
+      "match_score": "ok"
+    },
+    "input": {
+      "name": "Rosneft Oil Company"
+    },
+    "input_schema_version": 3,
+    "cost_usd": 0.01,
+    "duration_ms": 261,
+    "timestamp": "2026-11-14T10:43:27.760490356Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: request built from the miner's intent_mapping",
+    "intent": "SANCTIONS_SCREENING_MATCH_GENERAL",
+    "signal_hash": "0xa60dafc752ce6c8cc4c8e03004c0dce1819620adfe1102835da1da3ccacf747e"
+  },
+  "receipt": {
+    "receipt_hash": "0x914e228758eebe7714fe64242878f84d3259ed2b9f83f422c420f5c32f802b5b",
+    "rail": "x402",
+    "payer": "0x7D4388962ED6bb057DCB975d8aAf1e3746a2Afe7",
+    "miner": "5223",
+    "intent": "SANCTIONS_SCREENING_MATCH_GENERAL",
+    "amount_uusdc": "10000",
+    "epoch_id": 2089,
+    "settlement": "onchain",
+    "chain": "eip155:11155111",
+    "tx_hash": "0x4f7a1f19450b8a7277b21c0b33d01125e3b4db993b438be1b3a1b6467adce47a",
+    "timestamp": 1794653010
+  }
+}

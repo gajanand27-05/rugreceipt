@@ -1,0 +1,54 @@
+{
+  "request": {
+    "intent": "SANCTIONS_SCREENING_MATCH_GENERAL",
+    "miner": "731002",
+    "params": {
+      "name": "0x098B716B8Aaf21512996dC57EB0615e2383E2f96"
+    }
+  },
+  "status": 200,
+  "answer": {
+    "miner_id": "731002",
+    "miner_name": "Counterproof Sanctions Screener",
+    "endpoint": "/screen",
+    "result": {
+      "name": null,
+      "matched": true,
+      "matches": null,
+      "lists": null,
+      "match_score": 1
+    },
+    "result_shape": "intent",
+    "format_version": 3,
+    "field_status": {
+      "name": "rejected",
+      "matched": "ok",
+      "matches": "rejected",
+      "lists": "missing",
+      "match_score": "ok"
+    },
+    "input": {
+      "name": "0x098B716B8Aaf21512996dC57EB0615e2383E2f96"
+    },
+    "input_schema_version": 3,
+    "cost_usd": 0.01,
+    "duration_ms": 498,
+    "timestamp": "2026-11-14T10:42:52.707730351Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: request built from the miner's intent_mapping",
+    "intent": "SANCTIONS_SCREENING_MATCH_GENERAL",
+    "signal_hash": "0x486dace90f4275bdb55b9ce8a1fc412a16105eb74813d95f9be4fae61d24a5e2"
+  },
+  "receipt": {
+    "receipt_hash": "0xf4768e08ab90fd848d119a9b4c64633c2ecfc95c18a88121fde77cf8da2c3ef3",
+    "rail": "x402",
+    "payer": "0x7D4388962ED6bb057DCB975d8aAf1e3746a2Afe7",
+    "miner": "5223",
+    "intent": "SANCTIONS_SCREENING_MATCH_GENERAL",
+    "amount_uusdc": "10000",
+    "epoch_id": 2089,
+    "settlement": "onchain",
+    "chain": "eip155:11155111",
+    "tx_hash": "0x00b6725dd1532344b1a66cf8fd0002e037879642cc4fd774d3bc472df057672b",
+    "timestamp": 1794652976
+  }
+}
