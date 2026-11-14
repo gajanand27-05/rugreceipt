@@ -68,6 +68,10 @@ if (before) {
       : diff > 0 && report.costUnknownCount ? `: ${usd(diff)} more, paid for failed requests; Telegraph credits it to escrow`
       : ", DIFFERENT: check the receipts";
     console.log(`Wallet: ${usd(before.usdc)} → ${usd(after.usdc)} test USDC (spent ${usd(spent)}; receipts say ${usd(report.totalCostUusdc)}${why})`);
+    // Checks run in parallel: the wallet shows THAT a failed call was charged, not which one, unless only one failed.
+    const unknown = report.rows.filter((r) => r.source === "telegraph" && r.state !== "skipped" && r.costUusdc == null);
+    if (diff > 0 && unknown.length === 1)
+      console.log(`  → ${unknown[0].label} was charged ${usd(diff)} with no receipt; Telegraph credits it to escrow.`);
     if (before.escrow != null && after.escrow != null)
       console.log(`Escrow credit: ${usd(before.escrow)} → ${usd(after.escrow)} (every x402 payment sits here until the epoch closes; what stays after that is failed requests)`);
   } else console.log("Wallet: could not read the balance after the run.");

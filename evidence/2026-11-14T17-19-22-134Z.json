@@ -1,0 +1,47 @@
+{
+  "request": {
+    "intent": "LIQUIDITY_DEPTH_VERIFY_GENERAL",
+    "params": {
+      "pool": "0x1990D912C5F2Bf8638a5bCd4EAD66df9596bf851",
+      "chain": "ethereum"
+    }
+  },
+  "status": 200,
+  "answer": {
+    "miner_id": "501",
+    "miner_name": "Telegraph Sentinel Risk Intelligence",
+    "endpoint": "/api/v1/miner/liquidity-depth",
+    "result": {
+      "liquidity_usd": 28000000
+    },
+    "result_shape": "intent",
+    "format_version": 1,
+    "field_status": {
+      "liquidity_usd": "ok"
+    },
+    "input": {
+      "pool": "0x1990D912C5F2Bf8638a5bCd4EAD66df9596bf851",
+      "chain": "ethereum"
+    },
+    "input_schema_version": 1,
+    "cost_usd": 0.01,
+    "duration_ms": 12659,
+    "timestamp": "2026-11-14T17:19:21.523204466Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: request built from the miner's intent_mapping",
+    "intent": "LIQUIDITY_DEPTH_VERIFY_GENERAL",
+    "signal_hash": "0x4b9691fd91373f1aaebe97d0401c9b75458aa3b93eafd7862942522b5713d6bd"
+  },
+  "receipt": {
+    "receipt_hash": "0x4faf48b073d060f81e445a71fc064de2b7f8586209f224df9a8a613459960ac5",
+    "rail": "x402",
+    "payer": "0x7D4388962ED6bb057DCB975d8aAf1e3746a2Afe7",
+    "miner": "5233",
+    "intent": "LIQUIDITY_DEPTH_VERIFY_GENERAL",
+    "amount_uusdc": "10000",
+    "epoch_id": 2091,
+    "settlement": "onchain",
+    "chain": "eip155:11155111",
+    "tx_hash": "0xe002aec83b2e95f8f65ed27bb8159fe090960f78a1b42524560ce3cbb9f4358b",
+    "timestamp": 1794676761
+  }
+}

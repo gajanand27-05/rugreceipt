@@ -1,0 +1,51 @@
+{
+  "request": {
+    "intent": "SANCTIONS_SCREENING_MATCH_GENERAL",
+    "query": "Is wallet 0x098B716B8Aaf21512996dC57EB0615e2383E2f96 on a sanctions list?"
+  },
+  "status": 200,
+  "answer": {
+    "miner_id": "302",
+    "miner_name": "ChainSight — Universal Intelligence & Data Oracle",
+    "endpoint": "/sanctions",
+    "result": {
+      "name": "0x098B716B8Aaf21512996dC57EB0615e2383E2f96",
+      "matched": false,
+      "matches": null,
+      "lists": null,
+      "match_score": null
+    },
+    "result_shape": "intent",
+    "format_version": 3,
+    "field_status": {
+      "name": "ok",
+      "matched": "ok",
+      "matches": "missing",
+      "lists": "missing",
+      "match_score": "missing"
+    },
+    "input": {
+      "name": "0x098B716B8Aaf21512996dC57EB0615e2383E2f96"
+    },
+    "input_schema_version": 3,
+    "cost_usd": 0.01,
+    "duration_ms": 1257,
+    "timestamp": "2026-11-14T17:17:17.373190758Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: The user is asking to check if a specific wallet address is on a sanctions list. The ChainSight miner's '/sanctions' endpoint is designed for sanctions screening and OFAC watchlist checks, and it explicitly lists 'SANCTIONS_SCREENING_MATCH_GENERAL' as a supported intent. The 'query' parameter is required for this endpoint and will be populated with the user's exact question.",
+    "intent": "SANCTIONS_SCREENING_MATCH_GENERAL",
+    "signal_hash": "0x548cae6135b8b3f81617e1014586f3472ba17cea7a9fd6ef23286d20d37a54ff"
+  },
+  "receipt": {
+    "receipt_hash": "0xb186c2dad868323ef9ff079c46584a093cbc1d4220d26ca3c6bb50bd473af183",
+    "rail": "x402",
+    "payer": "0x7D4388962ED6bb057DCB975d8aAf1e3746a2Afe7",
+    "miner": "4893",
+    "intent": "SANCTIONS_SCREENING_MATCH_GENERAL",
+    "amount_uusdc": "10000",
+    "epoch_id": 2091,
+    "settlement": "onchain",
+    "chain": "eip155:11155111",
+    "tx_hash": "0x200bec74f4b92bdaadba9668d8271c2f614a073f20f17ef7bc739204f2334236",
+    "timestamp": 1794676639
+  }
+}
