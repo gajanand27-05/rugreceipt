@@ -52,3 +52,13 @@ test("REJECT beats CAUTION", () => {
   const r = good(); r.sanctions.value = true; r.liquidity.value = 10;
   assert.equal(decide(r).verdict, "REJECT");
 });
+test("a possible (one-word) sanctions hit is CAUTION, naming the listed entry", () => {
+  const r = good(); r.sanctions.possibleHit = "DIANA";
+  assert.equal(decide(r).verdict, "CAUTION");
+  assert.match(decide(r).reasons[0], /possible sanctions match: DIANA/);
+});
+test("provider says sanctioned but OFAC does not: CAUTION, never a silent LIST", () => {
+  const r = good(); r.sanctions = { state: "looks_wrong", value: false, providerValue: true };
+  assert.equal(decide(r).verdict, "CAUTION");
+  assert.match(decide(r).reasons[0], /not found on the OFAC SDN list/);
+});

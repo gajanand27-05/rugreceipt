@@ -1,7 +1,7 @@
 // code/test/sanctions.test.mjs
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { parseSdn, matchSdn } from "../lib/sanctions.mjs";
+import { parseSdn, matchSdn, loadSdn } from "../lib/sanctions.mjs";
 
 const csv = `36,"AEROCARIBBEAN AIRLINES",-0- ,"CUBA",-0- 
 9999,"OPEN JOINT-STOCK COMPANY ROSNEFT OIL COMPANY",-0- ,"UKRAINE-EO13662",-0- 
@@ -23,7 +23,7 @@ test("ignores names shorter than 4 characters to avoid junk matches", () => {
 test("one-word name only matches a whole listed name (Tether vs ABAN TETHER EXCHANGE)", () => {
   const names = ["ABAN TETHER EXCHANGE", "HAMAS"];
   assert.deepEqual(matchSdn("Tether", names), { matched: false, hit: null });
-  assert.deepEqual(matchSdn("Hamas", names), { matched: true, hit: "HAMAS" });
+  assert.deepEqual(matchSdn("Hamas", names), { matched: false, hit: null, possible: "HAMAS" });
 });
 test("multi-word names match on whole words only", () => {
   const names = ["LAZARUS GROUP", "SOVCOMFLOT"];
@@ -31,8 +31,15 @@ test("multi-word names match on whole words only", () => {
   assert.deepEqual(matchSdn("Lazarus Groups Ltd", names), { matched: false, hit: null });
   assert.deepEqual(matchSdn("Sovcomflot Shipping", names), { matched: false, hit: null }); // one-word listed name inside a longer query is too loose
 });
-test("one word of 7+ letters also matches the first word of a listed name (Garantex)", () => {
-  const names = ["GARANTEX EUROPE OU", "BANK MELLI IRAN", "ABAN TETHER EXCHANGE"];
-  assert.deepEqual(matchSdn("Garantex", names), { matched: true, hit: "GARANTEX EUROPE OU" });
-  assert.deepEqual(matchSdn("Bank", names), { matched: false, hit: null });   // too generic
+test("a one-word name is never a definite match, only a possible one (Diana vessel, Capital, Garantex)", () => {
+  const names = ["DIANA", "CAPITAL S A L", "GARANTEX EUROPE OU", "HAMAS"];
+  assert.deepEqual(matchSdn("Diana", names), { matched: false, hit: null, possible: "DIANA" });
+  assert.deepEqual(matchSdn("Capital", names), { matched: false, hit: null });
+  assert.deepEqual(matchSdn("Garantex", names), { matched: false, hit: null });
+});
+test("loadSdn refuses a failed download instead of caching an empty list", async () => {
+  await assert.rejects(loadSdn(async () => ({ ok: false, status: 403, text: async () => "" })), /403/);
+});
+test("loadSdn refuses a truncated list", async () => {
+  await assert.rejects(loadSdn(async () => ({ ok: true, text: async () => '1,"ONE NAME",x' })), /truncated/);
 });

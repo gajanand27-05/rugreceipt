@@ -27,3 +27,7 @@ test("effective value prefers the reference when the provider looks wrong or fai
   assert.equal(effectiveValue("confirmed", 101, 100), 101);
   assert.equal(effectiveValue("unchecked", 601904, null), 601904);
 });
+test("a reference of 0 makes any non-zero answer look wrong (decided, not an accident)", () => {
+  assert.equal(compare(5, 0, "number"), "looks_wrong");
+  assert.equal(compare(0, 0, "number"), "confirmed");
+});
