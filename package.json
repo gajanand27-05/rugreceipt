@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --test",
     "wallet": "node wallet.mjs",
     "mint": "node --env-file=.env mint.mjs",
-    "ask": "node --env-file=.env ask.mjs"
+    "ask": "node --env-file=.env ask.mjs",
+    "check": "node --env-file=.env check.mjs"
   },
   "keywords": [],
   "author": "",
