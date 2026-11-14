@@ -59,7 +59,7 @@ test("decided: a plain decimal number sent as a string is accepted", () => {
   assert.equal(byId.liquidity.read({ liquidity_usd: "9544.88" }), 9544.88);
   assert.equal(byId.holders.read({ holders_count: "101" }), 101);
 });
-test("references come from the free sources; holders and wash have none", () => {
+test("references come from the free sources; wash has none, holders none without honeypot.is", () => {
   assert.equal(byId.liquidity.reference(ctx), 9545);
   assert.equal(byId.price.reference(ctx), 0.000017);
   assert.equal(byId.holders.reference(ctx), null);
@@ -81,4 +81,9 @@ test("sanctions reference: no OFAC list means not checked, never clean", () => {
   const noList = buildCtx({ token: "0xT", pool, name: "Uniswap Labs", sdn: null });
   assert.equal(byId.sanctions.reference(noList), null);
   assert.equal(sanctionsHit(noList), null);
+});
+test("holders is cross-checked against honeypot.is's holder count when available", () => {
+  const withHp = buildCtx({ token: "0xT", pool, name: null, sdn: null, honeypot: { status: "ok", holders: 572538 } });
+  assert.equal(byId.holders.reference(withHp), 572538);
+  assert.equal(byId.holders.reference(buildCtx({ token: "0xT", pool })), null);
 });

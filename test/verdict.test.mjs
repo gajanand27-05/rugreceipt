@@ -62,3 +62,19 @@ test("provider says sanctioned but OFAC does not: CAUTION, never a silent LIST",
   assert.equal(decide(r).verdict, "CAUTION");
   assert.match(decide(r).reasons[0], /not found on the OFAC SDN list/);
 });
+test("honeypot.is honeypot is REJECT, and the reason names the source", () => {
+  const r = good(); r.honeypot = { state: "unchecked", value: { status: "honeypot", reason: "TRANSFER_FROM_FAILED", sellTax: 100 } };
+  assert.equal(decide(r).verdict, "REJECT");
+  assert.match(decide(r).reasons[0], /^honeypot\.is: sell simulation failed \(TRANSFER_FROM_FAILED, 100% sell tax\)/);
+});
+test("honeypot.is high sell tax is CAUTION", () => {
+  const r = good(); r.honeypot = { state: "unchecked", value: { status: "high_tax", reason: null, sellTax: 25 } };
+  assert.equal(decide(r).verdict, "CAUTION");
+  assert.match(decide(r).reasons[0], /honeypot\.is: sell tax 25% \(over 10%\)/);
+});
+test("honeypot.is unavailable or unknown never changes the verdict", () => {
+  const a = good(); a.honeypot = { state: "no_answer", value: null };
+  const b = good(); b.honeypot = { state: "unchecked", value: { status: "unknown" } };
+  assert.equal(decide(a).verdict, "LIST");
+  assert.equal(decide(b).verdict, "LIST");
+});
