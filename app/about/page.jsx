@@ -42,6 +42,9 @@ export default function About() {
         <li>Price is looked up by symbol, which scam tokens copy, so small-token prices usually fall back to the DexScreener market price.</li>
         <li>Sanctions uses the OFAC SDN main list only (no aliases, no EU/UN lists in our own check). A one-word name is only a "possible match".</li>
         <li>Only Ethereum mainnet tokens, and only tokens that are the main (base) token of a pool.</li>
+        <li>Holder counts: since 15 Nov the provider Telegraph routes this question to answers about 9.59 million holders for every
+          token we tried (a 60-holder token included). We only trust a holder count that matches honeypot.is; otherwise the report
+          says CAUTION ("holders not cross-checked").</li>
       </ul>
       <h2>Testnet</h2>
       <p>Everything runs on Telegraph's testnet (Ethereum Sepolia, test USDC). The token data is about real mainnet tokens; the payments

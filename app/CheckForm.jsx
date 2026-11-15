@@ -56,7 +56,8 @@ export default function CheckForm() {
         <p><label>Project / team / company name <span className="muted">(optional: adds the sanctions check)</span><br />
           <input value={name} onChange={(e) => setName(e.target.value)} maxLength={100} /></label></p>
         <p><button type="submit" disabled={busy}>{busy ? "Checking…" : "Check"}</button>{" "}
-          <span className="muted">Uses Telegraph testnet. Costs about $0.04 test USDC ($0.05 with a name), paid by our agent. Takes 10-60 s.</span></p>
+          <span className="muted">Uses Telegraph testnet. Costs about $0.04 test USDC ($0.05 with a name), paid by our agent. Takes 10-60 s.
+            Reports are public: anyone with the link can read them, including the name you type.</span></p>
         <p className="muted">Try: {EXAMPLES.map((x) => (
           <button key={x.token} type="button" disabled={busy} onClick={() => { setName(""); check(x.token, ""); }}>{x.label}</button>
         ))}</p>
