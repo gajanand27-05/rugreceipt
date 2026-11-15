@@ -40,6 +40,8 @@ test("showValue: readable per check, and a wrong paid answer is shown next to th
   assert.equal(showValue({ id: "honeypot", state: "unchecked", value: { status: "honeypot", reason: "TRANSFER_FROM_FAILED", sellTax: 100 } }), "HONEYPOT (TRANSFER_FROM_FAILED), sell tax 100%");
   assert.equal(showValue({ id: "supply", state: "info", value: 420690000000000 }), "420,690,000,000,000");
   assert.equal(showValue({ id: "holders", state: "no_answer", value: null }), "-");
+  assert.equal(showValue({ id: "price", source: "telegraph", state: "no_answer", value: 0.000017, reference: 0.000017 }), "market $0.000017 (paid: no answer)");
+  assert.equal(showValue({ id: "liquidity", source: "telegraph", state: "no_answer", value: null, reference: null }), "-");
 });
 
 test("markFor: honest labels; free rows name their source", () => {
