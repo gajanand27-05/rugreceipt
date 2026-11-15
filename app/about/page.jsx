@@ -20,7 +20,7 @@ export default function About() {
       <ul>
         <li><b>REJECT</b>: the name matches the OFAC sanctions list, or honeypot.is could not sell the token (honeypot).</li>
         <li><b>CAUTION</b>: liquidity under $50,000, fewer than 500 holders, sell tax over 10%, a provider reported plain wash
-          trading, a possible (one-word) sanctions match, or any verdict check got no answer.</li>
+          trading, a possible (one-word) sanctions match, a sanctions match reported by the provider but not found on the OFAC SDN list, or any verdict check got no answer.</li>
         <li><b>LIST</b>: every check that ran answered and none of the above fired. Without a name it says "sanctions not checked".</li>
         <li>Wash trading and total supply are shown as information only.</li>
       </ul>
