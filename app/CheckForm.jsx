@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { makeLineReader } from "../lib/web/stream.mjs";
 import ReportView from "./ReportView.jsx";
 
@@ -14,27 +14,34 @@ export default function CheckForm() {
   const [token, setToken] = useState("");
   const [name, setName] = useState("");
   const [run, setRun] = useState(null);   // { token, name, rows, report, id, error, message, running }
+  const inFlight = useRef(false);
 
   async function check(t = token, n = name) {
-    setToken(t);
-    const state = { token: t.trim(), name: n.trim() || null, rows: [], report: null, id: null, error: null, message: null, running: true };
-    setRun(state);
-    const update = (patch) => setRun((s) => ({ ...s, ...patch }));
+    if (inFlight.current) return;
+    inFlight.current = true;
     try {
-      const res = await fetch("/api/check", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ token: t, name: n }) });
-      const reader = res.body.pipeThrough(new TextDecoderStream()).getReader();
-      const feed = makeLineReader((m) => {
-        if (m.type === "row") setRun((s) => ({ ...s, rows: [...s.rows, m.row] }));
-        if (m.type === "done") {
-          update({ report: m.report, id: m.id, message: m.message, running: false });
-          if (m.id) window.history.replaceState(null, "", `/r/${m.id}`);
-        }
-        if (m.type === "error") update({ error: m.message, running: false });
-      });
-      for (;;) { const { value, done } = await reader.read(); if (done) break; feed(value); }
-      setRun((s) => (s.running ? { ...s, running: false, error: "The connection closed before the check finished." } : s));
-    } catch {
-      update({ running: false, error: "Could not reach the server. Nothing new was started; try again." });
+      setToken(t);
+      const state = { token: t.trim(), name: n.trim() || null, rows: [], report: null, id: null, error: null, message: null, running: true };
+      setRun(state);
+      const update = (patch) => setRun((s) => ({ ...s, ...patch }));
+      try {
+        const res = await fetch("/api/check", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ token: t, name: n }) });
+        const reader = res.body.pipeThrough(new TextDecoderStream()).getReader();
+        const feed = makeLineReader((m) => {
+          if (m.type === "row") setRun((s) => ({ ...s, rows: [...s.rows, m.row] }));
+          if (m.type === "done") {
+            update({ report: m.report, id: m.id, message: m.message, running: false });
+            if (m.id) window.history.replaceState(null, "", `/r/${m.id}`);
+          }
+          if (m.type === "error") update({ error: m.message, running: false });
+        });
+        for (;;) { const { value, done } = await reader.read(); if (done) break; feed(value); }
+        setRun((s) => (s.running ? { ...s, running: false, error: "The connection closed before the check finished." } : s));
+      } catch {
+        update({ running: false, error: "Could not reach the server. Nothing new was started; try again." });
+      }
+    } finally {
+      inFlight.current = false;
     }
   }
 
