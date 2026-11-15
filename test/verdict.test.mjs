@@ -6,7 +6,7 @@ import { decide } from "../lib/verdict.mjs";
 const good = () => ({
   wash: { state: "unchecked", value: { verdict: "organic", pct: null } },
   liquidity: { state: "confirmed", value: 28_000_000 },
-  holders: { state: "unchecked", value: 601_904 },
+  holders: { state: "confirmed", value: 601_904 },
   price: { state: "confirmed", value: 0.0000045 },
   sanctions: { state: "confirmed", value: false },
 });
@@ -47,6 +47,13 @@ test("a verdict check with no answer is CAUTION", () => {
   const r = good(); r.holders = { state: "no_answer", value: null };
   assert.equal(decide(r).verdict, "CAUTION");
   assert.match(decide(r).reasons.join(" "), /holders/);
+});
+test("unchecked holders (no free reference) is CAUTION even with a huge count", () => {
+  const r = good(); r.holders = { state: "unchecked", value: 9_590_792 };
+  const d = decide(r);
+  assert.equal(d.verdict, "CAUTION");
+  assert.match(d.reasons.join(" "), /not cross-checked/);
+  assert.match(d.reasons.join(" "), /9,590,792/);
 });
 test("REJECT beats CAUTION", () => {
   const r = good(); r.sanctions.value = true; r.liquidity.value = 10;
