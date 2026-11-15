@@ -99,6 +99,17 @@ test("engine stops before paying (no pool): error, charged:false, message kept",
   assert.equal(msg2.charged, false);
 });
 
+test("engine throws after a row was already sent: charged:null, 'may have been paid'", async () => {
+  const { deps } = makeDeps({
+    engine: async (_input, _d, onRow) => { onRow(rows[0]); throw new TypeError("Cannot read properties of undefined (reading 'pool')"); },
+  });
+  const msgs = await readAll(handleCheck({ token: PEPE }, "1.1.1.1", deps));
+  const last = msgs.at(-1);
+  assert.equal(last.type, "error");
+  assert.equal(last.charged, null);
+  assert.match(last.message, /may have been paid/);
+});
+
 test("saving fails: done with id null and the report, plus a message", async () => {
   const { deps } = makeDeps({ store: { save: async () => { throw new Error("blob down"); } } });
   const done = (await readAll(handleCheck({ token: PEPE }, "1.1.1.1", deps))).at(-1);
@@ -106,6 +117,16 @@ test("saving fails: done with id null and the report, plus a message", async () 
   assert.equal(done.id, null);
   assert.equal(done.report.verdict, "LIST");
   assert.match(done.message, /could not be saved/);
+});
+
+test("keepAlive throws: run() rejection still ends the stream with one error line, charged:null", async () => {
+  const { deps } = makeDeps({ keepAlive: () => { throw new Error("after() unavailable"); } });
+  const msgs = await readAll(handleCheck({ token: PEPE }, "1.1.1.1", deps));
+  const last = msgs.at(-1);
+  assert.equal(msgs.filter((m) => m.type === "error").length, 1);
+  assert.equal(last.type, "error");
+  assert.equal(last.charged, null);
+  assert.match(last.message, /The check failed.*after\(\) unavailable.*may have been paid/);
 });
 
 test("visitor leaves mid-check: the paid report is still saved", async () => {

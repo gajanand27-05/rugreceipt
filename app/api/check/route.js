@@ -5,7 +5,7 @@ import { toLine } from "../../../lib/web/stream.mjs";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
-export const maxDuration = 120;   // one check ≈ 75 s worst case (pool 15 + free 15 + paid 45)
+export const maxDuration = 300;   // Vercel Hobby max; one check ≈ 75 s worst case (pool 15 + free 15 + paid 45)
 
 const HEADERS = { "Content-Type": "application/x-ndjson; charset=utf-8", "Cache-Control": "no-store", "X-Accel-Buffering": "no" };
 

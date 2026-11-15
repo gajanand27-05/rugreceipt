@@ -1,6 +1,6 @@
 "use client";
 import { useRef, useState } from "react";
-import { makeLineReader } from "../lib/web/stream.mjs";
+import { makeLineReader, fetchErrorMessage } from "../lib/web/stream.mjs";
 import ReportView from "./ReportView.jsx";
 
 // Re-check these with the CLI the day before any demo: small and scam tokens change fast.
@@ -24,8 +24,10 @@ export default function CheckForm() {
       const state = { token: t.trim(), name: n.trim() || null, rows: [], report: null, id: null, error: null, message: null, running: true };
       setRun(state);
       const update = (patch) => setRun((s) => ({ ...s, ...patch }));
+      let started = false;
       try {
         const res = await fetch("/api/check", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ token: t, name: n }) });
+        started = true;
         const reader = res.body.pipeThrough(new TextDecoderStream()).getReader();
         const feed = makeLineReader((m) => {
           if (m.type === "row") setRun((s) => ({ ...s, rows: [...s.rows, m.row] }));
@@ -38,7 +40,7 @@ export default function CheckForm() {
         for (;;) { const { value, done } = await reader.read(); if (done) break; feed(value); }
         setRun((s) => (s.running ? { ...s, running: false, error: "The connection closed before the check finished." } : s));
       } catch {
-        update({ running: false, error: "Could not reach the server. Nothing new was started; try again." });
+        update({ running: false, error: fetchErrorMessage(started) });
       }
     } finally {
       inFlight.current = false;
