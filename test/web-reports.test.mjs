@@ -28,12 +28,16 @@ test("blobReportStore: public JSON at reports/<id>.json, no random suffix", asyn
   assert.deepEqual(puts[0][2], { access: "public", contentType: "application/json", addRandomSuffix: false });
 });
 
+// Mirrors @vercel/blob's real BlobNotFoundError: `.name` stays "Error" (inherited), only the
+// constructor name is "BlobNotFoundError" (see reports.mjs for why the catch checks that).
+class BlobNotFoundError extends Error {}
+
 test("blobReportStore.get: found → JSON; not found → null; malformed id never calls Blob", async () => {
   let heads = 0;
   const head = async (path) => {
     heads++;
     if (path === "reports/0123456789ab.json") return { url: "https://blob.example/reports/0123456789ab.json" };
-    const e = new Error("not found"); e.name = "BlobNotFoundError"; throw e;
+    throw new BlobNotFoundError("not found");
   };
   const fetchFn = async () => ({ ok: true, json: async () => ({ verdict: "CAUTION" }) });
   const store = blobReportStore({ put: async () => {}, head, fetchFn });
