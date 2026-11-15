@@ -1,0 +1,53 @@
+{
+  "request": {
+    "intent": "TOKEN_HOLDER_COUNT_GENERAL",
+    "params": {
+      "token": "0x5599811ff441f045d64cad51ce4d74462faf7a1d",
+      "chain": "ethereum"
+    }
+  },
+  "status": 200,
+  "answer": {
+    "miner_id": "501",
+    "miner_name": "Telegraph Sentinel Risk Intelligence",
+    "endpoint": "/api/v1/miner/token-holders",
+    "result": {
+      "token": null,
+      "chain": null,
+      "holders_count": 9590998,
+      "token_symbol": null
+    },
+    "result_shape": "intent",
+    "format_version": 1,
+    "field_status": {
+      "token": "missing",
+      "chain": "missing",
+      "holders_count": "ok",
+      "token_symbol": "missing"
+    },
+    "input": {
+      "token": "0x5599811ff441f045d64cad51ce4d74462faf7a1d",
+      "chain": "ethereum"
+    },
+    "input_schema_version": 1,
+    "cost_usd": 0.01,
+    "duration_ms": 1136,
+    "timestamp": "2026-11-15T15:48:06.489743299Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: request built from the miner's intent_mapping",
+    "intent": "TOKEN_HOLDER_COUNT_GENERAL",
+    "signal_hash": "0x75a0865d7056b054d6aeda3b74c5fcd2f0269de0b2ac9882ccb29d6fadf33080"
+  },
+  "receipt": {
+    "receipt_hash": "0xe46239840e842d52b57056b43d0f49c7191c9b1a55e3bb9440db6eaa80796fdb",
+    "rail": "x402",
+    "payer": "0x7D4388962ED6bb057DCB975d8aAf1e3746a2Afe7",
+    "miner": "5233",
+    "intent": "TOKEN_HOLDER_COUNT_GENERAL",
+    "amount_uusdc": "10000",
+    "epoch_id": 2099,
+    "settlement": "onchain",
+    "chain": "eip155:11155111",
+    "tx_hash": "0x3762facec5323c5079b5a80dd7c5be8af38bdce2393d625c0291c78535df7785",
+    "timestamp": 1794757686
+  }
+}
