@@ -41,3 +41,12 @@ test("redisCounter: INCR, and EXPIRE only on the first hit", async () => {
   assert.equal(await c.incr("k", 60), 2);
   assert.deepEqual(calls, [["incr", "k"], ["expire", "k", 60], ["incr", "k"]]);
 });
+
+test("limitsFromEnv: defaults from CONFIG.web; positive whole numbers from env override; junk ignored", async () => {
+  const { limitsFromEnv } = await import("../lib/web/limits.mjs");
+  const { CONFIG } = await import("../lib/config.mjs");
+  assert.deepEqual(limitsFromEnv({}), { perIpPerHour: CONFIG.web.perIpPerHour, perDay: CONFIG.web.perDay });
+  assert.deepEqual(limitsFromEnv({ RUGRECEIPT_PER_IP_PER_HOUR: "2", RUGRECEIPT_PER_DAY: "3" }), { perIpPerHour: 2, perDay: 3 });
+  for (const bad of ["0", "-1", "abc", "2.5", ""])
+    assert.deepEqual(limitsFromEnv({ RUGRECEIPT_PER_IP_PER_HOUR: bad }).perIpPerHour, CONFIG.web.perIpPerHour);
+});

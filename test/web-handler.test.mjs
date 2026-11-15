@@ -142,3 +142,11 @@ test("visitor leaves mid-check: the paid report is still saved", async () => {
   await kept[0];
   assert.equal(saved.get("0123456789ab").verdict, "CAUTION");
 });
+
+test("limits from deps are used (env override): 1 per visitor → second check refused", async () => {
+  const { deps } = makeDeps({ limits: { perIpPerHour: 1, perDay: 100 } });
+  assert.equal((await readAll(handleCheck({ token: PEPE }, "5.5.5.5", deps))).at(-1).type, "done");
+  const [msg] = await readAll(handleCheck({ token: PEPE }, "5.5.5.5", deps));
+  assert.equal(msg.type, "error");
+  assert.match(msg.message, /1 checks per hour/);
+});
