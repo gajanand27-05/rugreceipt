@@ -1,10 +1,9 @@
 // code/check.mjs: RugReceipt from the terminal (testnet).
 // Usage: npm run check -- <token address> [--name "Team or company name"]
 import { mkdirSync, writeFileSync } from "node:fs";
-import { createPublicClient, http, erc20Abi, parseAbi } from "viem";
-import { sepolia } from "viem/chains";
 import { privateKeyToAccount } from "viem/accounts";
 import { CONFIG } from "./lib/config.mjs";
+import { expectedCostUusdc, makeBalanceReader } from "./lib/balances.mjs";
 import { runTokenCheck } from "./lib/engine.mjs";
 import { makePayingFetch } from "./lib/telegraph.mjs";
 import { USAGE, parseArgs, keyProblem, safeSymbol, showValue, markFor, costText, totalLine, usd } from "./lib/cli.mjs";
@@ -19,17 +18,9 @@ if (problem) fail(problem);
 const { address } = privateKeyToAccount(process.env.EVM_PRIVATE_KEY);
 
 // 2. Wallet before: test USDC, plus escrow (where a failed paid request's payment is credited).
-const sepoliaClient = createPublicClient({ chain: sepolia, transport: http(CONFIG.sepoliaRpc) });
-const balances = async () => {
-  const [usdc, escrow] = await Promise.all([
-    sepoliaClient.readContract({ address: CONFIG.usdc, abi: erc20Abi, functionName: "balanceOf", args: [address] }),
-    sepoliaClient.readContract({ address: CONFIG.diamond, abi: parseAbi(["function effectiveBalance(address) view returns (uint256)"]),
-      functionName: "effectiveBalance", args: [address] }).catch(() => null),
-  ]);
-  return { usdc: Number(usdc), escrow: escrow == null ? null : Number(escrow) };
-};
+const balances = makeBalanceReader(address);
 const before = await balances().catch(() => null);
-const expected = (args.name ? 5 : 4) * 10_000;
+const expected = expectedCostUusdc(args.name);
 if (!before) console.log("Warning: could not read the wallet balance (Sepolia RPC); continuing without before/after.");
 else {
   if (before.usdc < expected) fail(`Not enough test USDC: ${usd(before.usdc)}, this run needs about ${usd(expected)}. Run \`npm run mint\`.`);

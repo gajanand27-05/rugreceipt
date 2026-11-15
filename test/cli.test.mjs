@@ -49,7 +49,7 @@ test("markFor: honest labels; free rows name their source", () => {
   assert.equal(markFor({ source: "telegraph", state: "looks_wrong" }), "⚠ looks wrong, reference used");
   assert.equal(markFor({ source: "telegraph", state: "no_answer", error: "timeout after 45000 ms" }), "✗ no answer (timeout after 45000 ms)");
   assert.equal(markFor({ source: "telegraph", state: "no_answer", error: null, costUusdc: 10000 }), "✗ no usable answer (paid)");
-  assert.equal(markFor({ source: "telegraph", state: "skipped" }), "- skipped (no --name)");
+  assert.equal(markFor({ source: "telegraph", state: "skipped" }), "- skipped (no name given)");
   assert.equal(markFor({ source: "onchain", state: "info" }), "free · on-chain · info only");
   assert.equal(markFor({ source: "honeypot.is", state: "unchecked" }), "free · honeypot.is");
   assert.equal(markFor({ source: "honeypot.is", state: "no_answer", note: "honeypot.is unavailable: not checked" }), "free · honeypot.is · ✗ honeypot.is unavailable: not checked");
