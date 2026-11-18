@@ -1,0 +1,9 @@
+{
+  "request": {
+    "intent": "SANCTIONS_SCREENING_MATCH_GENERAL",
+    "query": "Is wallet 0x098B716B8Aaf21512996dC57EB0615e2383E2f96 on a sanctions list?"
+  },
+  "status": 502,
+  "answer": null,
+  "receipt": null
+}
