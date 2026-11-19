@@ -1,0 +1,14 @@
+{
+  "request": {
+    "intent": "CRYPTO_PRICE_USD",
+    "params": {
+      "symbol": "BTC"
+    }
+  },
+  "rail": "escrow",
+  "status": null,
+  "answer": {
+    "error": "fetch failed"
+  },
+  "receipt": null
+}
