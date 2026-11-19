@@ -7,12 +7,19 @@ test("expectedCostUusdc: 4 paid checks, 5 with a name", () => {
   assert.equal(expectedCostUusdc("Rosneft Oil Company"), 50_000);
 });
 
-test("makeBalanceReader: usdc and escrow as numbers", async () => {
-  const client = { readContract: async ({ functionName }) => (functionName === "balanceOf" ? 8_760_000n : 50_000n) };
-  assert.deepEqual(await makeBalanceReader("0xabc", client)(), { usdc: 8_760_000, escrow: 50_000 });
+const client = { readContract: async () => 8_760_000n };
+const ledger = (body, seen = []) => async (url) => { seen.push(url); return { ok: true, json: async () => body }; };
+
+test("makeBalanceReader: wallet usdc from the chain, escrow = the node ledger's `available` (what asks may spend)", async () => {
+  const seen = [];
+  const read = makeBalanceReader("0xABC", client, ledger({ balance: "2000000", unbilled: "10000", available: "1990000" }, seen));
+  assert.deepEqual(await read(), { usdc: 8_760_000, escrow: 1_990_000 });
+  assert.match(seen[0], /\/v1\/ledger\/account\/0xabc$/);
 });
 
 test("makeBalanceReader: escrow read failure → escrow null, usdc still read", async () => {
-  const client = { readContract: async ({ functionName }) => { if (functionName !== "balanceOf") throw new Error("rpc"); return 1n; } };
-  assert.deepEqual(await makeBalanceReader("0xabc", client)(), { usdc: 1, escrow: null });
+  const down = async () => { throw new Error("node down"); };
+  assert.deepEqual(await makeBalanceReader("0xabc", client, down)(), { usdc: 8_760_000, escrow: null });
+  const bad = async () => ({ ok: false, json: async () => ({}) });
+  assert.deepEqual(await makeBalanceReader("0xabc", client, bad)(), { usdc: 8_760_000, escrow: null });
 });

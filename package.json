@@ -7,6 +7,7 @@
     "test": "node --test",
     "wallet": "node wallet.mjs",
     "mint": "node --env-file=.env mint.mjs",
+    "deposit": "node --env-file=.env deposit.mjs",
     "ask": "node --env-file=.env ask.mjs",
     "check": "node --env-file=.env check.mjs",
     "dev": "next dev",

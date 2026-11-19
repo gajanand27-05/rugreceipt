@@ -17,6 +17,12 @@ test("receiptUrl: Sepolia Etherscan tx link only when the receipt has a tx hash"
   assert.equal(receiptUrl({ receipt: null }), null);
 });
 
+test("receiptUrl: an escrow receipt (no tx) links to its delivery proof in the epoch block", () => {
+  assert.equal(receiptUrl({ receipt: { rail: "escrow", receipt_hash: "0xrh", epoch_id: 20 } }),
+    "https://devnode.telegraphprotocol.com/v1/blocks/20/deliveries/0xrh");
+  assert.equal(receiptUrl({ receipt: { receipt_hash: "0xrh" } }), null);
+});
+
 test("verdictTone", () => {
   assert.equal(verdictTone("LIST"), "ok");
   assert.equal(verdictTone("CAUTION"), "warn");

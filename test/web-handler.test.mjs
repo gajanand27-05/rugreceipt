@@ -82,6 +82,19 @@ test("wallet too low: refuse before paying", async () => {
   assert.match(msg.message, /test USDC/);
 });
 
+test("escrow rail: refuse when escrow available is under one full check + the margin (ledger may lag this epoch)", async () => {
+  // need = $0.04 (4 paid checks) + $0.05 margin = $0.09
+  const low = makeDeps({ rail: "escrow", readBalances: async () => ({ usdc: 9_000_000, escrow: 80_000 }) }).deps;
+  const [msg] = await readAll(handleCheck({ token: PEPE }, "1.1.1.1", low));
+  assert.equal(msg.type, "error");
+  assert.equal(msg.charged, false);
+  assert.match(msg.message, /escrow/);
+  const ok = makeDeps({ rail: "escrow", readBalances: async () => ({ usdc: 0, escrow: 90_000 }) }).deps;
+  assert.equal((await readAll(handleCheck({ token: PEPE }, "1.1.1.1", ok))).at(-1).type, "done");
+  const unknown = makeDeps({ rail: "escrow", readBalances: async () => ({ usdc: 0, escrow: null }) }).deps;
+  assert.equal((await readAll(handleCheck({ token: PEPE }, "1.1.1.1", unknown))).at(-1).type, "done");
+});
+
 test("balance read fails: continue (the engine still caps every payment)", async () => {
   const { deps } = makeDeps({ readBalances: async () => { throw new Error("rpc"); } });
   const msgs = await readAll(handleCheck({ token: PEPE }, "1.1.1.1", deps));

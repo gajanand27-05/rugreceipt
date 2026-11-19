@@ -29,7 +29,7 @@ export default function ReportView({ token, name, rows, report, running }) {
                 <td>{r.miner ?? (r.source === "telegraph" ? "-" : r.source)}</td>
                 <td>{costText(r)}</td>
                 <td>{markFor(r)}</td>
-                <td>{receiptUrl(r) ? <a href={receiptUrl(r)} target="_blank" rel="noreferrer">tx</a> : "-"}</td>
+                <td>{receiptUrl(r) ? <a href={receiptUrl(r)} target="_blank" rel="noreferrer">{r.receipt?.tx_hash ? "tx" : "receipt"}</a> : "-"}</td>
               </tr>
             ))}
           </tbody>

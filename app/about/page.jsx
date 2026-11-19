@@ -32,9 +32,11 @@ export default function About() {
         <li><b>✗ no answer</b>: the provider failed or timed out (45 s). Never shown as a made-up value.</li>
       </ul>
       <h2>Costs and receipts</h2>
-      <p>Every paid row links to its on-chain settlement on Sepolia Etherscan. The total on the report comes only from receipts.
-        "Cost unknown" means a paid request failed without a receipt: Telegraph credits such a payment to the payer's escrow balance,
-        and a request that returns an answer saying "insufficient data" is still billed. We never retry a paid check automatically,
+      <p>Every paid row links to its receipt. The demo pays from a Telegraph escrow deposit, so each receipt is proven in that
+        epoch's ledger block (the link works once the block is recorded, up to about an hour); the older per-call x402 rail
+        linked a settlement on Sepolia Etherscan. The total on the report comes only from receipts. On escrow a failed request
+        is never billed. "Cost unknown" means the request timed out, so we cannot tell whether it was served and billed.
+        A request that returns an answer saying "insufficient data" is still billed. We never retry a paid check automatically,
         because we cannot tell whether a failed attempt was charged.</p>
       <h2>What we don't check</h2>
       <ul>

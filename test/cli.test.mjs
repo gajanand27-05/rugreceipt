@@ -67,5 +67,5 @@ test("costText: free, skipped, receipt amount, or 'cost unknown' (never $0.00 fo
 test("totalLine: from receipts only, and says so when a cost is unknown", () => {
   assert.equal(totalLine({ totalCostUusdc: 40000, paidCount: 4, costUnknownCount: 0 }), "Total: $0.04 test USDC · 4 receipts");
   assert.equal(totalLine({ totalCostUusdc: 30000, paidCount: 3, costUnknownCount: 1 }),
-    "Total: $0.03 test USDC · 3 receipts · 1 check with cost unknown (no receipt; a failed paid request is credited to escrow)");
+    "Total: $0.03 test USDC · 3 receipts · 1 check with cost unknown (no receipt; it may still have been billed)");
 });
