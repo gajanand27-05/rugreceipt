@@ -1,0 +1,378 @@
+{
+  "request": {
+    "intent": "CRYPTO_PRICE_USD",
+    "params": {
+      "symbol": "BTC"
+    }
+  },
+  "rail": "escrow",
+  "status": 200,
+  "answer": {
+    "miner_id": "4433",
+    "miner_name": "LiveCert — Sourced Answers for Agents",
+    "endpoint": "/crypto-price",
+    "result": {
+      "price_usd": 62897.98
+    },
+    "result_shape": "intent",
+    "format_version": 1,
+    "field_status": {
+      "price_usd": "ok"
+    },
+    "input": {
+      "symbol": "BTC"
+    },
+    "input_schema_version": 3,
+    "cost_usd": 0.01,
+    "duration_ms": 835,
+    "timestamp": "2026-11-19T15:38:13.317384214Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: input schema v3 mapped in code to GET /crypto-price",
+    "intent": "CRYPTO_PRICE_USD",
+    "intent_version": 1,
+    "signal_hash": "0x839696e5a88a5c6961f0fd9e7f97bbf6771a9e89357e150b66776556637b836c",
+    "cost_usd_total": 0.01,
+    "delivery": "ranked_fallback",
+    "served_rank": 2,
+    "sources": [
+      {
+        "miner": "livecert",
+        "intent": "CRYPTO_PRICE_USD"
+      }
+    ],
+    "findings": {
+      "items": [
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "Bitcoin (BTC) is $62,897.98 USD, the last Bitstamp trade at 2026-11-19 15:38:12 UTC.",
+          "name": "answer",
+          "path": "$.answer",
+          "type": "string",
+          "value": "Bitcoin (BTC) is $62,897.98 USD, the last Bitstamp trade at 2026-11-19 15:38:12 UTC."
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "62888.01",
+          "name": "ask",
+          "path": "$.ask",
+          "type": "number",
+          "value": 62888.01
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "Bitcoin",
+          "name": "asset",
+          "path": "$.asset",
+          "type": "string",
+          "value": "Bitcoin"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "62888",
+          "name": "bid",
+          "path": "$.bid",
+          "type": "integer",
+          "value": 62888
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "2026-11-19T15:38:13.212Z",
+          "name": "checked_at",
+          "path": "$.checked_at",
+          "type": "date",
+          "value": "2026-11-19T15:38:13.212Z"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "0.9",
+          "name": "confidence",
+          "path": "$.confidence",
+          "type": "number",
+          "value": 0.9
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "conditional",
+          "name": "endpoint_status",
+          "path": "$.licensing.endpoint_status",
+          "type": "string",
+          "value": "conditional"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "/sources",
+          "name": "ledger",
+          "path": "$.licensing.ledger",
+          "type": "string",
+          "value": "/sources"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "[\"European Central Bank data are available free of charge at https://www.ecb.europa.eu.\"]",
+          "name": "notices",
+          "path": "$.licensing.notices",
+          "type": "list",
+          "value": [
+            "European Central Bank data are available free of charge at https://www.ecb.europa.eu."
+          ]
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "Bitstamp",
+          "name": "source",
+          "path": "$.licensing.upstreams[0].source",
+          "type": "string",
+          "value": "Bitstamp"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "conditional",
+          "name": "status",
+          "path": "$.licensing.upstreams[0].status",
+          "type": "string",
+          "value": "conditional"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "Coinbase",
+          "name": "source",
+          "path": "$.licensing.upstreams[1].source",
+          "type": "string",
+          "value": "Coinbase"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "barred",
+          "name": "status",
+          "path": "$.licensing.upstreams[1].status",
+          "type": "string",
+          "value": "barred"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "European Central Bank",
+          "name": "source",
+          "path": "$.licensing.upstreams[2].source",
+          "type": "string",
+          "value": "European Central Bank"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "Frankfurter",
+          "name": "source",
+          "path": "$.licensing.upstreams[3].source",
+          "type": "string",
+          "value": "Frankfurter"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "licensed",
+          "name": "status",
+          "path": "$.licensing.upstreams[3].status",
+          "type": "string",
+          "value": "licensed"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "62897.98",
+          "name": "price",
+          "path": "$.price",
+          "type": "number",
+          "value": 62897.98
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "2026-11-19T15:38:12.000Z",
+          "name": "price_at",
+          "path": "$.price_at",
+          "type": "date",
+          "value": "2026-11-19T15:38:12.000Z"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "62897.98",
+          "name": "price_usd",
+          "path": "$.price_usd",
+          "type": "number",
+          "value": 62897.98
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "USD",
+          "name": "quote",
+          "path": "$.quote",
+          "type": "string",
+          "value": "USD"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "Bitcoin (BTC) is $62,897.98 USD, the last Bitstamp trade at 2026-11-19 15:38:12 UTC. This is a live market quote from one exchange and moves between reads.",
+          "name": "reason",
+          "path": "$.reason",
+          "type": "string",
+          "value": "Bitcoin (BTC) is $62,897.98 USD, the last Bitstamp trade at 2026-11-19 15:38:12 UTC. This is a live market quote from one exchange and moves between reads."
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "2026-11-19T15:38:13.212Z",
+          "name": "answered_at",
+          "path": "$.receipt.answered_at",
+          "type": "date",
+          "value": "2026-11-19T15:38:13.212Z"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "miner-n0lo5k8w7-wukong4.vercel.app",
+          "name": "deployment",
+          "path": "$.receipt.deployment",
+          "type": "string",
+          "value": "miner-n0lo5k8w7-wukong4.vercel.app"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "false",
+          "name": "from_cache",
+          "path": "$.receipt.from_cache",
+          "type": "bool",
+          "value": false
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "140c5353-5e5a-449f-92b5-731d901b19c2",
+          "name": "id",
+          "path": "$.receipt.id",
+          "type": "string",
+          "value": "140c5353-5e5a-449f-92b5-731d901b19c2"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "GET",
+          "name": "method",
+          "path": "$.receipt.upstream[0].method",
+          "type": "string",
+          "value": "GET"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "13",
+          "name": "ms",
+          "path": "$.receipt.upstream[0].ms",
+          "type": "integer",
+          "value": 13
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "2026-11-19T15:38:13.198Z",
+          "name": "started_at",
+          "path": "$.receipt.upstream[0].started_at",
+          "type": "date",
+          "value": "2026-11-19T15:38:13.198Z"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "200",
+          "name": "status",
+          "path": "$.receipt.upstream[0].status",
+          "type": "integer",
+          "value": 200
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "https://www.bitstamp.net/api/v2/ticker/btcusd/",
+          "name": "url",
+          "path": "$.receipt.upstream[0].url",
+          "type": "url",
+          "value": "https://www.bitstamp.net/api/v2/ticker/btcusd/"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "BTC",
+          "name": "symbol",
+          "path": "$.symbol",
+          "type": "string",
+          "value": "BTC"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "price",
+          "name": "verdict",
+          "path": "$.verdict",
+          "type": "string",
+          "value": "price"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "1171.56370616",
+          "name": "volume_24h",
+          "path": "$.volume_24h",
+          "type": "number",
+          "value": 1171.56370616
+        },
+        {
+          "basis": "provider_reported",
+          "currency": "USD",
+          "delivery": "ranked_fallback",
+          "evidence": "Bitcoin (BTC) is $62,897.98 USD, the last Bitstamp trade at 2026-11-19 15:38:12 UTC.",
+          "name": "amount",
+          "path": "$.answer",
+          "type": "money",
+          "value": 62897.98
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "ranked_fallback",
+          "evidence": "https://www.ecb.europa.eu.",
+          "name": "url",
+          "path": "$.licensing.notices",
+          "type": "url",
+          "value": "https://www.ecb.europa.eu"
+        }
+      ],
+      "raw_sha256": "a678ba68b19c0a8a2a8156580ad39318676f125a1b97e72b33ef2ba1c901b1ae"
+    }
+  },
+  "receipt": {
+    "receipt_hash": "0xe5b5c345b92a097b208852c66af775d98ba5e6da41dce43d043bf63d77587356",
+    "rail": "escrow",
+    "payer": "0x7d4388962ed6bb057dcb975d8aaf1e3746a2afe7",
+    "miner": "6126",
+    "intent": "CRYPTO_PRICE_USD",
+    "amount_uusdc": "10000",
+    "epoch_id": 18,
+    "settlement": "epoch",
+    "chain": "telegraph",
+    "timestamp": 1795102693
+  }
+}
