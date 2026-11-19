@@ -1,0 +1,15 @@
+{
+  "request": {
+    "intent": "CRYPTO_PRICE_USD",
+    "params": {
+      "symbol": "BTC"
+    }
+  },
+  "status": 402,
+  "answer": {
+    "error": "payment required",
+    "hint": "the payment was verified but could not be settled — this is usually the facilitator, not your signature. Retry; if it persists, report the reason above.",
+    "reason": "settlement failed: settle request failed: Post \"https://facilitator.x402.rs/settle\": context deadline exceeded"
+  },
+  "receipt": null
+}
