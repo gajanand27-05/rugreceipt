@@ -83,6 +83,27 @@ Requests to Telegraph are public, so don't put private data in them.
 - Right after a deposit the node may still refuse a request for "insufficient escrow" for a few minutes (seen 19 Nov); nothing is charged.
 - Not checked: owner mint functions, unlocked liquidity, proxy upgrades.
 
+### Provider notes: sanctions miners (free test, 19 Nov 2026)
+
+Three keyless sanctions miners, called directly (not through Telegraph routing), one request each, against the OFAC SDN
+file of 18 Nov (`Last-Modified: Wed, 18 Nov 2026 17:35:53 GMT`). Raw responses: `evidence/sanctions-compare-2026-11-19T13-34-09-277Z.json`.
+
+| Input | OFAC SDN (reference) | Miner 302 | Miner 64175 | Miner 5289 |
+|---|---|---|---|---|
+| `0x098B…2f96` (ETH) | listed: LAZARUS GROUP, entry 27307 | match, LAZARUS GROUP | match, LAZARUS GROUP | match, LAZARUS GROUP |
+| Rosneft Oil Company | listed: entry 17022 | match | match | match |
+| `0xd8dA…6045` (vitalik.eth) | not listed | clear | clear | clear |
+| Microsoft | not listed | clear | clear | clear |
+| Tether | no entry with that name (word appears in ABAN TETHER EXCHANGE) | match: ABAN TETHER EXCHANGE | clear | clear |
+| Capital | no entry with that name (word in 59 names) | match: MARSHALL CAPITAL PARTNERS | clear | clear |
+| Phoenix | no exact entry (vessel PHOENIX I, entry 52687) | match: GOLDEN PHOENIX | possible: PHOENIX I (score 0.875) | possible: PHOENIX I (score 0.75) |
+| Diana | vessel DIANA, entry 56644 | match: a person "TORO DIAZ, Diana Lorena" | match: vessel DIANA (1.0) | match: vessel DIANA (1.0) |
+| Latency (8 calls) | | 1.0-3.7 s | 0.6-2.1 s | 0.7-2.9 s |
+
+All three are right on the listed address, the listed company and the two clean inputs. They differ on one-word names,
+which is why RugReceipt treats a one-word hit as "possible match" (CAUTION, a human judges) and only a multi-word,
+whole-word OFAC match as REJECT.
+
 ### What the missions measure
 
 - **Cost per decision:** $0.04 (receipts only; $0.05 with a name).

@@ -1,0 +1,398 @@
+{
+  "ranAt": "2026-11-19T13:34:09.279Z",
+  "sdnLastModified": "Wed, 18 Nov 2026 17:35:53 GMT",
+  "sdnRows": 19571,
+  "miners": [
+    {
+      "id": "302",
+      "operator": "Bsh54"
+    },
+    {
+      "id": "64175",
+      "operator": "fexx301"
+    },
+    {
+      "id": "5289",
+      "operator": "VishAlgoDev (praman-desk)"
+    }
+  ],
+  "results": [
+    {
+      "input": "0x098B716B8Aaf21512996dC57EB0615e2383E2f96",
+      "note": "Lazarus Group ETH address (SDN entry 27307)",
+      "miner": "302",
+      "url": "https://hub.shadrakbessanh.me/sanctions?optional=map%5Bname%3A0x098B716B8Aaf21512996dC57EB0615e2383E2f96%5D",
+      "status": 200,
+      "ms": 2528,
+      "matched": true,
+      "matchedName": "LAZARUS GROUP",
+      "error": null,
+      "raw": "{\"signal\":\"The entity \\\"0x098B716B8Aaf21512996dC57EB0615e2383E2f96\\\" appears on the U.S. Treasury OFAC Specially Designated Nationals (SDN) list: it closely matches \\\"LAZARUS GROUP\\\" under the DPRK3 program. As a designated party it is subject to U.S. sanctions, its assets are blocked, and U.S. persons are generally prohibited from dealing with it.\",\"answer\":\"The entity \\\"0x098B716B8Aaf21512996dC57EB0615e2383E2f96\\\" appears on the U.S. Treasury OFAC Specially Designated Nationals (SDN) list: it closely matches \\\"LAZARUS GROUP\\\" under the DPRK3 program. As a designated party it is subject to U.S. sanctions, its assets are blocked, and U.S. persons are generally prohibited from dealing with it.\",\"match\":true,\"entity\":\"0x098B716B8Aaf21512996dC57EB0615e2383E2f96\",\"matched_name\":\"LAZARUS GROUP\",\"program\":\"DPRK3\",\"source\":\"ofac-sdn\"}"
+    },
+    {
+      "input": "0x098B716B8Aaf21512996dC57EB0615e2383E2f96",
+      "note": "Lazarus Group ETH address (SDN entry 27307)",
+      "miner": "64175",
+      "url": "https://ngrgakvwtxioa2kkdllvhn5pza0fxqcb.lambda-url.eu-north-1.on.aws/screen?name=0x098B716B8Aaf21512996dC57EB0615e2383E2f96",
+      "status": 200,
+      "ms": 1905,
+      "matched": true,
+      "matchedName": "LAZARUS GROUP",
+      "error": null,
+      "raw": "{\"name\": \"0x098B716B8Aaf21512996dC57EB0615e2383E2f96\", \"matched\": true, \"match_score\": 1.0, \"matches\": [{\"list\": \"OFAC SDN\", \"id\": \"27307\", \"name\": \"LAZARUS GROUP\", \"type\": \"entity\", \"programs\": [\"DPRK3\"], \"matched_on\": \"wallet address\", \"score\": 1.0}], \"lists\": [{\"list\": \"OFAC SDN\", \"source\": \"https://sanctionslistservice.ofac.treas.gov/api/publicationpreview/exports/sdn.csv\", \"published\": \"Wed, 18 Nov 2026 17:35:53 GMT\", \"captured_at\": \"2026-11-19T06:15:21Z\"}, {\"list\": \"OFAC Consolidated (non-SDN)\", \"source\": \"https://sanctionslistservice.ofac.treas.gov/api/publicationpreview/exports/cons_prim.csv\", \"published\": \"Wed, 18 Nov 2026 17:35:53 GMT\", \"captured_at\": \"2026-11-19T06:15:25Z\"}, {\"list\": \"UN Security Council Consolidated\", \"source\": \"https://scsanctions.un.org/resources/xml/en/consolidated.xml\", \"published\": \"2026-11-19T00:00:03.388Z\", \"captured_at\": \"2026-11-19T06:15:28Z\"}, {\"list\": \"EU Consolidated Financial Sanctions\", \"source\": \"https://webgate.ec.europa.eu/fsd/fsf/public/files/csvFullSanctionsList_1_1/content\", \"published\": \"23/10/2026\", \"captured_at\": \"2026-11-19T06:15:34Z\"}], \"query_type\": \"wallet\", \"summary\": \"Match: \\\"0x098B716B8Aaf21512996dC57EB0615e2383E2f96\\\" matches listed \\\"LAZARUS GROUP\\\" via \\\"wallet address\\\" (entity) on OFAC SDN, score 1.00, programs DPRK3. Checked: OFAC SDN (published 2026-11-18); OFAC Consolidated (non-SDN) (published 2026-11-18); UN Security Council Consolidated (published 2026-11-19); EU Consolidated Financial Sanctions (published 2026-10-23). A name match needs identity review before acting.\", \"confidence\": 1.0}"
+    },
+    {
+      "input": "0x098B716B8Aaf21512996dC57EB0615e2383E2f96",
+      "note": "Lazarus Group ETH address (SDN entry 27307)",
+      "miner": "5289",
+      "url": "https://praman-desk.vercel.app/api/miner/sanctions-screen?name=0x098B716B8Aaf21512996dC57EB0615e2383E2f96",
+      "status": 200,
+      "ms": 2912,
+      "matched": true,
+      "matchedName": "LAZARUS GROUP",
+      "error": null,
+      "raw": "{\n  \"screened\": true,\n  \"name\": \"0x098B716B8Aaf21512996dC57EB0615e2383E2f96\",\n  \"matched\": true,\n  \"matches\": [\n    {\n      \"sdn_uid\": \"27307\",\n      \"matched_name\": \"LAZARUS GROUP\",\n      \"match_type\": \"Entity\",\n      \"programs\": \"DPRK3\",\n      \"similarity_score\": 1,\n      \"matched_via\": \"digital_currency_address\",\n      \"matched_address\": \"0x098b716b8aaf21512996dc57eb0615e2383e2f96\",\n      \"matched_alias\": null\n    }\n  ],\n  \"lists\": [\n    \"US Treasury OFAC SDN (Names + Digital Currency Addresses)\"\n  ],\n  \"match_score\": 1,\n  \"query_name\": \"0x098B716B8Aaf21512996dC57EB0615e2383E2f96\",\n  \"match_found\": true,\n  \"match_count\": 1,\n  \"sdn_list_size\": 19565,\n  \"sdn_evm_address_count\": 127,\n  \"sdn_last_loaded\": \"2026-11-15T18:26:30.134Z\",\n  \"source\": \"US Treasury OFAC SDN List (treasury.gov/ofac)\",\n  \"source_url\": \"https://sanctionssearch.ofac.treas.gov/\",\n  \"summary\": \"Exact OFAC SDN digital currency address match for 0x098B716B8Aaf21512996dC57EB0615e2383E2f96 -> LAZARUS GROUP (UID 27307, program: DPRK3).\",\n  \"verdict\": \"SANCTIONED\",\n  \"explanation\": \"Exact OFAC SDN digital currency address match for 0x098B716B8Aaf21512996dC57EB0615e2383E2f96 -> LAZARUS GROUP (UID 27307, program: DPRK3).\",\n  \"reason\": \"Exact OFAC SDN digital currency address match for 0x098B716B8Aaf21512996dC57EB0615e2383E2f96 -> LAZARUS GROUP (UID 27307, program: DPRK3).\",\n  \"answer\": \"Exact OFAC SDN digital currency address match for 0x098B716B8Aaf21512996dC57EB0615e2383E2f96 -> LAZARUS GROUP (UID 27307, program: DPRK3).\",\n  \"results\": [\n    \"Exact OFAC SDN digital currency address match for 0x098B716B8Aaf21512996dC57EB0615e2383E2f96 -> LAZARUS GROUP (UID 27307, program: DPRK3).\"\n  ],\n  \"confidence\": 1,\n  \"intent\": \"SANCTIONS_SCREENING_MATCH_GENERAL\",\n  \"schema_version\": 1,\n  \"as_of\": \"2026-11-19T13:32:52.902Z\"\n}"
+    },
+    {
+      "input": "0x098B716B8Aaf21512996dC57EB0615e2383E2f96",
+      "reference": {
+        "listed": true,
+        "entry": "27307",
+        "name": "LAZARUS GROUP",
+        "program": "DPRK3"
+      }
+    },
+    {
+      "input": "Rosneft Oil Company",
+      "note": "SDN entry 17022",
+      "miner": "302",
+      "url": "https://hub.shadrakbessanh.me/sanctions?optional=map%5Bname%3ARosneft%20Oil%20Company%5D",
+      "status": 200,
+      "ms": 2740,
+      "matched": true,
+      "matchedName": "OPEN JOINT-STOCK COMPANY ROSNEFT OIL COMPANY",
+      "error": null,
+      "raw": "{\"signal\":\"The entity \\\"Rosneft Oil Company\\\" appears on the U.S. Treasury OFAC Specially Designated Nationals (SDN) list: it closely matches \\\"OPEN JOINT-STOCK COMPANY ROSNEFT OIL COMPANY\\\" under the UKRAINE-EO13662, RUSSIA-EO14024 program. As a designated party it is subject to U.S. sanctions, its assets are blocked, and U.S. persons are generally prohibited from dealing with it.\",\"answer\":\"The entity \\\"Rosneft Oil Company\\\" appears on the U.S. Treasury OFAC Specially Designated Nationals (SDN) list: it closely matches \\\"OPEN JOINT-STOCK COMPANY ROSNEFT OIL COMPANY\\\" under the UKRAINE-EO13662, RUSSIA-EO14024 program. As a designated party it is subject to U.S. sanctions, its assets are blocked, and U.S. persons are generally prohibited from dealing with it.\",\"match\":true,\"entity\":\"Rosneft Oil Company\",\"matched_name\":\"OPEN JOINT-STOCK COMPANY ROSNEFT OIL COMPANY\",\"program\":\"UKRAINE-EO13662, RUSSIA-EO14024\",\"source\":\"ofac-sdn\"}"
+    },
+    {
+      "input": "Rosneft Oil Company",
+      "note": "SDN entry 17022",
+      "miner": "64175",
+      "url": "https://ngrgakvwtxioa2kkdllvhn5pza0fxqcb.lambda-url.eu-north-1.on.aws/screen?name=Rosneft%20Oil%20Company",
+      "status": 200,
+      "ms": 642,
+      "matched": true,
+      "matchedName": "OPEN JOINT-STOCK COMPANY ROSNEFT OIL COMPANY",
+      "error": null,
+      "raw": "{\"name\": \"Rosneft Oil Company\", \"matched\": true, \"match_score\": 1.0, \"matches\": [{\"list\": \"OFAC SDN\", \"id\": \"17022\", \"name\": \"OPEN JOINT-STOCK COMPANY ROSNEFT OIL COMPANY\", \"type\": \"entity\", \"programs\": [\"UKRAINE-EO13662\", \"RUSSIA-EO14024\"], \"matched_on\": \"OJSC ROSNEFT OIL COMPANY\", \"score\": 1.0}, {\"list\": \"OFAC Consolidated (non-SDN)\", \"id\": \"17022\", \"name\": \"OPEN JOINT-STOCK COMPANY ROSNEFT OIL COMPANY\", \"type\": \"entity\", \"programs\": [\"UKRAINE-EO13662\", \"RUSSIA-EO14024\"], \"matched_on\": \"OJSC ROSNEFT OIL COMPANY\", \"score\": 1.0}], \"lists\": [{\"list\": \"OFAC SDN\", \"source\": \"https://sanctionslistservice.ofac.treas.gov/api/publicationpreview/exports/sdn.csv\", \"published\": \"Wed, 18 Nov 2026 17:35:53 GMT\", \"captured_at\": \"2026-11-19T06:15:21Z\"}, {\"list\": \"OFAC Consolidated (non-SDN)\", \"source\": \"https://sanctionslistservice.ofac.treas.gov/api/publicationpreview/exports/cons_prim.csv\", \"published\": \"Wed, 18 Nov 2026 17:35:53 GMT\", \"captured_at\": \"2026-11-19T06:15:25Z\"}, {\"list\": \"UN Security Council Consolidated\", \"source\": \"https://scsanctions.un.org/resources/xml/en/consolidated.xml\", \"published\": \"2026-11-19T00:00:03.388Z\", \"captured_at\": \"2026-11-19T06:15:28Z\"}, {\"list\": \"EU Consolidated Financial Sanctions\", \"source\": \"https://webgate.ec.europa.eu/fsd/fsf/public/files/csvFullSanctionsList_1_1/content\", \"published\": \"23/10/2026\", \"captured_at\": \"2026-11-19T06:15:34Z\"}], \"query_type\": \"name\", \"summary\": \"Match: \\\"Rosneft Oil Company\\\" matches listed \\\"OPEN JOINT-STOCK COMPANY ROSNEFT OIL COMPANY\\\" via \\\"OJSC ROSNEFT OIL COMPANY\\\" (entity) on OFAC SDN, score 1.00, programs UKRAINE-EO13662, RUSSIA-EO14024. Checked: OFAC SDN (published 2026-11-18); OFAC Consolidated (non-SDN) (published 2026-11-18); UN Security Council Consolidated (published 2026-11-19); EU Consolidated Financial Sanctions (published 2026-10-23). A name match needs identity review before acting.\", \"confidence\": 1.0}"
+    },
+    {
+      "input": "Rosneft Oil Company",
+      "note": "SDN entry 17022",
+      "miner": "5289",
+      "url": "https://praman-desk.vercel.app/api/miner/sanctions-screen?name=Rosneft%20Oil%20Company",
+      "status": 200,
+      "ms": 1241,
+      "matched": true,
+      "matchedName": "OPEN JOINT-STOCK COMPANY ROSNEFT OIL COMPANY",
+      "error": null,
+      "raw": "{\n  \"screened\": true,\n  \"name\": \"Rosneft Oil Company\",\n  \"matched\": true,\n  \"matches\": [\n    {\n      \"sdn_uid\": \"17022\",\n      \"matched_name\": \"OPEN JOINT-STOCK COMPANY ROSNEFT OIL COMPANY\",\n      \"match_type\": \"Entity\",\n      \"programs\": \"UKRAINE-EO13662] [RUSSIA-EO14024\",\n      \"similarity_score\": 1,\n      \"matched_via\": \"alias\",\n      \"matched_alias\": \"ROSNEFT OIL COMPANY\"\n    }\n  ],\n  \"lists\": [\n    \"US Treasury OFAC SDN\"\n  ],\n  \"match_score\": 1,\n  \"query_name\": \"Rosneft Oil Company\",\n  \"match_found\": true,\n  \"match_count\": 1,\n  \"sdn_list_size\": 19565,\n  \"sdn_last_loaded\": \"2026-11-15T18:26:30.134Z\",\n  \"source\": \"US Treasury OFAC SDN List (treasury.gov/ofac)\",\n  \"source_url\": \"https://sanctionssearch.ofac.treas.gov/\",\n  \"summary\": \"1 potential OFAC SDN match(es) for \\\"Rosneft Oil Company\\\". Top: OPEN JOINT-STOCK COMPANY ROSNEFT OIL COMPANY (score: 1, program: UKRAINE-EO13662] [RUSSIA-EO14024).\",\n  \"verdict\": \"SANCTIONED\",\n  \"explanation\": \"1 potential OFAC SDN match(es) for \\\"Rosneft Oil Company\\\". Top: OPEN JOINT-STOCK COMPANY ROSNEFT OIL COMPANY (score: 1, program: UKRAINE-EO13662] [RUSSIA-EO14024).\",\n  \"reason\": \"1 potential OFAC SDN match(es) for \\\"Rosneft Oil Company\\\". Top: OPEN JOINT-STOCK COMPANY ROSNEFT OIL COMPANY (score: 1, program: UKRAINE-EO13662] [RUSSIA-EO14024).\",\n  \"answer\": \"1 potential OFAC SDN match(es) for \\\"Rosneft Oil Company\\\". Top: OPEN JOINT-STOCK COMPANY ROSNEFT OIL COMPANY (score: 1, program: UKRAINE-EO13662] [RUSSIA-EO14024).\",\n  \"results\": [\n    \"1 potential OFAC SDN match(es) for \\\"Rosneft Oil Company\\\". Top: OPEN JOINT-STOCK COMPANY ROSNEFT OIL COMPANY (score: 1, program: UKRAINE-EO13662] [RUSSIA-EO14024).\"\n  ],\n  \"confidence\": 1,\n  \"intent\": \"SANCTIONS_SCREENING_MATCH_GENERAL\",\n  \"schema_version\": 1,\n  \"as_of\": \"2026-11-19T13:33:03.580Z\"\n}"
+    },
+    {
+      "input": "Rosneft Oil Company",
+      "reference": {
+        "listed": true,
+        "exact": null,
+        "wholeWordContainingCount": 1,
+        "examples": [
+          "OPEN JOINT-STOCK COMPANY ROSNEFT OIL COMPANY (17022)"
+        ]
+      }
+    },
+    {
+      "input": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+      "note": "vitalik.eth (expected clean)",
+      "miner": "302",
+      "url": "https://hub.shadrakbessanh.me/sanctions?optional=map%5Bname%3A0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045%5D",
+      "status": 200,
+      "ms": 1000,
+      "matched": false,
+      "matchedName": null,
+      "error": null,
+      "raw": "{\"signal\":\"No match for \\\"0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045\\\" was found on the U.S. Treasury OFAC Specially Designated Nationals (SDN) list, the primary U.S. sanctions list. Based on this screening \\\"0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045\\\" does not appear to be a currently OFAC-designated party; this screening covers the OFAC SDN list and not every global watchlist.\",\"answer\":\"No match for \\\"0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045\\\" was found on the U.S. Treasury OFAC Specially Designated Nationals (SDN) list, the primary U.S. sanctions list. Based on this screening \\\"0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045\\\" does not appear to be a currently OFAC-designated party; this screening covers the OFAC SDN list and not every global watchlist.\",\"match\":false,\"entity\":\"0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045\",\"source\":\"ofac-sdn\"}"
+    },
+    {
+      "input": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+      "note": "vitalik.eth (expected clean)",
+      "miner": "64175",
+      "url": "https://ngrgakvwtxioa2kkdllvhn5pza0fxqcb.lambda-url.eu-north-1.on.aws/screen?name=0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+      "status": 200,
+      "ms": 715,
+      "matched": false,
+      "matchedName": null,
+      "error": null,
+      "raw": "{\"name\": \"0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045\", \"matched\": false, \"match_score\": 0.0, \"matches\": [], \"lists\": [{\"list\": \"OFAC SDN\", \"source\": \"https://sanctionslistservice.ofac.treas.gov/api/publicationpreview/exports/sdn.csv\", \"published\": \"Wed, 18 Nov 2026 17:35:53 GMT\", \"captured_at\": \"2026-11-19T06:15:21Z\"}, {\"list\": \"OFAC Consolidated (non-SDN)\", \"source\": \"https://sanctionslistservice.ofac.treas.gov/api/publicationpreview/exports/cons_prim.csv\", \"published\": \"Wed, 18 Nov 2026 17:35:53 GMT\", \"captured_at\": \"2026-11-19T06:15:25Z\"}, {\"list\": \"UN Security Council Consolidated\", \"source\": \"https://scsanctions.un.org/resources/xml/en/consolidated.xml\", \"published\": \"2026-11-19T00:00:03.388Z\", \"captured_at\": \"2026-11-19T06:15:28Z\"}, {\"list\": \"EU Consolidated Financial Sanctions\", \"source\": \"https://webgate.ec.europa.eu/fsd/fsf/public/files/csvFullSanctionsList_1_1/content\", \"published\": \"23/10/2026\", \"captured_at\": \"2026-11-19T06:15:34Z\"}], \"query_type\": \"wallet\", \"summary\": \"No match: \\\"0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045\\\" has no listed name or wallet at or above 0.84 (closest 0.00). Checked: OFAC SDN (published 2026-11-18); OFAC Consolidated (non-SDN) (published 2026-11-18); UN Security Council Consolidated (published 2026-11-19); EU Consolidated Financial Sanctions (published 2026-10-23). Not a clearance; UK lists are not covered.\", \"confidence\": 1.0}"
+    },
+    {
+      "input": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+      "note": "vitalik.eth (expected clean)",
+      "miner": "5289",
+      "url": "https://praman-desk.vercel.app/api/miner/sanctions-screen?name=0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+      "status": 200,
+      "ms": 717,
+      "matched": false,
+      "matchedName": null,
+      "error": null,
+      "raw": "{\n  \"screened\": true,\n  \"name\": \"0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045\",\n  \"matched\": false,\n  \"matches\": [],\n  \"lists\": [\n    \"US Treasury OFAC SDN (Names + Digital Currency Addresses)\"\n  ],\n  \"match_score\": 0,\n  \"query_name\": \"0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045\",\n  \"match_found\": false,\n  \"match_count\": 0,\n  \"sdn_list_size\": 19565,\n  \"sdn_evm_address_count\": 127,\n  \"sdn_last_loaded\": \"2026-11-15T18:26:30.134Z\",\n  \"source\": \"US Treasury OFAC SDN List (treasury.gov/ofac)\",\n  \"source_url\": \"https://sanctionssearch.ofac.treas.gov/\",\n  \"summary\": \"No OFAC SDN digital currency address match for 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 (checked 127 indexed OFAC EVM addresses).\",\n  \"verdict\": \"CLEAR\",\n  \"explanation\": \"No OFAC SDN digital currency address match for 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 (checked 127 indexed OFAC EVM addresses).\",\n  \"reason\": \"No OFAC SDN digital currency address match for 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 (checked 127 indexed OFAC EVM addresses).\",\n  \"answer\": \"No OFAC SDN digital currency address match for 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 (checked 127 indexed OFAC EVM addresses).\",\n  \"results\": [\n    \"No OFAC SDN digital currency address match for 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 (checked 127 indexed OFAC EVM addresses).\"\n  ],\n  \"confidence\": 1,\n  \"intent\": \"SANCTIONS_SCREENING_MATCH_GENERAL\",\n  \"schema_version\": 1,\n  \"as_of\": \"2026-11-19T13:33:12.013Z\"\n}"
+    },
+    {
+      "input": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+      "reference": {
+        "listed": false
+      }
+    },
+    {
+      "input": "Microsoft",
+      "note": "expected clean",
+      "miner": "302",
+      "url": "https://hub.shadrakbessanh.me/sanctions?optional=map%5Bname%3AMicrosoft%5D",
+      "status": 200,
+      "ms": 3187,
+      "matched": false,
+      "matchedName": null,
+      "error": null,
+      "raw": "{\"signal\":\"No match for \\\"Microsoft\\\" was found on the U.S. Treasury OFAC Specially Designated Nationals (SDN) list, the primary U.S. sanctions list. Based on this screening \\\"Microsoft\\\" does not appear to be a currently OFAC-designated party; this screening covers the OFAC SDN list and not every global watchlist.\",\"answer\":\"No match for \\\"Microsoft\\\" was found on the U.S. Treasury OFAC Specially Designated Nationals (SDN) list, the primary U.S. sanctions list. Based on this screening \\\"Microsoft\\\" does not appear to be a currently OFAC-designated party; this screening covers the OFAC SDN list and not every global watchlist.\",\"match\":false,\"entity\":\"Microsoft\",\"source\":\"ofac-sdn\"}"
+    },
+    {
+      "input": "Microsoft",
+      "note": "expected clean",
+      "miner": "64175",
+      "url": "https://ngrgakvwtxioa2kkdllvhn5pza0fxqcb.lambda-url.eu-north-1.on.aws/screen?name=Microsoft",
+      "status": 200,
+      "ms": 639,
+      "matched": false,
+      "matchedName": null,
+      "error": null,
+      "raw": "{\"name\": \"Microsoft\", \"matched\": false, \"match_score\": 0.0, \"matches\": [], \"lists\": [{\"list\": \"OFAC SDN\", \"source\": \"https://sanctionslistservice.ofac.treas.gov/api/publicationpreview/exports/sdn.csv\", \"published\": \"Wed, 18 Nov 2026 17:35:53 GMT\", \"captured_at\": \"2026-11-19T06:15:21Z\"}, {\"list\": \"OFAC Consolidated (non-SDN)\", \"source\": \"https://sanctionslistservice.ofac.treas.gov/api/publicationpreview/exports/cons_prim.csv\", \"published\": \"Wed, 18 Nov 2026 17:35:53 GMT\", \"captured_at\": \"2026-11-19T06:15:25Z\"}, {\"list\": \"UN Security Council Consolidated\", \"source\": \"https://scsanctions.un.org/resources/xml/en/consolidated.xml\", \"published\": \"2026-11-19T00:00:03.388Z\", \"captured_at\": \"2026-11-19T06:15:28Z\"}, {\"list\": \"EU Consolidated Financial Sanctions\", \"source\": \"https://webgate.ec.europa.eu/fsd/fsf/public/files/csvFullSanctionsList_1_1/content\", \"published\": \"23/10/2026\", \"captured_at\": \"2026-11-19T06:15:34Z\"}], \"query_type\": \"name\", \"summary\": \"No match: \\\"Microsoft\\\" has no listed name or wallet at or above 0.84 (closest 0.00). Checked: OFAC SDN (published 2026-11-18); OFAC Consolidated (non-SDN) (published 2026-11-18); UN Security Council Consolidated (published 2026-11-19); EU Consolidated Financial Sanctions (published 2026-10-23). Not a clearance; UK lists are not covered.\", \"confidence\": 1.0}"
+    },
+    {
+      "input": "Microsoft",
+      "note": "expected clean",
+      "miner": "5289",
+      "url": "https://praman-desk.vercel.app/api/miner/sanctions-screen?name=Microsoft",
+      "status": 200,
+      "ms": 1024,
+      "matched": false,
+      "matchedName": null,
+      "error": null,
+      "raw": "{\n  \"screened\": true,\n  \"name\": \"Microsoft\",\n  \"matched\": false,\n  \"matches\": [],\n  \"lists\": [\n    \"US Treasury OFAC SDN\"\n  ],\n  \"match_score\": 0,\n  \"query_name\": \"Microsoft\",\n  \"match_found\": false,\n  \"match_count\": 0,\n  \"sdn_list_size\": 19565,\n  \"sdn_last_loaded\": \"2026-11-15T18:26:30.134Z\",\n  \"source\": \"US Treasury OFAC SDN List (treasury.gov/ofac)\",\n  \"source_url\": \"https://sanctionssearch.ofac.treas.gov/\",\n  \"summary\": \"No OFAC SDN matches for \\\"Microsoft\\\" (screened against 19565 entries).\",\n  \"verdict\": \"CLEAR\",\n  \"explanation\": \"No OFAC SDN matches for \\\"Microsoft\\\" (screened against 19565 entries).\",\n  \"reason\": \"No OFAC SDN matches for \\\"Microsoft\\\" (screened against 19565 entries).\",\n  \"answer\": \"No OFAC SDN matches for \\\"Microsoft\\\" (screened against 19565 entries).\",\n  \"results\": [\n    \"No OFAC SDN matches for \\\"Microsoft\\\" (screened against 19565 entries).\"\n  ],\n  \"confidence\": 1,\n  \"intent\": \"SANCTIONS_SCREENING_MATCH_GENERAL\",\n  \"schema_version\": 1,\n  \"as_of\": \"2026-11-19T13:33:22.884Z\"\n}"
+    },
+    {
+      "input": "Microsoft",
+      "reference": {
+        "listed": false,
+        "exact": null,
+        "wholeWordContainingCount": 0,
+        "examples": []
+      }
+    },
+    {
+      "input": "Tether",
+      "note": "one-word trap",
+      "miner": "302",
+      "url": "https://hub.shadrakbessanh.me/sanctions?optional=map%5Bname%3ATether%5D",
+      "status": 200,
+      "ms": 2153,
+      "matched": true,
+      "matchedName": "ABAN TETHER EXCHANGE",
+      "error": null,
+      "raw": "{\"signal\":\"The entity \\\"Tether\\\" appears on the U.S. Treasury OFAC Specially Designated Nationals (SDN) list: it closely matches \\\"ABAN TETHER EXCHANGE\\\" under the IRAN-EO13902 program. As a designated party it is subject to U.S. sanctions, its assets are blocked, and U.S. persons are generally prohibited from dealing with it.\",\"answer\":\"The entity \\\"Tether\\\" appears on the U.S. Treasury OFAC Specially Designated Nationals (SDN) list: it closely matches \\\"ABAN TETHER EXCHANGE\\\" under the IRAN-EO13902 program. As a designated party it is subject to U.S. sanctions, its assets are blocked, and U.S. persons are generally prohibited from dealing with it.\",\"match\":true,\"entity\":\"Tether\",\"matched_name\":\"ABAN TETHER EXCHANGE\",\"program\":\"IRAN-EO13902\",\"source\":\"ofac-sdn\"}"
+    },
+    {
+      "input": "Tether",
+      "note": "one-word trap",
+      "miner": "64175",
+      "url": "https://ngrgakvwtxioa2kkdllvhn5pza0fxqcb.lambda-url.eu-north-1.on.aws/screen?name=Tether",
+      "status": 200,
+      "ms": 2070,
+      "matched": false,
+      "matchedName": null,
+      "error": null,
+      "raw": "{\"name\": \"Tether\", \"matched\": false, \"match_score\": 0.461538, \"matches\": [], \"lists\": [{\"list\": \"OFAC SDN\", \"source\": \"https://sanctionslistservice.ofac.treas.gov/api/publicationpreview/exports/sdn.csv\", \"published\": \"Wed, 18 Nov 2026 17:35:53 GMT\", \"captured_at\": \"2026-11-19T06:15:21Z\"}, {\"list\": \"OFAC Consolidated (non-SDN)\", \"source\": \"https://sanctionslistservice.ofac.treas.gov/api/publicationpreview/exports/cons_prim.csv\", \"published\": \"Wed, 18 Nov 2026 17:35:53 GMT\", \"captured_at\": \"2026-11-19T06:15:25Z\"}, {\"list\": \"UN Security Council Consolidated\", \"source\": \"https://scsanctions.un.org/resources/xml/en/consolidated.xml\", \"published\": \"2026-11-19T00:00:03.388Z\", \"captured_at\": \"2026-11-19T06:15:28Z\"}, {\"list\": \"EU Consolidated Financial Sanctions\", \"source\": \"https://webgate.ec.europa.eu/fsd/fsf/public/files/csvFullSanctionsList_1_1/content\", \"published\": \"23/10/2026\", \"captured_at\": \"2026-11-19T06:15:34Z\"}], \"query_type\": \"name\", \"closest\": {\"name\": \"ABAN TETHER EXCHANGE\", \"matched_on\": \"ABAN TETHER EXCHANGE\", \"list\": \"OFAC SDN\", \"score\": 0.461538}, \"summary\": \"No match: \\\"Tether\\\" has no listed name or wallet at or above 0.84 (closest 0.46: \\\"ABAN TETHER EXCHANGE\\\" on OFAC SDN). Checked: OFAC SDN (published 2026-11-18); OFAC Consolidated (non-SDN) (published 2026-11-18); UN Security Council Consolidated (published 2026-11-19); EU Consolidated Financial Sanctions (published 2026-10-23). Not a clearance; UK lists are not covered.\", \"confidence\": 0.538462}"
+    },
+    {
+      "input": "Tether",
+      "note": "one-word trap",
+      "miner": "5289",
+      "url": "https://praman-desk.vercel.app/api/miner/sanctions-screen?name=Tether",
+      "status": 200,
+      "ms": 791,
+      "matched": false,
+      "matchedName": null,
+      "error": null,
+      "raw": "{\n  \"screened\": true,\n  \"name\": \"Tether\",\n  \"matched\": false,\n  \"matches\": [],\n  \"lists\": [\n    \"US Treasury OFAC SDN\"\n  ],\n  \"match_score\": 0,\n  \"query_name\": \"Tether\",\n  \"match_found\": false,\n  \"match_count\": 0,\n  \"sdn_list_size\": 19565,\n  \"sdn_last_loaded\": \"2026-11-15T18:26:30.134Z\",\n  \"source\": \"US Treasury OFAC SDN List (treasury.gov/ofac)\",\n  \"source_url\": \"https://sanctionssearch.ofac.treas.gov/\",\n  \"summary\": \"No OFAC SDN matches for \\\"Tether\\\" (screened against 19565 entries).\",\n  \"verdict\": \"CLEAR\",\n  \"explanation\": \"No OFAC SDN matches for \\\"Tether\\\" (screened against 19565 entries).\",\n  \"reason\": \"No OFAC SDN matches for \\\"Tether\\\" (screened against 19565 entries).\",\n  \"answer\": \"No OFAC SDN matches for \\\"Tether\\\" (screened against 19565 entries).\",\n  \"results\": [\n    \"No OFAC SDN matches for \\\"Tether\\\" (screened against 19565 entries).\"\n  ],\n  \"confidence\": 1,\n  \"intent\": \"SANCTIONS_SCREENING_MATCH_GENERAL\",\n  \"schema_version\": 1,\n  \"as_of\": \"2026-11-19T13:33:33.952Z\"\n}"
+    },
+    {
+      "input": "Tether",
+      "reference": {
+        "listed": false,
+        "exact": null,
+        "wholeWordContainingCount": 1,
+        "examples": [
+          "ABAN TETHER EXCHANGE (58239)"
+        ]
+      }
+    },
+    {
+      "input": "Capital",
+      "note": "one-word trap",
+      "miner": "302",
+      "url": "https://hub.shadrakbessanh.me/sanctions?optional=map%5Bname%3ACapital%5D",
+      "status": 200,
+      "ms": 2857,
+      "matched": true,
+      "matchedName": "MARSHALL CAPITAL PARTNERS",
+      "error": null,
+      "raw": "{\"signal\":\"The entity \\\"Capital\\\" appears on the U.S. Treasury OFAC Specially Designated Nationals (SDN) list: it closely matches \\\"MARSHALL CAPITAL PARTNERS\\\" under the UKRAINE-EO13660 program. As a designated party it is subject to U.S. sanctions, its assets are blocked, and U.S. persons are generally prohibited from dealing with it.\",\"answer\":\"The entity \\\"Capital\\\" appears on the U.S. Treasury OFAC Specially Designated Nationals (SDN) list: it closely matches \\\"MARSHALL CAPITAL PARTNERS\\\" under the UKRAINE-EO13660 program. As a designated party it is subject to U.S. sanctions, its assets are blocked, and U.S. persons are generally prohibited from dealing with it.\",\"match\":true,\"entity\":\"Capital\",\"matched_name\":\"MARSHALL CAPITAL PARTNERS\",\"program\":\"UKRAINE-EO13660\",\"source\":\"ofac-sdn\"}"
+    },
+    {
+      "input": "Capital",
+      "note": "one-word trap",
+      "miner": "64175",
+      "url": "https://ngrgakvwtxioa2kkdllvhn5pza0fxqcb.lambda-url.eu-north-1.on.aws/screen?name=Capital",
+      "status": 200,
+      "ms": 689,
+      "matched": false,
+      "matchedName": null,
+      "error": null,
+      "raw": "{\"name\": \"Capital\", \"matched\": false, \"match_score\": 0.823529, \"matches\": [], \"lists\": [{\"list\": \"OFAC SDN\", \"source\": \"https://sanctionslistservice.ofac.treas.gov/api/publicationpreview/exports/sdn.csv\", \"published\": \"Wed, 18 Nov 2026 17:35:53 GMT\", \"captured_at\": \"2026-11-19T06:15:21Z\"}, {\"list\": \"OFAC Consolidated (non-SDN)\", \"source\": \"https://sanctionslistservice.ofac.treas.gov/api/publicationpreview/exports/cons_prim.csv\", \"published\": \"Wed, 18 Nov 2026 17:35:53 GMT\", \"captured_at\": \"2026-11-19T06:15:25Z\"}, {\"list\": \"UN Security Council Consolidated\", \"source\": \"https://scsanctions.un.org/resources/xml/en/consolidated.xml\", \"published\": \"2026-11-19T00:00:03.388Z\", \"captured_at\": \"2026-11-19T06:15:28Z\"}, {\"list\": \"EU Consolidated Financial Sanctions\", \"source\": \"https://webgate.ec.europa.eu/fsd/fsf/public/files/csvFullSanctionsList_1_1/content\", \"published\": \"23/10/2026\", \"captured_at\": \"2026-11-19T06:15:34Z\"}], \"query_type\": \"name\", \"closest\": {\"name\": \"RT-CAPITAL LIMITED LIABILITY COMPANY\", \"matched_on\": \"RT-CAPITAL LLC\", \"list\": \"OFAC SDN\", \"score\": 0.823529}, \"summary\": \"No match: \\\"Capital\\\" has no listed name or wallet at or above 0.84 (closest 0.82: \\\"RT-CAPITAL LLC\\\" on OFAC SDN). Checked: OFAC SDN (published 2026-11-18); OFAC Consolidated (non-SDN) (published 2026-11-18); UN Security Council Consolidated (published 2026-11-19); EU Consolidated Financial Sanctions (published 2026-10-23). Not a clearance; UK lists are not covered.\", \"confidence\": 0.176471}"
+    },
+    {
+      "input": "Capital",
+      "note": "one-word trap",
+      "miner": "5289",
+      "url": "https://praman-desk.vercel.app/api/miner/sanctions-screen?name=Capital",
+      "status": 200,
+      "ms": 1114,
+      "matched": false,
+      "matchedName": null,
+      "error": null,
+      "raw": "{\n  \"screened\": true,\n  \"name\": \"Capital\",\n  \"matched\": false,\n  \"matches\": [],\n  \"lists\": [\n    \"US Treasury OFAC SDN\"\n  ],\n  \"match_score\": 0,\n  \"query_name\": \"Capital\",\n  \"match_found\": false,\n  \"match_count\": 0,\n  \"sdn_list_size\": 19565,\n  \"sdn_last_loaded\": \"2026-11-15T18:26:30.134Z\",\n  \"source\": \"US Treasury OFAC SDN List (treasury.gov/ofac)\",\n  \"source_url\": \"https://sanctionssearch.ofac.treas.gov/\",\n  \"summary\": \"No OFAC SDN matches for \\\"Capital\\\" (screened against 19565 entries).\",\n  \"verdict\": \"CLEAR\",\n  \"explanation\": \"No OFAC SDN matches for \\\"Capital\\\" (screened against 19565 entries).\",\n  \"reason\": \"No OFAC SDN matches for \\\"Capital\\\" (screened against 19565 entries).\",\n  \"answer\": \"No OFAC SDN matches for \\\"Capital\\\" (screened against 19565 entries).\",\n  \"results\": [\n    \"No OFAC SDN matches for \\\"Capital\\\" (screened against 19565 entries).\"\n  ],\n  \"confidence\": 1,\n  \"intent\": \"SANCTIONS_SCREENING_MATCH_GENERAL\",\n  \"schema_version\": 1,\n  \"as_of\": \"2026-11-19T13:33:44.652Z\"\n}"
+    },
+    {
+      "input": "Capital",
+      "reference": {
+        "listed": false,
+        "exact": null,
+        "wholeWordContainingCount": 59,
+        "examples": [
+          "MARSHALL CAPITAL PARTNERS (17449)",
+          "VEB CAPITAL (18286)",
+          "OY LANGVIK CAPITAL LTD (18311)"
+        ]
+      }
+    },
+    {
+      "input": "Phoenix",
+      "note": "one-word trap",
+      "miner": "302",
+      "url": "https://hub.shadrakbessanh.me/sanctions?optional=map%5Bname%3APhoenix%5D",
+      "status": 200,
+      "ms": 3699,
+      "matched": true,
+      "matchedName": "GOLDEN PHOENIX",
+      "error": null,
+      "raw": "{\"signal\":\"The entity \\\"Phoenix\\\" appears on the U.S. Treasury OFAC Specially Designated Nationals (SDN) list: it closely matches \\\"GOLDEN PHOENIX\\\" under the IRAN-EO13846 program. As a designated party it is subject to U.S. sanctions, its assets are blocked, and U.S. persons are generally prohibited from dealing with it.\",\"answer\":\"The entity \\\"Phoenix\\\" appears on the U.S. Treasury OFAC Specially Designated Nationals (SDN) list: it closely matches \\\"GOLDEN PHOENIX\\\" under the IRAN-EO13846 program. As a designated party it is subject to U.S. sanctions, its assets are blocked, and U.S. persons are generally prohibited from dealing with it.\",\"match\":true,\"entity\":\"Phoenix\",\"matched_name\":\"GOLDEN PHOENIX\",\"program\":\"IRAN-EO13846\",\"source\":\"ofac-sdn\"}"
+    },
+    {
+      "input": "Phoenix",
+      "note": "one-word trap",
+      "miner": "64175",
+      "url": "https://ngrgakvwtxioa2kkdllvhn5pza0fxqcb.lambda-url.eu-north-1.on.aws/screen?name=Phoenix",
+      "status": 200,
+      "ms": 852,
+      "matched": true,
+      "matchedName": "PHOENIX I",
+      "error": null,
+      "raw": "{\"name\": \"Phoenix\", \"matched\": true, \"match_score\": 0.875, \"matches\": [{\"list\": \"OFAC SDN\", \"id\": \"52687\", \"name\": \"PHOENIX I\", \"type\": \"vessel\", \"programs\": [\"IRAN-EO13846\"], \"matched_on\": \"PHOENIX I\", \"score\": 0.875}], \"lists\": [{\"list\": \"OFAC SDN\", \"source\": \"https://sanctionslistservice.ofac.treas.gov/api/publicationpreview/exports/sdn.csv\", \"published\": \"Wed, 18 Nov 2026 17:35:53 GMT\", \"captured_at\": \"2026-11-19T06:15:21Z\"}, {\"list\": \"OFAC Consolidated (non-SDN)\", \"source\": \"https://sanctionslistservice.ofac.treas.gov/api/publicationpreview/exports/cons_prim.csv\", \"published\": \"Wed, 18 Nov 2026 17:35:53 GMT\", \"captured_at\": \"2026-11-19T06:15:25Z\"}, {\"list\": \"UN Security Council Consolidated\", \"source\": \"https://scsanctions.un.org/resources/xml/en/consolidated.xml\", \"published\": \"2026-11-19T00:00:03.388Z\", \"captured_at\": \"2026-11-19T06:15:28Z\"}, {\"list\": \"EU Consolidated Financial Sanctions\", \"source\": \"https://webgate.ec.europa.eu/fsd/fsf/public/files/csvFullSanctionsList_1_1/content\", \"published\": \"23/10/2026\", \"captured_at\": \"2026-11-19T06:15:34Z\"}], \"query_type\": \"name\", \"summary\": \"Match: \\\"Phoenix\\\" matches listed \\\"PHOENIX I\\\" (vessel) on OFAC SDN, score 0.88, programs IRAN-EO13846. Checked: OFAC SDN (published 2026-11-18); OFAC Consolidated (non-SDN) (published 2026-11-18); UN Security Council Consolidated (published 2026-11-19); EU Consolidated Financial Sanctions (published 2026-10-23). A name match needs identity review before acting.\", \"confidence\": 0.875}"
+    },
+    {
+      "input": "Phoenix",
+      "note": "one-word trap",
+      "miner": "5289",
+      "url": "https://praman-desk.vercel.app/api/miner/sanctions-screen?name=Phoenix",
+      "status": 200,
+      "ms": 731,
+      "matched": true,
+      "matchedName": "PHOENIX I",
+      "error": null,
+      "raw": "{\n  \"screened\": true,\n  \"name\": \"Phoenix\",\n  \"matched\": true,\n  \"matches\": [\n    {\n      \"sdn_uid\": \"52687\",\n      \"matched_name\": \"PHOENIX I\",\n      \"match_type\": \"vessel\",\n      \"programs\": \"IRAN-EO13846\",\n      \"similarity_score\": 0.75,\n      \"matched_via\": \"primary_name\",\n      \"matched_alias\": null\n    }\n  ],\n  \"lists\": [\n    \"US Treasury OFAC SDN\"\n  ],\n  \"match_score\": 0.75,\n  \"query_name\": \"Phoenix\",\n  \"match_found\": true,\n  \"match_count\": 1,\n  \"sdn_list_size\": 19565,\n  \"sdn_last_loaded\": \"2026-11-15T18:26:30.134Z\",\n  \"source\": \"US Treasury OFAC SDN List (treasury.gov/ofac)\",\n  \"source_url\": \"https://sanctionssearch.ofac.treas.gov/\",\n  \"summary\": \"1 potential OFAC SDN match(es) for \\\"Phoenix\\\". Top: PHOENIX I (score: 0.75, program: IRAN-EO13846).\",\n  \"verdict\": \"SANCTIONED\",\n  \"explanation\": \"1 potential OFAC SDN match(es) for \\\"Phoenix\\\". Top: PHOENIX I (score: 0.75, program: IRAN-EO13846).\",\n  \"reason\": \"1 potential OFAC SDN match(es) for \\\"Phoenix\\\". Top: PHOENIX I (score: 0.75, program: IRAN-EO13846).\",\n  \"answer\": \"1 potential OFAC SDN match(es) for \\\"Phoenix\\\". Top: PHOENIX I (score: 0.75, program: IRAN-EO13846).\",\n  \"results\": [\n    \"1 potential OFAC SDN match(es) for \\\"Phoenix\\\". Top: PHOENIX I (score: 0.75, program: IRAN-EO13846).\"\n  ],\n  \"confidence\": 1,\n  \"intent\": \"SANCTIONS_SCREENING_MATCH_GENERAL\",\n  \"schema_version\": 1,\n  \"as_of\": \"2026-11-19T13:33:55.961Z\"\n}"
+    },
+    {
+      "input": "Phoenix",
+      "reference": {
+        "listed": false,
+        "exact": null,
+        "wholeWordContainingCount": 9,
+        "examples": [
+          "GOLDEN PHOENIX (40890)",
+          "PHOENIX ELECTRONICS (41966)",
+          "PHOENIX LINES S.R.O. (48390)"
+        ]
+      }
+    },
+    {
+      "input": "Diana",
+      "note": "one-word trap",
+      "miner": "302",
+      "url": "https://hub.shadrakbessanh.me/sanctions?optional=map%5Bname%3ADiana%5D",
+      "status": 200,
+      "ms": 2886,
+      "matched": true,
+      "matchedName": "TORO DIAZ, Diana Lorena",
+      "error": null,
+      "raw": "{\"signal\":\"The entity \\\"Diana\\\" appears on the U.S. Treasury OFAC Specially Designated Nationals (SDN) list: it closely matches \\\"TORO DIAZ, Diana Lorena\\\" under the SDNTK program. As a designated party it is subject to U.S. sanctions, its assets are blocked, and U.S. persons are generally prohibited from dealing with it.\",\"answer\":\"The entity \\\"Diana\\\" appears on the U.S. Treasury OFAC Specially Designated Nationals (SDN) list: it closely matches \\\"TORO DIAZ, Diana Lorena\\\" under the SDNTK program. As a designated party it is subject to U.S. sanctions, its assets are blocked, and U.S. persons are generally prohibited from dealing with it.\",\"match\":true,\"entity\":\"Diana\",\"matched_name\":\"TORO DIAZ, Diana Lorena\",\"program\":\"SDNTK\",\"source\":\"ofac-sdn\"}"
+    },
+    {
+      "input": "Diana",
+      "note": "one-word trap",
+      "miner": "64175",
+      "url": "https://ngrgakvwtxioa2kkdllvhn5pza0fxqcb.lambda-url.eu-north-1.on.aws/screen?name=Diana",
+      "status": 200,
+      "ms": 637,
+      "matched": true,
+      "matchedName": "DIANA",
+      "error": null,
+      "raw": "{\"name\": \"Diana\", \"matched\": true, \"match_score\": 1.0, \"matches\": [{\"list\": \"OFAC SDN\", \"id\": \"56644\", \"name\": \"DIANA\", \"type\": \"vessel\", \"programs\": [\"IRAN-EO13902\"], \"matched_on\": \"DIANA\", \"score\": 1.0}], \"lists\": [{\"list\": \"OFAC SDN\", \"source\": \"https://sanctionslistservice.ofac.treas.gov/api/publicationpreview/exports/sdn.csv\", \"published\": \"Wed, 18 Nov 2026 17:35:53 GMT\", \"captured_at\": \"2026-11-19T06:15:21Z\"}, {\"list\": \"OFAC Consolidated (non-SDN)\", \"source\": \"https://sanctionslistservice.ofac.treas.gov/api/publicationpreview/exports/cons_prim.csv\", \"published\": \"Wed, 18 Nov 2026 17:35:53 GMT\", \"captured_at\": \"2026-11-19T06:15:25Z\"}, {\"list\": \"UN Security Council Consolidated\", \"source\": \"https://scsanctions.un.org/resources/xml/en/consolidated.xml\", \"published\": \"2026-11-19T00:00:03.388Z\", \"captured_at\": \"2026-11-19T06:15:28Z\"}, {\"list\": \"EU Consolidated Financial Sanctions\", \"source\": \"https://webgate.ec.europa.eu/fsd/fsf/public/files/csvFullSanctionsList_1_1/content\", \"published\": \"23/10/2026\", \"captured_at\": \"2026-11-19T06:15:34Z\"}], \"query_type\": \"name\", \"summary\": \"Match: \\\"Diana\\\" matches listed \\\"DIANA\\\" (vessel) on OFAC SDN, score 1.00, programs IRAN-EO13902. Checked: OFAC SDN (published 2026-11-18); OFAC Consolidated (non-SDN) (published 2026-11-18); UN Security Council Consolidated (published 2026-11-19); EU Consolidated Financial Sanctions (published 2026-10-23). A name match needs identity review before acting.\", \"confidence\": 1.0}"
+    },
+    {
+      "input": "Diana",
+      "note": "one-word trap",
+      "miner": "5289",
+      "url": "https://praman-desk.vercel.app/api/miner/sanctions-screen?name=Diana",
+      "status": 200,
+      "ms": 656,
+      "matched": true,
+      "matchedName": "DIANA",
+      "error": null,
+      "raw": "{\n  \"screened\": true,\n  \"name\": \"Diana\",\n  \"matched\": true,\n  \"matches\": [\n    {\n      \"sdn_uid\": \"56644\",\n      \"matched_name\": \"DIANA\",\n      \"match_type\": \"vessel\",\n      \"programs\": \"IRAN-EO13902\",\n      \"similarity_score\": 1,\n      \"matched_via\": \"primary_name\",\n      \"matched_alias\": null\n    }\n  ],\n  \"lists\": [\n    \"US Treasury OFAC SDN\"\n  ],\n  \"match_score\": 1,\n  \"query_name\": \"Diana\",\n  \"match_found\": true,\n  \"match_count\": 1,\n  \"sdn_list_size\": 19565,\n  \"sdn_last_loaded\": \"2026-11-15T18:26:30.134Z\",\n  \"source\": \"US Treasury OFAC SDN List (treasury.gov/ofac)\",\n  \"source_url\": \"https://sanctionssearch.ofac.treas.gov/\",\n  \"summary\": \"1 potential OFAC SDN match(es) for \\\"Diana\\\". Top: DIANA (score: 1, program: IRAN-EO13902).\",\n  \"verdict\": \"SANCTIONED\",\n  \"explanation\": \"1 potential OFAC SDN match(es) for \\\"Diana\\\". Top: DIANA (score: 1, program: IRAN-EO13902).\",\n  \"reason\": \"1 potential OFAC SDN match(es) for \\\"Diana\\\". Top: DIANA (score: 1, program: IRAN-EO13902).\",\n  \"answer\": \"1 potential OFAC SDN match(es) for \\\"Diana\\\". Top: DIANA (score: 1, program: IRAN-EO13902).\",\n  \"results\": [\n    \"1 potential OFAC SDN match(es) for \\\"Diana\\\". Top: DIANA (score: 1, program: IRAN-EO13902).\"\n  ],\n  \"confidence\": 1,\n  \"intent\": \"SANCTIONS_SCREENING_MATCH_GENERAL\",\n  \"schema_version\": 1,\n  \"as_of\": \"2026-11-19T13:34:06.189Z\"\n}"
+    },
+    {
+      "input": "Diana",
+      "reference": {
+        "listed": true,
+        "exact": {
+          "entry": "56644",
+          "name": "DIANA",
+          "program": "IRAN-EO13902"
+        },
+        "wholeWordContainingCount": 8,
+        "examples": [
+          "TORO DIAZ, Diana Lorena (12176)",
+          "SANCHEZ CARLON, Diana Maria (18097)",
+          "ESPINOZA AGUILAR, Diana (19529)"
+        ]
+      }
+    }
+  ]
+}
