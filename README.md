@@ -109,7 +109,7 @@ whole-word OFAC match as REJECT.
 - **Cost per decision:** $0.04 (receipts only; $0.05 with a name).
 - **Latency:** about 20-40 s per check (the paid rows run in parallel; each has a 45 s limit).
 - **False clearance rate on our fixtures:** 0 of 3: the 100%-sell-tax honeypot `0x5599…a1d` → REJECT, Macca → CAUTION, PEPE → LIST.
-- **Traceable evidence:** every paid row carries its receipt (and signal hash); every free row names its source.
+- **Traceable evidence:** every billed row carries its receipt (and signal hash); every free row names its source. When no miner answers, the node may answer itself ("last resort", shown as miner `openai`, cost 0, no receipt): RugReceipt labels that row "node fallback, not billed" and never counts it as paid intelligence.
 
 ## Try it and tell us
 

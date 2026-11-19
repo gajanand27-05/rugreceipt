@@ -122,3 +122,16 @@ test("a crashing onRow callback cannot lose a paid report", async () => {
   const r = await runTokenCheck({ token: "0xT" }, deps, () => { throw new Error("UI crashed"); });
   assert.equal(r.paidCount, 4);
 });
+test("a node-fallback answer is never counted as paid intelligence, even when it matches the reference", async () => {
+  const fbReply = { status: 200, headers: { get: () => null }, json: async () => ({ miner_id: "openai", miner_name: "openai", cost_usd: 0, result: { price_usd: 0.000017 }, signal_hash: "0xfb" }) };
+  const pay = async (u, init) => (intentOf(init) === "CRYPTO_PRICE_USD" ? fbReply : fakePay(u, init));
+  const r = await runTokenCheck({ token: "0xTOKEN" }, { ...deps, payFetch: pay });
+  const p = byId(r).price;
+  assert.equal(p.state, "no_answer");
+  assert.equal(p.fallback, true);
+  assert.equal(p.providerValue, null);
+  assert.equal(p.costUusdc, 0);
+  assert.equal(r.costUnknownCount, 0);
+  assert.notEqual(r.verdict, "LIST");
+  assert.ok(r.reasons.some((x) => /price check got no answer/.test(x)));
+});

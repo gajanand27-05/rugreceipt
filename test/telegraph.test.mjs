@@ -60,3 +60,16 @@ test("a thrown error is a failure, not a crash", async () => {
   assert.equal(r.ok, false);
   assert.match(r.error, /network down/);
 });
+test("node fallback (no miner answered, 'openai', no receipt, cost 0): flagged, not billed, value not trusted", async () => {
+  const fb = async () => ({ status: 200, headers: { get: () => null }, json: async () => ({ miner_id: "openai", miner_name: "openai", cost_usd: 0, result: { price_usd: 1 }, signal_hash: "0xs" }) });
+  const r = await buy(fb, { intent: "CRYPTO_PRICE_USD" });
+  assert.equal(r.fallback, true);
+  assert.equal(r.costUusdc, 0);
+  assert.match(r.note, /node fallback 'openai'.*no Telegraph receipt.*not billed/);
+  assert.equal(r.signal, "0xs");
+});
+test("a real miner's answer without a receipt is not mistaken for a fallback", async () => {
+  const r = await buy(reply({ header: null }), { intent: "X" });
+  assert.equal(r.fallback, false);
+  assert.equal(r.costUusdc, null);
+});

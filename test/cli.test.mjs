@@ -69,3 +69,9 @@ test("totalLine: from receipts only, and says so when a cost is unknown", () => 
   assert.equal(totalLine({ totalCostUusdc: 30000, paidCount: 3, costUnknownCount: 1 }),
     "Total: $0.03 test USDC · 3 receipts · 1 check with cost unknown (no receipt; it may still have been billed)");
 });
+test("fallback row: cost says 'not billed', the mark explains the node fallback", () => {
+  const row = { id: "price", source: "telegraph", state: "no_answer", fallback: true, costUusdc: 0, miner: "openai",
+    note: "node fallback 'openai' (no miner answered): no Telegraph receipt, not billed", reference: 0.5 };
+  assert.equal(costText(row), "not billed");
+  assert.match(markFor(row), /node fallback 'openai'/);
+});

@@ -32,7 +32,7 @@ export default function About() {
         <li><b>✗ no answer</b>: the provider failed or timed out (45 s). Never shown as a made-up value.</li>
       </ul>
       <h2>Costs and receipts</h2>
-      <p>Every paid row links to its receipt. The demo pays from a Telegraph escrow deposit, so each receipt is proven in that
+      <p>Every billed row links to its receipt. If no miner can answer, Telegraph's node may answer itself (shown as "openai", no receipt, not billed); we label that row "node fallback" and never use its value. The demo pays from a Telegraph escrow deposit, so each receipt is proven in that
         epoch's ledger block (the link works once the block is recorded, up to about an hour); the older per-call x402 rail
         linked a settlement on Sepolia Etherscan. The total on the report comes only from receipts. On escrow a failed request
         is never billed. "Cost unknown" means the request timed out, so we cannot tell whether it was served and billed.
