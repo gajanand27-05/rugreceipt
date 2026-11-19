@@ -1,0 +1,14 @@
+{
+  "request": {
+    "intent": "CRYPTO_PRICE_USD",
+    "params": {
+      "symbol": "BTC"
+    }
+  },
+  "rail": "escrow",
+  "status": null,
+  "answer": {
+    "error": "escrow payment refused (HTTP 402): insufficient escrow for delivery: unbilled=0 μUSDC + price=10000 μUSDC > balance=0 μUSDC"
+  },
+  "receipt": null
+}
