@@ -112,6 +112,18 @@ whole-word OFAC match as REJECT.
 - **False clearance rate on our fixtures:** 0 of 3: the 100%-sell-tax honeypot `0x5599…a1d` → REJECT, Macca → CAUTION, PEPE → LIST.
 - **Traceable evidence:** every billed row carries its receipt (and signal hash); every free row names its source. When no miner answers, the node may answer itself ("last resort", shown as miner `openai`, cost 0, no receipt): RugReceipt labels that row "node fallback, not billed" and never counts it as paid intelligence.
 
+## Our Telegraph miner: RugReceipt Honeypot Simulator (FRAUD_DETECTION_GENERAL)
+
+`POST /api/miner/fraud {"subject": "<Ethereum token address>"}` answers the intent's five fields (`subject`, `verdict`, `risk_score`, `signals`, `summary`). Config: [`miner/rugreceipt-honeypot-sim.yaml`](miner/rugreceipt-honeypot-sim.yaml). Free inputs only (public Ethereum RPCs), no key, no wallet.
+
+- **How:** one `eth_simulateV1` request per step, pinned to one block, runs a buy (0.01 ETH), a transfer to a second wallet and a sell through the DEX's Router02, all from plain wallets (no funds, no helper contract). Each tax is measured against the router quote taken just before that swap, in the same simulated state.
+- **Pool coverage today:** Ethereum mainnet, WETH pairs on **Uniswap V2** and **SushiSwap V2**. Uniswap V3/V4, other DEXes, non-WETH pairs, other chains, wallets (incl. EIP-7702 delegated wallets) and non-ERC-20 contracts → `INCONCLUSIVE` 0.5. V3 may be added later as a code-only change.
+- **Verdicts:** sell reverts → `FRAUD` 0.95; sell tax ≥ 50% → `LIKELY_FRAUD` 0.85; 10-50% tax, blocked transfer or failed buy → `SUSPICIOUS` 0.6; all clean → `LOW` 0.15. Never `LEGITIMATE`: a simulation is not an audit (owner powers, proxies and liquidity locks are not checked).
+- **Anti-bot guard:** before `FRAUD`/`LIKELY_FRAUD` it reads the pool's logs for the last ~2,000 blocks; ≥ 3 real sells from ≥ 2 wallets that received WETH → downgraded to `SUSPICIOUS` ("may be an anti-bot / contract restriction").
+- **Errors:** all RPCs down → HTTP 503 (the node does not bill a failed call). Any other failure → 500, never a made-up verdict.
+- **Free fixtures (27 Nov):** vensa honeypot → FRAUD (sell reverts `TRANSFER_FROM_FAILED`, 0 real sells); PEPE → LOW; USDC → LOW; Macca → INCONCLUSIVE (no V2 pool); a wallet → INCONCLUSIVE; the V2 router → INCONCLUSIVE (not an ERC-20). Evidence: `evidence/miner-fixtures-*.json`.
+- **Disclosure:** the same team (Tripod) builds the RugReceipt app, runs this miner and contributes FRAUD_DETECTION evaluation rows, from the same wallet. RugReceipt does **not** route FRAUD_DETECTION_GENERAL through Telegraph to itself: its honeypot row runs this library directly and is labelled as our own simulation.
+
 ## Try it and tell us
 
 We want to know how it does on tokens we haven't tried. Run one check (or the free replay site), then

@@ -1,0 +1,91 @@
+version: "1"
+kind: miner
+id: 27112026
+slug: rugreceipt-honeypot-sim
+protocol: generic
+name: RugReceipt Honeypot Simulator
+description: >-
+  Ethereum mainnet ERC-20 token contract addresses only. Simulates a real buy, transfer and sell of the token
+  against its Uniswap V2-style WETH pool (Uniswap V2, SushiSwap V2) with eth_simulateV1 from plain wallets
+  (no funds, block-pinned), and reports honeypots (sell reverts) and buy, sell and transfer taxes. Before
+  answering FRAUD it checks recent real sells on the pool, so anti-bot tokens are not called honeypots. Other
+  pool types, wallets and non-token subjects return INCONCLUSIVE. Simulation only, never a full audit, so it
+  never answers LEGITIMATE. Run by Team Tripod, who also build the RugReceipt app (Telegraph Season II).
+base_url: https://rugreceipt-rho.vercel.app
+
+auth:
+  type: none
+
+rate_limit_per_sec: 5
+circuit_threshold: 5
+circuit_cooldown_seconds: 30
+
+docs:
+  website: https://rugreceipt-rho.vercel.app
+  repository: https://github.com/gajanand27-05/rugreceipt
+
+limitations:
+  - code: ACCOUNT_QUOTA
+    message: Uses free public Ethereum RPCs; about 5 calls per second
+    property: rate
+    value_num: 5
+    window_seconds: 1
+
+errors:
+  message_path: error
+
+endpoints:
+  - path: /fraud
+    external_path: /api/miner/fraud
+    method: POST
+    content_type: application/json
+    description: >-
+      Ethereum mainnet ERC-20 token contract addresses only. Honeypot and tax check for one token: simulates a
+      buy and a sell on its Uniswap V2-style WETH pool and answers verdict, risk_score, signals and summary.
+    intents: [FRAUD_DETECTION_GENERAL]
+    params:
+      body:
+        required:
+          - name: subject
+            type: string
+            intents: ["*"]
+            description: "The Ethereum mainnet ERC-20 token contract address, 0x followed by 40 hex characters. Free text containing exactly one such address is also accepted."
+
+input_schema:
+  type: object
+  required: [subject]
+  properties:
+    subject:
+      type: string
+      pattern: "^0x[0-9a-fA-F]{40}$"
+
+output_schema:
+  type: object
+  properties:
+    subject: { type: string }
+    verdict: { type: string, enum: [FRAUD, LIKELY_FRAUD, SUSPICIOUS, LOW, INCONCLUSIVE] }
+    risk_score: { type: number, minimum: 0, maximum: 1 }
+    signals: { type: array, items: { type: string } }
+    summary: { type: string }
+
+intent_mapping:
+  FRAUD_DETECTION_GENERAL:
+    endpoint: /fraud
+    input:
+      subject:
+        from: subject
+        how: "The Ethereum ERC-20 token contract address only, 0x followed by 40 hex characters. If the subject contains no such address, leave it empty."
+    output:
+      subject: { path: subject }
+      verdict: { path: verdict }
+      risk_score: { path: risk_score, unit: fraction }
+      signals: { path: signals }
+      summary: { path: summary }
+
+semantics:
+  signal_mapping:
+    confidence_field: risk_score
+    label_field: verdict
+    reason_field: summary
+  supported_intents:
+    - FRAUD_DETECTION_GENERAL
