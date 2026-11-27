@@ -41,6 +41,14 @@ test("a JSON-RPC error other than method-not-found also falls through", async ()
   assert.equal(await makeRpc(["https://a", "https://b"], fetchImpl).request("eth_blockNumber", []), "0x1");
 });
 
+test("an execution revert is a final answer (code reverted), not a reason to try the next RPC", async () => {
+  const seen = [];
+  const fetchImpl = async (url) => { seen.push(url);
+    return { ok: true, status: 200, json: async () => ({ error: { code: 3, message: "execution reverted", data: "0x" } }) }; };
+  await assert.rejects(makeRpc(["https://a", "https://b"], fetchImpl).request("eth_call", []), (e) => e.code === "reverted");
+  assert.deepEqual(seen, ["https://a"]);
+});
+
 // --- simulation with a fake RPC ---
 const uint = (n) => encodeAbiParameters([{ type: "uint256" }], [n]);
 const amounts = (a, b) => encodeAbiParameters([{ type: "uint256[]" }], [[a, b]]);

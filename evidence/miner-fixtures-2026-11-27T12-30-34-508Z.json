@@ -1,0 +1,72 @@
+{
+  "vensa": {
+    "ms": 4699,
+    "subject": "0x5599811ff441f045d64cad51ce4d74462faf7a1d",
+    "verdict": "FRAUD",
+    "risk_score": 0.95,
+    "signals": [
+      "buy tax 0%, sell tax 100%, transfer tax 0%",
+      "reverted: TransferHelper: TRANSFER_FROM_FAILED",
+      "pool: Uniswap V2-style 0x1990d912c5f2bf8638a5bcd4ead66df9596bf851",
+      "block: 26506551",
+      "real sells in the last ~2,000 blocks: 0"
+    ],
+    "summary": "Honeypot: the token can be bought but the simulated sell reverts. Simulated buy and sell only; owner powers, proxies and liquidity locks not checked."
+  },
+  "PEPE": {
+    "ms": 1169,
+    "subject": "Is 0x6982508145454Ce325dDbE47a25d4ec3d2311933 a honeypot?",
+    "verdict": "LOW",
+    "risk_score": 0.15,
+    "signals": [
+      "buy tax 0%, sell tax 0%, transfer tax 0%",
+      "pool: Uniswap V2-style 0xa43fe16908251ee70ef74718545e4fe6c5ccec9f",
+      "block: 26506552"
+    ],
+    "summary": "Buy, transfer and sell all succeeded in simulation (buy tax 0%, sell tax 0%, transfer tax 0%). Simulated buy and sell only; owner powers, proxies and liquidity locks not checked."
+  },
+  "Macca": {
+    "ms": 689,
+    "subject": "0x0A675e411F95db85Fa23e2bCfAb65ecA91a6aD9a",
+    "verdict": "INCONCLUSIVE",
+    "risk_score": 0.5,
+    "signals": [],
+    "summary": "No Uniswap V2-style WETH pool found: pool type not simulated (Uniswap V3/V4 or other DEX). Ethereum ERC-20 token addresses only. This miner simulates buying and selling an Ethereum token."
+  },
+  "USDC": {
+    "ms": 1186,
+    "subject": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    "verdict": "LOW",
+    "risk_score": 0.15,
+    "signals": [
+      "buy tax 0%, sell tax 0%, transfer tax 0%",
+      "pool: Uniswap V2-style 0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc",
+      "block: 26506552"
+    ],
+    "summary": "Buy, transfer and sell all succeeded in simulation (buy tax 0%, sell tax 0%, transfer tax 0%). Simulated buy and sell only; owner powers, proxies and liquidity locks not checked."
+  },
+  "vitalik EOA": {
+    "ms": 627,
+    "subject": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+    "verdict": "INCONCLUSIVE",
+    "risk_score": 0.5,
+    "signals": [],
+    "summary": "No Uniswap V2-style WETH pool found: pool type not simulated (Uniswap V3/V4 or other DEX). Ethereum ERC-20 token addresses only. This miner simulates buying and selling an Ethereum token."
+  },
+  "V2 router (not ERC-20)": {
+    "ms": 583,
+    "subject": "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
+    "verdict": "INCONCLUSIVE",
+    "risk_score": 0.5,
+    "signals": [],
+    "summary": "A contract, but not an ERC-20 token (totalSupply() reverts). Ethereum ERC-20 token addresses only. This miner simulates buying and selling an Ethereum token."
+  },
+  "IP": {
+    "ms": 0,
+    "subject": "8.8.8.8",
+    "verdict": "INCONCLUSIVE",
+    "risk_score": 0.5,
+    "signals": [],
+    "summary": "Not assessed: no Ethereum token address. Ethereum ERC-20 token addresses only. This miner simulates buying and selling an Ethereum token."
+  }
+}
