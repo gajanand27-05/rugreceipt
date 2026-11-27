@@ -122,7 +122,7 @@ whole-word OFAC match as REJECT.
 - **Anti-bot guard:** before `FRAUD`/`LIKELY_FRAUD` it reads the pool's logs for the last ~2,000 blocks; ≥ 3 real sells from ≥ 2 wallets that received WETH → downgraded to `SUSPICIOUS` ("may be an anti-bot / contract restriction").
 - **Errors:** all RPCs down → HTTP 503 (the node does not bill a failed call). Any other failure → 500, never a made-up verdict.
 - **Free fixtures (27 Nov):** vensa honeypot → FRAUD (sell reverts `TRANSFER_FROM_FAILED`, 0 real sells); PEPE → LOW; USDC → LOW; Macca → INCONCLUSIVE (no V2 pool); a wallet → INCONCLUSIVE; the V2 router → INCONCLUSIVE (not an ERC-20). Evidence: `evidence/miner-fixtures-*.json`.
-- **Disclosure:** the same team (Tripod) builds the RugReceipt app, runs this miner and contributes FRAUD_DETECTION evaluation rows, from the same wallet. RugReceipt does **not** route FRAUD_DETECTION_GENERAL through Telegraph to itself: its honeypot row runs this library directly and is labelled as our own simulation.
+- **Disclosure:** the same team (Tripod) builds the RugReceipt app, runs this miner and contributes FRAUD_DETECTION evaluation rows, from the same wallet. RugReceipt does **not** route FRAUD_DETECTION_GENERAL through Telegraph to itself. Its honeypot row uses honeypot.is today; when it switches to this simulator it will call the library directly, labelled as our own simulation (honeypot.is kept as a second opinion).
 
 ## Try it and tell us
 
