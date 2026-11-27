@@ -1,0 +1,296 @@
+{
+  "request": {
+    "intent": "SANCTIONS_SCREENING_MATCH_GENERAL",
+    "params": {
+      "name": "0x098B716B8Aaf21512996dC57EB0615e2383E2f96"
+    }
+  },
+  "rail": "escrow",
+  "status": 200,
+  "answer": {
+    "miner_id": "731002",
+    "miner_name": "Counterproof Sanctions Screener",
+    "endpoint": "/screen",
+    "result": {
+      "name": null,
+      "matched": true,
+      "matches": [
+        "LAZARUS GROUP"
+      ],
+      "lists": [
+        "US OFAC SDN and non-SDN Consolidated lists (published 2026-11-09)",
+        "UN Security Council Consolidated List (published 2026-11-12)",
+        "EU Consolidated Financial Sanctions List (published 2026-10-23)",
+        "UK Sanctions List (published 2026-11-10)"
+      ],
+      "match_score": 1
+    },
+    "result_shape": "intent",
+    "format_version": 3,
+    "field_status": {
+      "name": "rejected",
+      "matched": "ok",
+      "matches": "ok",
+      "lists": "ok",
+      "match_score": "ok"
+    },
+    "input": {
+      "name": "0x098B716B8Aaf21512996dC57EB0615e2383E2f96"
+    },
+    "input_schema_version": 3,
+    "cost_usd": 0.01,
+    "duration_ms": 3280,
+    "timestamp": "2026-11-27T12:12:50.711104343Z",
+    "reasoning": "Intent: intent given by the caller\nMiner: The user wants to screen a crypto wallet address against sanctions lists. The Counterproof Sanctions Screener miner has an endpoint '/screen' that explicitly supports the SANCTIONS_SCREENING_MATCH_GENERAL intent and accepts a 'name' parameter which can be a wallet address. The provided parameter 'name' is directly mapped to this field.",
+    "intent": "SANCTIONS_SCREENING_MATCH_GENERAL",
+    "intent_version": 1,
+    "signal_hash": "0x31b714f067e0d0d36aed227edef217bea52145ad1aac2b52d712559af371d399",
+    "cost_usd_total": 0.01,
+    "delivery": "specialist",
+    "served_rank": 1,
+    "sources": [
+      {
+        "miner": "counterproof-sanctions-screener",
+        "intent": "SANCTIONS_SCREENING_MATCH_GENERAL"
+      }
+    ],
+    "findings": {
+      "items": [
+        {
+          "basis": "provider_reported",
+          "delivery": "specialist",
+          "evidence": "Listed. 0x098b716b8aaf21512996dc57eb0615e2383e2f96 matches \"LAZARUS GROUP\" on the US OFAC list. Block the transaction and check the official notice.",
+          "name": "answer",
+          "path": "$.answer",
+          "type": "string",
+          "value": "Listed. 0x098b716b8aaf21512996dc57eb0615e2383e2f96 matches \"LAZARUS GROUP\" on the US OFAC list. Block the transaction and check the official notice."
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "specialist",
+          "evidence": "1",
+          "name": "confidence",
+          "path": "$.confidence",
+          "type": "integer",
+          "value": 1
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "specialist",
+          "evidence": "true",
+          "name": "is_match",
+          "path": "$.is_match",
+          "type": "bool",
+          "value": true
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "specialist",
+          "evidence": "BLOCK",
+          "name": "label",
+          "path": "$.label",
+          "type": "string",
+          "value": "BLOCK"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "specialist",
+          "evidence": "2026-10-23",
+          "name": "EU",
+          "path": "$.list_versions.EU",
+          "type": "date",
+          "value": "2026-10-23"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "specialist",
+          "evidence": "2026-11-10",
+          "name": "UK",
+          "path": "$.list_versions.UK",
+          "type": "date",
+          "value": "2026-11-10"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "specialist",
+          "evidence": "2026-11-12",
+          "name": "UN",
+          "path": "$.list_versions.UN",
+          "type": "date",
+          "value": "2026-11-12"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "specialist",
+          "evidence": "2026-11-09",
+          "name": "US",
+          "path": "$.list_versions.US",
+          "type": "date",
+          "value": "2026-11-09"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "specialist",
+          "evidence": "[\"US OFAC SDN and non-SDN Consolidated lists (published 2026-11-09)\",\"UN Security Council Consolidated List (published 2026-11-12)\",\"EU Consolidated Financial Sanctions List (published 2026-10-23)\",\"UK Sanctions List (published 2026-11-10)\"...",
+          "name": "lists",
+          "path": "$.lists",
+          "type": "list",
+          "value": [
+            "US OFAC SDN and non-SDN Consolidated lists (published 2026-11-09)",
+            "UN Security Council Consolidated List (published 2026-11-12)",
+            "EU Consolidated Financial Sanctions List (published 2026-10-23)",
+            "UK Sanctions List (published 2026-11-10)"
+          ]
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "specialist",
+          "evidence": "1",
+          "name": "match_score",
+          "path": "$.match_score",
+          "type": "integer",
+          "value": 1
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "specialist",
+          "evidence": "true",
+          "name": "matched",
+          "path": "$.matched",
+          "type": "bool",
+          "value": true
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "specialist",
+          "evidence": "US",
+          "name": "list",
+          "path": "$.matches[0].list",
+          "type": "string",
+          "value": "US"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "specialist",
+          "evidence": "US OFAC SDN list",
+          "name": "list_name",
+          "path": "$.matches[0].list_name",
+          "type": "string",
+          "value": "US OFAC SDN list"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "specialist",
+          "evidence": "LAZARUS GROUP",
+          "name": "name",
+          "path": "$.matches[0].name",
+          "type": "string",
+          "value": "LAZARUS GROUP"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "specialist",
+          "evidence": "1",
+          "name": "score",
+          "path": "$.matches[0].score",
+          "type": "integer",
+          "value": 1
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "specialist",
+          "evidence": "BLOCK",
+          "name": "verdict",
+          "path": "$.matches[0].verdict",
+          "type": "string",
+          "value": "BLOCK"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "specialist",
+          "evidence": "0x098b716b8aaf21512996dc57eb0615e2383e2f96",
+          "name": "name",
+          "path": "$.name",
+          "type": "string",
+          "value": "0x098b716b8aaf21512996dc57eb0615e2383e2f96"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "specialist",
+          "evidence": "https://sanctionssearch.ofac.treas.gov/Details.aspx?id=27307",
+          "name": "notice",
+          "path": "$.notice",
+          "type": "url",
+          "value": "https://sanctionssearch.ofac.treas.gov/Details.aspx?id=27307"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "specialist",
+          "evidence": "clear",
+          "name": "EU",
+          "path": "$.regimes.EU",
+          "type": "string",
+          "value": "clear"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "specialist",
+          "evidence": "clear",
+          "name": "UK",
+          "path": "$.regimes.UK",
+          "type": "string",
+          "value": "clear"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "specialist",
+          "evidence": "clear",
+          "name": "UN",
+          "path": "$.regimes.UN",
+          "type": "string",
+          "value": "clear"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "specialist",
+          "evidence": "match",
+          "name": "US",
+          "path": "$.regimes.US",
+          "type": "string",
+          "value": "match"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "specialist",
+          "evidence": "2026-11-27T12:12:50.570Z",
+          "name": "screened_at",
+          "path": "$.screened_at",
+          "type": "date",
+          "value": "2026-11-27T12:12:50.570Z"
+        },
+        {
+          "basis": "provider_reported",
+          "delivery": "specialist",
+          "evidence": "Listed. 0x098b716b8aaf21512996dc57eb0615e2383e2f96 matches \"LAZARUS GROUP\" on the US OFAC list. Block the transaction and check the official notice.",
+          "name": "summary",
+          "path": "$.summary",
+          "type": "string",
+          "value": "Listed. 0x098b716b8aaf21512996dc57eb0615e2383e2f96 matches \"LAZARUS GROUP\" on the US OFAC list. Block the transaction and check the official notice."
+        }
+      ],
+      "raw_sha256": "1de7faf307a2e3bb19f14c61b057d244115e34131b1b811fde36c5da1b281dbb"
+    }
+  },
+  "receipt": {
+    "receipt_hash": "0x142b18d4a1e6a7c317565f8db1f059c4594e1b85f66b33973963e19498621c23",
+    "rail": "escrow",
+    "payer": "0x7d4388962ed6bb057dcb975d8aaf1e3746a2afe7",
+    "miner": "5298",
+    "intent": "SANCTIONS_SCREENING_MATCH_GENERAL",
+    "amount_uusdc": "10000",
+    "epoch_id": 66,
+    "settlement": "epoch",
+    "chain": "telegraph",
+    "timestamp": 1795781577
+  }
+}
