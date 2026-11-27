@@ -17,6 +17,7 @@ missions [#189 Exchange](https://github.com/telegraphprotocol/bounties/issues/18
 > 2. Watch the rows arrive; each paid row shows the miner, the cost and a **receipt** link (Telegraph's delivery proof for that call).
 > 3. The verdict is at the top, with the reasons. The share link (`/r/<id>`) is the saved report.
 > 4. A failure case: check `0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D` (a router, no pool). It stops before paying: "Nothing was charged."
+> 5. Verify a receipt yourself: [this delivery proof](https://devnode.telegraphprotocol.com/v1/blocks/18/deliveries/0x69b02c53216b910105e33ba82860ca21d0f2c87766cd0c01dfd7094fd26d2c13) (our first escrow call, CRYPTO_PRICE_USD, $0.01, epoch 18) returns the payer, the miner and a Merkle proof against the epoch's deliveries root.
 
 ## Telegraph intents used
 
