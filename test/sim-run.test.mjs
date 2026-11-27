@@ -57,15 +57,21 @@ const fail = (msg) => ({ status: "0x0", returnData: encodeFunctionData({ abi: pa
 const PAIR = "0x00000000000000000000000000000000000000aa";
 
 // The fake answers getPair and replies to each eth_simulateV1 by the number of calls it carries.
-function fakeRpc({ pair = PAIR, replies }) {
-  const calls = [];
+const UNI_FACTORY = "0x5c69bee701ef814a2b6a3edd4b1652cb9cc5aa6f", SUSHI_FACTORY = "0xc0aee478e3658e2610c5f7a4a2e1777ce9e4f2ac";
+const ZERO = "0x0000000000000000000000000000000000000000";
+function fakeRpc({ pair = PAIR, sushiPair = ZERO, replies }) {
+  const calls = [], simTargets = [];
   return {
-    calls,
+    calls, simTargets,
     async request(method, params) {
       calls.push(method);
       if (method === "eth_blockNumber") return "0x1000";
-      if (method === "eth_call") return encodeAbiParameters([{ type: "address" }], [pair]);
+      if (method === "eth_call") {
+        const to = params[0].to.toLowerCase();
+        return encodeAbiParameters([{ type: "address" }], [to === SUSHI_FACTORY ? sushiPair : to === UNI_FACTORY ? pair : ZERO]);
+      }
       if (method === "eth_simulateV1") {
+        simTargets.push(params[0].blockStateCalls[0].calls.map((c) => c.to.toLowerCase()));
         const n = params[0].blockStateCalls[0].calls.length;
         assert.equal(params[1], "0x1000", "simulation pinned to the block read first");
         return [{ calls: replies[n] }];
@@ -119,6 +125,17 @@ test("a blocked transfer is transfer tax 1, and the sell is still tested from th
   };
   const r = await simulateToken("0x0000000000000000000000000000000000000011", fakeRpc({ replies: blocked }));
   assert.deepEqual([r.transferTax, r.sellOk, r.sellTax], [1, true, 0]);
+});
+test("no Uniswap V2 pair but a SushiSwap V2 pair: trades go through the Sushi router", async () => {
+  const SUSHI_PAIR = "0x00000000000000000000000000000000000000bb";
+  const rpc = fakeRpc({ pair: ZERO, sushiPair: SUSHI_PAIR, replies: clean });
+  const r = await simulateToken("0x0000000000000000000000000000000000000011", rpc);
+  assert.equal(r.pool, SUSHI_PAIR);
+  assert.equal(r.dex, "SushiSwap V2");
+  assert.equal(rpc.simTargets[0][1], "0xd9e1ce17f2641f24ae83637ab66a2cca9c378b9f"); // the buy
+});
+test("a Uniswap V2 pair is labelled Uniswap V2", async () => {
+  assert.equal((await simulateToken("0x0000000000000000000000000000000000000011", fakeRpc({ replies: clean }))).dex, "Uniswap V2");
 });
 test("no V2 WETH pair: NO_POOL, nothing simulated", async () => {
   const rpc = fakeRpc({ pair: "0x0000000000000000000000000000000000000000", replies: {} });

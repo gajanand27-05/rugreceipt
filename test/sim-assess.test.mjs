@@ -52,12 +52,12 @@ test("no V2-style pool: INCONCLUSIVE, says the pool type was not simulated", asy
 });
 test("a sell revert asks for real sells; the block and pool are in the signals", async () => {
   let asked = null;
-  const a = await assess(T, { rpc: rpcFor(), simulate: async () => ({ ...cleanSim, block: 26506539, pool: "0x1990", sellOk: false, sellTax: 1, revertReason: "TRANSFER_FROM_FAILED" }),
+  const a = await assess(T, { rpc: rpcFor(), simulate: async () => ({ ...cleanSim, block: 26506539, pool: "0x1990", dex: "SushiSwap V2", sellOk: false, sellTax: 1, revertReason: "TRANSFER_FROM_FAILED" }),
     realSells: async (token, pool, block) => { asked = [token, pool, block]; return { realSells: 0, senders: 0 }; } });
   assert.deepEqual(asked, [T, "0x1990", 26506539]);
   assert.equal(a.verdict, "FRAUD");
   assert.ok(a.signals.includes("block: 26506539"));
-  assert.ok(a.signals.includes("pool: Uniswap V2-style 0x1990"));
+  assert.ok(a.signals.includes("pool: SushiSwap V2 0x1990"));
   assert.ok(a.signals.includes("real sells in the last ~2,000 blocks: 0"));
 });
 test("a clean simulation does not spend time on the real-sell check", async () => {
