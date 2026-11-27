@@ -6,7 +6,8 @@ import { assess } from "../lib/sim-assess.mjs";
 import { NO_POOL } from "../lib/sim-run.mjs";
 
 const T = "0x5599811ff441f045d64cad51ce4d74462faf7a1d";
-const FIELDS = ["subject", "verdict", "risk_score", "signals", "summary"];
+// The intent's five fields, plus `confidence` (how sure the miner is; mapped as signal_mapping.confidence_field).
+const FIELDS = ["subject", "verdict", "risk_score", "signals", "summary", "confidence"];
 const uint = (n) => encodeAbiParameters([{ type: "uint256" }], [n]);
 // code: contract bytecode or "0x"; erc20: whether totalSupply() answers.
 const rpcFor = ({ code = "0x6080", erc20 = true } = {}) => ({ async request(method) {
@@ -16,7 +17,7 @@ const rpcFor = ({ code = "0x6080", erc20 = true } = {}) => ({ async request(meth
 } });
 const cleanSim = { block: 1, pool: "0xpool", buyOk: true, sellOk: true, buyTax: 0, transferTax: 0, sellTax: 0, revertReason: null };
 
-test("the answer has exactly the intent's five fields, subject echoed", async () => {
+test("the answer has the intent's five fields plus confidence, subject echoed", async () => {
   const a = await assess(`Is ${T} a scam?`, { rpc: rpcFor(), simulate: async () => cleanSim, realSells: async () => null });
   assert.deepEqual(Object.keys(a).sort(), [...FIELDS].sort());
   assert.equal(a.subject, `Is ${T} a scam?`);
@@ -66,4 +67,13 @@ test("a clean simulation does not spend time on the real-sell check", async () =
 test("RPC outage propagates (the route turns it into a 503, so the caller is not billed)", async () => {
   const rpc = { async request() { throw Object.assign(new Error("all RPCs failed"), { code: "rpc_unavailable" }); } };
   await assert.rejects(assess(T, { rpc, simulate: async () => cleanSim, realSells: async () => null }), (e) => e.code === "rpc_unavailable");
+});
+
+test("confidence: 0.9 when the simulation ran fully, 0.7 when the real-sell check was needed but unavailable, 0.3 when INCONCLUSIVE", async () => {
+  const deps = (sim, sells) => ({ rpc: rpcFor(), simulate: async () => sim, realSells: async () => sells });
+  assert.equal((await assess(T, deps(cleanSim, null))).confidence, 0.9);
+  assert.equal((await assess(T, deps({ ...cleanSim, sellOk: false }, { realSells: 0, senders: 0 }))).confidence, 0.9);
+  assert.equal((await assess(T, deps({ ...cleanSim, sellOk: false }, null))).confidence, 0.7);
+  assert.equal((await assess(T, deps(NO_POOL, null))).confidence, 0.3);
+  assert.equal((await assess("8.8.8.8", deps(cleanSim, null))).confidence, 0.3);
 });

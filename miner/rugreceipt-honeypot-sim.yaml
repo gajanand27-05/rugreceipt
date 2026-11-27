@@ -67,6 +67,7 @@ output_schema:
     risk_score: { type: number, minimum: 0, maximum: 1 }
     signals: { type: array, items: { type: string } }
     summary: { type: string }
+    confidence: { type: number, minimum: 0, maximum: 1, description: "How sure the miner is of its own answer: 0.9 full simulation, 0.7 real-sell check unavailable, 0.3 INCONCLUSIVE" }
 
 intent_mapping:
   FRAUD_DETECTION_GENERAL:
@@ -84,7 +85,7 @@ intent_mapping:
 
 semantics:
   signal_mapping:
-    confidence_field: risk_score
+    confidence_field: confidence
     label_field: verdict
     reason_field: summary
   supported_intents:

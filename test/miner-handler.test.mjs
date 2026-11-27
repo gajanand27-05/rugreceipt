@@ -30,8 +30,12 @@ test("any other error is a 500 with a message, never a made-up verdict", async (
   assert.equal(r.body.verdict, undefined);
 });
 test("the miner code never touches the wallet key or the paid Telegraph client", () => {
-  for (const f of ["lib/miner-handler.mjs", "lib/sim-assess.mjs", "lib/sim-run.mjs", "lib/sim-logs.mjs", "lib/sim-verdict.mjs", "lib/sim-realsells.mjs", "app/api/miner/fraud/route.js"]) {
+  const files = ["lib/miner-handler.mjs", "lib/sim-assess.mjs", "lib/sim-run.mjs", "lib/sim-logs.mjs", "lib/sim-verdict.mjs", "lib/sim-realsells.mjs", "lib/miner-limit.mjs", "app/api/miner/fraud/route.js"];
+  for (const f of files) {
     const src = readFileSync(new URL(`../${f}`, import.meta.url), "utf8");
-    assert.doesNotMatch(src, /EVM_PRIVATE_KEY|process\.env|telegraph\.mjs|config\.mjs|web\/server\.mjs/, f);
+    assert.doesNotMatch(src, /EVM_PRIVATE_KEY|telegraph\.mjs|config\.mjs|web\/server\.mjs/, f);
+    // The environment is read only to reach the Redis rate-limit store (URL + token), nowhere else.
+    if (f !== "app/api/miner/fraud/route.js" && f !== "lib/miner-limit.mjs") assert.doesNotMatch(src, /process\.env/, f);
   }
+  assert.match(readFileSync(new URL("../app/api/miner/fraud/route.js", import.meta.url), "utf8"), /minerCounter\(process\.env\)/);
 });
