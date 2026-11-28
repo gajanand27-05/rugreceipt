@@ -2,9 +2,11 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { expectedCostUusdc, makeBalanceReader } from "../lib/balances.mjs";
 
-test("expectedCostUusdc: 4 paid checks, 5 with a name", () => {
-  assert.equal(expectedCostUusdc(null), 40_000);
-  assert.equal(expectedCostUusdc("Rosneft Oil Company"), 50_000);
+test("expectedCostUusdc: 3 paid checks, +1 with a name, +1 with the opt-in wash check", () => {
+  assert.equal(expectedCostUusdc(null), 30_000);
+  assert.equal(expectedCostUusdc("Rosneft Oil Company"), 40_000);
+  assert.equal(expectedCostUusdc(null, true), 40_000);
+  assert.equal(expectedCostUusdc("Rosneft Oil Company", true), 50_000);
 });
 
 const client = { readContract: async () => 8_760_000n };

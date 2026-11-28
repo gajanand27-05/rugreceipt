@@ -7,8 +7,8 @@ export default function About() {
       <h2>What happens when you press Check</h2>
       <ol>
         <li>We look up the token's main trading pool on DexScreener (free). If there is none, we stop: nothing is charged.</li>
-        <li>Our agent buys 4 checks from Telegraph in parallel (5 if you give a team name): pool liquidity, holders, price,
-          wash trading, and sanctions. It pays $0.01 test USDC each over x402. Telegraph picks the best-ranked provider for each
+        <li>Our agent buys 3 checks from Telegraph in parallel: pool liquidity, holders and price, plus sanctions if you give a
+          team name (wash trading only on request: it is opt-in). It pays $0.01 test USDC each from a Telegraph escrow deposit. Telegraph picks the best-ranked provider for each
           question; we never choose a provider ourselves.</li>
         <li>At the same time we read free sources: the token's total supply on-chain, a honeypot.is sell simulation, and the US
           Treasury OFAC sanctions list.</li>
@@ -22,7 +22,7 @@ export default function About() {
         <li><b>CAUTION</b>: liquidity under $50,000, fewer than 500 holders, holders that could not be cross-checked, sell tax over 10%, a provider reported plain wash
           trading, a possible (one-word) sanctions match, a sanctions match reported by the provider but not found on the OFAC SDN list, or any verdict check got no answer.</li>
         <li><b>LIST</b>: every check that ran answered and none of the above fired. Without a name it says "sanctions not checked".</li>
-        <li>Wash trading and total supply are shown as information only.</li>
+        <li>Wash trading (opt-in, API only) and total supply are shown as information only.</li>
       </ul>
       <h2>Row states</h2>
       <ul>

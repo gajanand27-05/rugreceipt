@@ -44,6 +44,10 @@ test("showValue: readable per check, and a wrong paid answer is shown next to th
   assert.equal(showValue({ id: "liquidity", source: "telegraph", state: "no_answer", value: null, reference: null }), "-");
 });
 
+test("markFor: a skipped row says why it was skipped", () => {
+  assert.equal(markFor({ source: "telegraph", state: "skipped", skipReason: "off by default (opt-in: wash)" }), "- skipped (off by default (opt-in: wash))");
+  assert.equal(markFor({ source: "telegraph", state: "skipped", skipReason: "no name given" }), "- skipped (no name given)");
+});
 test("markFor: honest labels; free rows name their source", () => {
   assert.equal(markFor({ source: "telegraph", state: "confirmed" }), "✓ confirmed");
   assert.equal(markFor({ source: "telegraph", state: "unchecked" }), "not cross-checked");

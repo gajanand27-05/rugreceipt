@@ -33,6 +33,16 @@ test("parseCheckInput: address required, name trimmed, blank name → null, long
   assert.match(parseCheckInput(null).error, /not a token address/i);
   assert.match(parseCheckInput({ token: PEPE, name: "x".repeat(101) }).error, /100 characters/);
 });
+test("parseCheckInput: the wash check is opt-in with wash: true (anything else leaves it off)", () => {
+  assert.deepEqual(parseCheckInput({ token: PEPE, wash: true }), { token: PEPE, name: null, wash: true });
+  assert.deepEqual(parseCheckInput({ token: PEPE, wash: "yes" }), { token: PEPE, name: null });
+});
+test("opting in to wash raises the balance needed by one check", async () => {
+  const { deps } = makeDeps({ readBalances: async () => ({ usdc: 30_000, escrow: 0 }) });
+  const [msg] = await readAll(handleCheck({ token: PEPE, wash: true }, "1.1.1.1", deps));
+  assert.equal(msg.type, "error");
+  assert.match(msg.message, /needs \$0\.04/);
+});
 
 test("happy path: rows stream in order, then done with the saved id", async () => {
   const { deps, saved, kept } = makeDeps();
@@ -75,7 +85,7 @@ test("limiter down: refuse (protect the wallet), nothing charged", async () => {
 });
 
 test("wallet too low: refuse before paying", async () => {
-  const { deps } = makeDeps({ readBalances: async () => ({ usdc: 30_000, escrow: 0 }) });
+  const { deps } = makeDeps({ readBalances: async () => ({ usdc: 20_000, escrow: 0 }) }); // a default check needs $0.03
   const [msg] = await readAll(handleCheck({ token: PEPE }, "1.1.1.1", deps));
   assert.equal(msg.type, "error");
   assert.equal(msg.charged, false);
@@ -83,13 +93,13 @@ test("wallet too low: refuse before paying", async () => {
 });
 
 test("escrow rail: refuse when escrow available is under one full check + the margin (ledger may lag this epoch)", async () => {
-  // need = $0.04 (4 paid checks) + $0.05 margin = $0.09
-  const low = makeDeps({ rail: "escrow", readBalances: async () => ({ usdc: 9_000_000, escrow: 80_000 }) }).deps;
+  // need = $0.03 (3 paid checks; wash is opt-in) + $0.05 margin = $0.08
+  const low = makeDeps({ rail: "escrow", readBalances: async () => ({ usdc: 9_000_000, escrow: 70_000 }) }).deps;
   const [msg] = await readAll(handleCheck({ token: PEPE }, "1.1.1.1", low));
   assert.equal(msg.type, "error");
   assert.equal(msg.charged, false);
   assert.match(msg.message, /escrow/);
-  const ok = makeDeps({ rail: "escrow", readBalances: async () => ({ usdc: 0, escrow: 90_000 }) }).deps;
+  const ok = makeDeps({ rail: "escrow", readBalances: async () => ({ usdc: 0, escrow: 80_000 }) }).deps;
   assert.equal((await readAll(handleCheck({ token: PEPE }, "1.1.1.1", ok))).at(-1).type, "done");
   const unknown = makeDeps({ rail: "escrow", readBalances: async () => ({ usdc: 0, escrow: null }) }).deps;
   assert.equal((await readAll(handleCheck({ token: PEPE }, "1.1.1.1", unknown))).at(-1).type, "done");

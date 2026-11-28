@@ -35,8 +35,13 @@ test("the name is trimmed once; a blank name means no name and no paid sanctions
   assert.equal(ctx.name, "Rosneft Oil Company");
   const blank = buildCtx({ token: "0xT", pool, name: "   ", sdn: SDN });
   assert.equal(blank.name, null);
-  assert.deepEqual(checksFor(blank).map((c) => c.id), ["wash", "liquidity", "holders", "price"]);
-  assert.deepEqual(checksFor(ctx).map((c) => c.id), ["wash", "liquidity", "holders", "price", "sanctions"]);
+  assert.deepEqual(checksFor(blank).map((c) => c.id), ["liquidity", "holders", "price"]);
+  assert.deepEqual(checksFor(ctx).map((c) => c.id), ["liquidity", "holders", "price", "sanctions"]);
+});
+test("wash trading is opt-in (DECISIONS 28 Nov): off by default, on with wash: true", () => {
+  assert.equal(ctx.wash, false);
+  const withWash = buildCtx({ token: "0xT", pool, name: "Rosneft Oil Company", wash: true });
+  assert.deepEqual(checksFor(withWash).map((c) => c.id), ["wash", "liquidity", "holders", "price", "sanctions"]);
 });
 test("readers pull the right field", () => {
   assert.deepEqual(byId.wash.read({ verdict: "organic", wash_volume_pct: 0 }), { verdict: "organic", pct: 0 });

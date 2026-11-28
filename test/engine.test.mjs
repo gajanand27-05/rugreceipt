@@ -25,9 +25,19 @@ const deps = {
 };
 const byId = (r) => Object.fromEntries(r.rows.map((x) => [x.id, x]));
 
-test("Macca: CAUTION, wrong price caught, wash info only, free rows labelled, 4 paid", async () => {
+test("by default the wash check is skipped and not paid (opt-in): 3 paid", async () => {
+  const r = await runTokenCheck({ token: "0xTOKEN" }, deps);
+  const w = byId(r).wash;
+  assert.equal(w.state, "skipped");
+  assert.equal(w.costUusdc, 0);
+  assert.match(w.skipReason, /off by default/);
+  assert.equal(byId(r).sanctions.skipReason, "no name given");
+  assert.equal(r.paidCount, 3);
+  assert.equal(r.totalCostUusdc, 30000);
+});
+test("Macca with wash on: CAUTION, wrong price caught, wash info only, free rows labelled, 4 paid", async () => {
   const seen = [];
-  const r = await runTokenCheck({ token: "0xTOKEN" }, deps, (row) => seen.push(row.id));
+  const r = await runTokenCheck({ token: "0xTOKEN", wash: true }, deps, (row) => seen.push(row.id));
   const s = byId(r);
   assert.equal(r.verdict, "CAUTION");
   assert.equal(r.paidCount, 4);
@@ -52,7 +62,7 @@ test("Macca: CAUTION, wrong price caught, wash info only, free rows labelled, 4 
 });
 test("a failing provider becomes no_answer with unknown cost, not a crash", async () => {
   const flaky = async (u, init) => (intentOf(init) === "TOKEN_HOLDER_COUNT_GENERAL" ? reply({}, 500, false) : fakePay(u, init));
-  const r = await runTokenCheck({ token: "0xTOKEN" }, { ...deps, payFetch: flaky });
+  const r = await runTokenCheck({ token: "0xTOKEN", wash: true }, { ...deps, payFetch: flaky });
   const h = byId(r).holders;
   assert.equal(h.state, "no_answer");
   assert.equal(h.costUusdc, null);
@@ -120,7 +130,7 @@ test("honeypot.is honeypot is REJECT through the engine", async () => {
 });
 test("a crashing onRow callback cannot lose a paid report", async () => {
   const r = await runTokenCheck({ token: "0xT" }, deps, () => { throw new Error("UI crashed"); });
-  assert.equal(r.paidCount, 4);
+  assert.equal(r.paidCount, 3); // liquidity, holders, price (wash is opt-in)
 });
 test("a node-fallback answer is never counted as paid intelligence, even when it matches the reference", async () => {
   const fbReply = { status: 200, headers: { get: () => null }, json: async () => ({ miner_id: "openai", miner_name: "openai", cost_usd: 0, result: { price_usd: 0.000017 }, signal_hash: "0xfb" }) };

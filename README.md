@@ -1,8 +1,8 @@
 # RugReceipt
 
-A pre-listing check for a token, with a receipt for every answer. Give it an Ethereum token address and it buys four
-checks from [Telegraph](https://anjoman.ai/docs) (liquidity, holders, price, wash trading; plus sanctions if you give a
-team name), cross-checks each paid answer against a free source, and returns **LIST / CAUTION / REJECT** with the reasons,
+A pre-listing check for a token, with a receipt for every answer. Give it an Ethereum token address and it buys three
+checks from [Telegraph](https://anjoman.ai/docs) (liquidity, holders, price; plus sanctions if you give a team name, and
+wash trading only if you opt in with `"wash": true`), cross-checks each paid answer against a free source, and returns **LIST / CAUTION / REJECT** with the reasons,
 the cost and a Telegraph receipt per paid row.
 
 Live (testnet): **https://rugreceipt-rho.vercel.app**
@@ -29,7 +29,7 @@ Telegraph always picks the miner; RugReceipt never pins one. Every paid answer i
 | Pool liquidity | `LIQUIDITY_DEPTH_VERIFY_GENERAL` | params `{pool, chain: "ethereum"}` | `liquidity_usd` | DexScreener pair liquidity |
 | Holders | `TOKEN_HOLDER_COUNT_GENERAL` | params `{token, chain: "ethereum"}` | `holders_count` | honeypot.is `token.totalHolders` |
 | Price | `CRYPTO_PRICE_USD` | params `{symbol}` | `price_usd` | DexScreener pair price |
-| Wash trading (info only) | `WASH_TRADING_DETECTION_GENERAL` | plain-English query naming the pool | `verdict`, `wash_volume_pct` | none (shown, not used for the verdict) |
+| Wash trading (info only; opt-in since 28 Nov: `"wash": true`) | `WASH_TRADING_DETECTION_GENERAL` | plain-English query naming the pool | `verdict`, `wash_volume_pct` | none (shown, not used for the verdict) |
 | Sanctions (with `--name`) | `SANCTIONS_SCREENING_MATCH_GENERAL` | the team/company name as the query | `matched` | US Treasury OFAC SDN list (an OFAC match always means REJECT) |
 
 Free rows, labelled with their source: on-chain total supply (info only) and the honeypot.is sell simulation.
@@ -48,7 +48,7 @@ npm run wallet           # creates a throwaway wallet in .env, prints address + 
 npm run mint             # mints 10 test USDC to that wallet
 npm run deposit -- 1     # puts 1 test USDC into your Telegraph escrow (2 transactions; max 3)
 npm run ask              # one paid CRYPTO_PRICE_USD request: $0.01, prints the answer and the receipt
-npm run check -- 0x6982508145454Ce325dDbE47a25d4ec3d2311933    # PEPE: about $0.04, 20-40 s
+npm run check -- 0x6982508145454Ce325dDbE47a25d4ec3d2311933    # PEPE: about $0.03, 15-30 s
 ```
 
 Expected from `npm run check` on PEPE: one line per row as it finishes (value, miner, cost, ✓/⚠/✗), then
@@ -65,7 +65,7 @@ Without `RUGRECEIPT_REPLAY=1` the local site pays from the `.env` wallet's escro
 | What | Cost (test USDC) |
 |---|---|
 | One paid row | $0.01 (from its receipt) |
-| One check | $0.04, or $0.05 with `--name` |
+| One check | $0.03, +$0.01 with `--name`, +$0.01 with the opt-in wash check |
 | Free rows (DexScreener, OFAC, on-chain supply, honeypot.is) | $0 |
 | A refused check (bad address, no pool, rate limit, low balance) | $0 |
 | Live site caps | 10 checks per visitor per hour, 100 per day |
@@ -107,7 +107,7 @@ whole-word OFAC match as REJECT.
 
 ### What the missions measure
 
-- **Cost per decision:** $0.04 (receipts only; $0.05 with a name).
+- **Cost per decision:** $0.03 (receipts only; +$0.01 with a name). Wash trading became opt-in on 28 Nov: it billed $0.01 per run for no usable answer.
 - **Latency:** about 20-40 s per check (the paid rows run in parallel; each has a 45 s limit).
 - **False clearance rate on our fixtures:** 0 of 3: the 100%-sell-tax honeypot `0x5599…a1d` → REJECT, Macca → CAUTION, PEPE → LIST.
 - **Traceable evidence:** every billed row carries its receipt (and signal hash); every free row names its source. When no miner answers, the node may answer itself ("last resort", shown as miner `openai`, cost 0, no receipt): RugReceipt labels that row "node fallback, not billed" and never counts it as paid intelligence.
